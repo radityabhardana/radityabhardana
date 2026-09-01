@@ -1,53 +1,59 @@
 <div align="center">
 
-<!-- BANNER - ganti "text" & warna sesuai selera. Bisa juga pakai gambar custom -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=1a1a2e&height=200&section=header&text=RADITYA%20BAGUS%20HARDANA&fontSize=38&fontColor=d4af37&fontAlignY=40&desc=THE%20CODE%20WEAVER%20-%20AUTOMATION%20SORCERER&descAlignY=60&descSize=18&animation=fadeIn" width="100%"/>
+<!-- Banner -->
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0d0d12&height=220&section=header&text=RADITYA%20BAGUS%20HARDANA&fontSize=34&fontColor=f0d98c&fontAlignY=42&desc=CODE%20WEAVER%20%7C%20AUTOMATION%20SORCERER&descAlignY=62&descSize=13&animation=fadeIn" width="100%"/>
 
 <br/>
 
-<!-- SUBTITLE -->
-<h3>⚔️ <i>"Every repetitive task is a beast waiting to be slain"</i> ⚔️</h3>
+<!-- Motto -->
 
-<img src="https://img.shields.io/badge/CLASS-AUTOMATION%20MAGE-6a0dad?style=for-the-badge&labelColor=1a1a2e"/>
-<img src="https://img.shields.io/badge/GUILD-INDONESIA-8b0000?style=for-the-badge&labelColor=1a1a2e"/>
-<img src="https://img.shields.io/badge/LEVEL-100-d4af37?style=for-the-badge&labelColor=1a1a2e"/>
+<p align="center"><i>“Every repetitive task is a beast waiting to be slain.”</i></p>
+<p align="center"><sub>— the Code Weaver, before another night shift in the forges</sub></p>
+
+<br/>
+
+<!-- Class plate -->
+
+<img src="https://img.shields.io/badge/CLASS-AUTOMATION%20SORCERER-d4af37?style=for-the-badge&labelColor=0d0d12"/>
+<img src="https://img.shields.io/badge/ORIGIN-INDONESIA-8b0000?style=for-the-badge&labelColor=0d0d12"/>
+<img src="https://img.shields.io/badge/DISCIPLINE-WEB%20DEVELOPER-c9c9c9?style=for-the-badge&labelColor=0d0d12"/>
 
 </div>
 
-<br/>
-
 ---
 
-<!-- CHARACTER SHEET -->
+<!-- Character sheet -->
+
 <table width="100%">
 <tr>
-<td width="30%" align="center" valign="top">
+<td width="32%" align="center" valign="top">
 
-### 🛡️ CHARACTER
-<img src="https://your-image-link-here.png" width="200" style="border: 3px solid #d4af37; border-radius: 8px;"/>
+<h3 style="color:#d4af37;">CHARACTER</h3>
 
-**RADITYA BAGUS HARDANA**
-`Web Developer · Lv.100`
+<img src="https://github.com/radityabhardana.png?size=460" width="200" style="border:2px solid #d4af37; border-radius:10px;"/>
+
+<b>Raditya Bagus Hardana</b><br/>
+<code>Web Developer · Automation Sorcerer</code>
 
 </td>
-<td width="70%" valign="top">
+<td width="68%" valign="top">
 
-### 📜 LORE
+<h3 style="color:#d4af37;">LORE</h3>
 
-> By day: a blacksmith forging tools from PHP and Node.js, taming wild bots to serve the realm. By night: conjuring automations nobody asked for — yet — but the kingdom will need them soon.
+<blockquote>A quiet mage of the old school. By day, Raditya forges web tools from PHP and Node.js; by night he releases tireless familiar-bots to automate the kingdom's dullest chores. The guild calls it automation — the codebase calls it mercy.</blockquote>
 
-**Specialty:** Automation & Bot Sorcery
-**Weapons:** PHP · Node.js · AI-Powered Familiars
+<b>Blade:</b> PHP · Node.js<br/>
+<b>Grimoire:</b> JavaScript · MySQL · Docker<br/>
+<b>Familiars:</b> AI-Powered Bots
 
-<br/>
+<h3 style="color:#d4af37;">VITALS</h3>
 
-### ⚗️ STATS
-
-```
+<pre>
 HP     ████████████████░░░░  80%
 MANA   ██████████████████░░  90%
 FOCUS  ███████████████░░░░░  75%
-```
+</pre>
 
 </td>
 </tr>
@@ -55,45 +61,46 @@ FOCUS  ███████████████░░░░░  75%
 
 ---
 
-<!-- INVENTORY / TECH STACK -->
+<!-- Arsenal -->
+
 <div align="center">
 
-### 🗡️ ARSENAL
+<h3 style="color:#d4af37;">ARSENAL</h3>
 
-<img src="https://img.shields.io/badge/PHP-1a1a2e?style=for-the-badge&logo=php&logoColor=d4af37"/>
-<img src="https://img.shields.io/badge/Node.js-1a1a2e?style=for-the-badge&logo=node.js&logoColor=d4af37"/>
-<img src="https://img.shields.io/badge/JavaScript-1a1a2e?style=for-the-badge&logo=javascript&logoColor=d4af37"/>
-<img src="https://img.shields.io/badge/MySQL-1a1a2e?style=for-the-badge&logo=mysql&logoColor=d4af37"/>
-<img src="https://img.shields.io/badge/Docker-1a1a2e?style=for-the-badge&logo=docker&logoColor=d4af37"/>
+<img src="https://img.shields.io/badge/PHP-0d0d12?style=for-the-badge&logo=php&logoColor=d4af37"/>
+<img src="https://img.shields.io/badge/Node.js-0d0d12?style=for-the-badge&logo=nodedotjs&logoColor=d4af37"/>
+<img src="https://img.shields.io/badge/JavaScript-0d0d12?style=for-the-badge&logo=javascript&logoColor=d4af37"/>
+<img src="https://img.shields.io/badge/MySQL-0d0d12?style=for-the-badge&logo=mysql&logoColor=d4af37"/>
+<img src="https://img.shields.io/badge/Docker-0d0d12?style=for-the-badge&logo=docker&logoColor=d4af37"/>
 
 </div>
 
-<br/>
-
 ---
 
-<!-- QUEST LOG / STATS -->
+<!-- Quest log -->
+
 <div align="center">
 
-### 📖 QUEST LOG
+<h3 style="color:#d4af37;">QUEST LOG</h3>
 
-<img src="https://img.shields.io/badge/QUESTS%20COMPLETED-47-8b0000?style=for-the-badge&labelColor=1a1a2e"/>
-<img src="https://img.shields.io/badge/BOSSES%20SLAIN-151-6a0dad?style=for-the-badge&labelColor=1a1a2e"/>
-<img src="https://img.shields.io/badge/COMPANION-BOT-d4af37?style=for-the-badge&labelColor=1a1a2e"/>
+<sub>The chronicle of this realm, kept by the keep's archivists</sub>
 
 <br/><br/>
 
-<!-- GITHUB STATS CARD - otomatis dari data GitHub, ganti USERNAME -->
-<img src="https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=dark&hide_border=true&bg_color=1a1a2e&title_color=d4af37&icon_color=8b0000&text_color=c9c9c9" width="48%"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=USERNAME&theme=dark&hide_border=true&background=1a1a2e&stroke=d4af37&ring=8b0000&fire=d4af37&currStreakLabel=d4af37" width="48%"/>
+<img src="https://github-readme-stats.vercel.app/api?username=radityabhardana&show_icons=true&theme=dark&hide_border=true&bg_color=0d0d12&title_color=d4af37&icon_color=d4af37&text_color=c9c9c9" width="49%"/>
+<img src="https://streak-stats.demolab.com/?user=radityabhardana&theme=dark&hide_border=true&background=0d0d12&stroke=d4af37&ring=d4af37&fire=8b0000&currStreakLabel=d4af37&currStreakNum=d4af37&sideNums=d4af37&sideLabels=c9c9c9&dates=c9c9c9" width="49%"/>
 
 </div>
 
 ---
 
-<!-- FOOTER BANNER -->
-<div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=1a1a2e&height=100&section=footer"/>
+<!-- Footer -->
 
-<sub>⚱️ Save data loaded... thanks for visiting my crypt 🕯️</sub>
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0d0d12&height=120&section=footer"/>
+
+<p>
+<sub>⚱ Save data loaded — the crypt remembers its visitors.</sub><br/>
+<sub>Summon <a href="https://github.com/radityabhardana">@radityabhardana</a></sub>
+</p>
 </div>
