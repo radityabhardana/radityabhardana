@@ -1,0 +1,186 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="fireglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f4a742" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#f4a742" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#f4a742" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0.55" stop-color="#0d0d0d" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0d0d0d" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="gradeflame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#6e0d0d"/>
+      <stop offset="1" stop-color="#a03a10"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .halo { animation: halo 5.5s ease-in-out infinite; transform-origin: 300px 240px; }
+    @keyframes halo {
+      0%, 100% { opacity: 0.55; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.08); }
+    }
+    .flameA { animation: flameA 1.7s ease-in-out infinite; transform-origin: 300px 240px; }
+    @keyframes flameA {
+      0%, 100% { transform: scaleY(1) scaleX(1); opacity: 0.95; }
+      25% { transform: scaleY(1.08) scaleX(0.97); opacity: 0.8; }
+      50% { transform: scaleY(1.15) scaleX(0.94); opacity: 0.85; }
+      75% { transform: scaleY(1.03) scaleX(1.02); opacity: 0.9; }
+    }
+    .flameB { animation: flameB 1.3s ease-in-out infinite; transform-origin: 300px 240px; }
+    @keyframes flameB {
+      0%, 100% { transform: scaleY(1) skewX(0deg); opacity: 0.85; }
+      30% { transform: scaleY(1.1) skewX(2deg); opacity: 0.7; }
+      60% { transform: scaleY(0.92) skewX(-1.8deg); opacity: 1; }
+    }
+    .flameC { animation: flameC 1.05s ease-in-out infinite; transform-origin: 300px 240px; }
+    @keyframes flameC {
+      0%, 100% { transform: scaleY(1.05) skewX(0deg); opacity: 0.9; }
+      33% { transform: scaleY(1.18) skewX(1.5deg); opacity: 0.75; }
+      66% { transform: scaleY(0.9) skewX(-1.5deg); opacity: 1; }
+    }
+    .flameD { animation: flameD 0.8s ease-in-out infinite; transform-origin: 300px 240px; }
+    @keyframes flameD {
+      0%, 100% { transform: scaleY(1) scaleX(1); opacity: 0.9; }
+      50% { transform: scaleY(1.2) scaleX(0.92); opacity: 0.65; }
+    }
+    .emberL { animation-name: emberL; animation-timing-function: ease-in; animation-iteration-count: infinite; }
+    .emberR { animation-name: emberR; animation-timing-function: ease-in; animation-iteration-count: infinite; }
+    .emberC { animation-name: emberC; animation-timing-function: ease-in; animation-iteration-count: infinite; }
+    @keyframes emberL {
+      0% { opacity: 0; transform: translate(0px, 0px) scale(1); }
+      10% { opacity: 0.9; }
+      60% { opacity: 0.6; }
+      100% { opacity: 0; transform: translate(-14px, -150px) scale(0.35); }
+    }
+    @keyframes emberR {
+      0% { opacity: 0; transform: translate(0px, 0px) scale(1); }
+      10% { opacity: 0.9; }
+      60% { opacity: 0.6; }
+      100% { opacity: 0; transform: translate(16px, -150px) scale(0.35); }
+    }
+    @keyframes emberC {
+      0% { opacity: 0; transform: translate(0px, 0px) scale(1); }
+      10% { opacity: 0.9; }
+      60% { opacity: 0.6; }
+      100% { opacity: 0; transform: translate(5px, -160px) scale(0.3); }
+    }
+    .ash1 { animation: ashfall 7s linear infinite 0.5s; }
+    .ash2 { animation: ashfall 9s linear infinite 2.4s; }
+    .ash3 { animation: ashfall 8s linear infinite 4.8s; }
+    .ash4 { animation: ashfall 6.5s linear infinite 3.1s; }
+    .ash5 { animation: ashfall 10s linear infinite 1.6s; }
+    @keyframes ashfall {
+      0% { opacity: 0; transform: translate(0px, -20px); }
+      15% { opacity: 0.28; }
+      85% { opacity: 0.2; }
+      100% { opacity: 0; transform: translate(10px, 250px); }
+    }
+    .wisp1 { animation: wisp 7s ease-in-out infinite 0s; }
+    .wisp2 { animation: wisp 8s ease-in-out infinite 2.5s; }
+    .wisp3 { animation: wisp 9s ease-in-out infinite 5s; }
+    @keyframes wisp {
+      0%, 100% { opacity: 0.05; transform: translate(0px, 0px) scaleY(1); }
+      30% { opacity: 0.16; }
+      60% { opacity: 0.1; transform: translate(4px, -26px) scaleY(1.4); }
+    }
+    .fogA { animation: fogdrift 14s linear infinite; }
+    .fogB { animation: fogdrift 11s linear infinite reverse; }
+    @keyframes fogdrift {
+      0% { transform: translateX(-30px); opacity: 0.04; }
+      50% { opacity: 0.09; }
+      100% { transform: translateX(30px); opacity: 0.04; }
+    }
+  </style>
+
+  <!-- ABYSS BACKGROUND -->
+  <rect width="600" height="300" fill="#0d0d0d"/>
+
+  <!-- far-background ruin silhouettes: broken arches and columns -->
+  <g fill="#cfcfcf" opacity="0.07">
+    <path d="M60 210 L60 130 Q75 118 90 130 L90 210 Z"/>
+    <path d="M96 210 L96 150 Q108 140 120 150 L120 210 Z"/>
+    <path d="M126 210 L126 128 Q140 116 154 128 L154 210 Z"/>
+    <path d="M462 210 L462 128 Q476 116 490 128 L490 210 Z"/>
+    <path d="M496 210 L496 150 Q508 140 520 150 L520 210 Z"/>
+    <path d="M526 210 L526 130 Q541 118 556 130 L556 210 Z"/>
+    <path d="M180 210 L180 172 Q210 152 240 172 L240 210 L226 210 L226 176 Q210 166 194 176 L194 210 Z"/>
+    <path d="M362 210 L362 172 Q392 152 422 172 L422 210 L408 210 L408 176 Q392 166 376 176 L376 210 Z"/>
+    <rect x="52" y="122" width="46" height="5"/>
+    <rect x="518" y="122" width="46" height="5"/>
+    <rect x="176" y="166" width="68" height="4"/>
+    <rect x="358" y="166" width="68" height="4"/>
+  </g>
+
+  <!-- horizon ground -->
+  <rect x="0" y="208" width="600" height="92" fill="#1a1a1a"/>
+  <ellipse cx="300" cy="214" rx="340" ry="18" fill="#242019"/>
+  <ellipse cx="300" cy="216" rx="300" ry="14" fill="#2b251b"/>
+
+  <!-- smoke wisps curling upward -->
+  <g stroke="#5b5b5b" fill="none" stroke-linecap="round">
+    <path class="wisp1" d="M300 130 C288 110 312 96 300 78 C292 66 306 58 300 44" stroke-width="9"/>
+    <path class="wisp2" d="M280 138 C268 118 284 104 272 88 C264 76 276 64 270 52" stroke-width="7"/>
+    <path class="wisp3" d="M320 138 C332 118 316 104 328 88 C336 76 324 64 330 52" stroke-width="7"/>
+  </g>
+
+  <!-- ground halo (pulsing) -->
+  <ellipse class="halo" cx="300" cy="240" rx="260" ry="42" fill="url(#fireglow)"/>
+
+  <!-- falling ash -->
+  <g fill="#cfcfcf">
+    <circle class="ash1" cx="120" cy="6" r="1"/>
+    <circle class="ash2" cx="190" cy="6" r="1.2"/>
+    <circle class="ash3" cx="480" cy="6" r="1"/>
+    <circle class="ash4" cx="520" cy="6" r="1.3"/>
+    <circle class="ash5" cx="90" cy="6" r="0.9"/>
+  </g>
+
+  <!-- COILED SWORD -->
+  <g>
+    <rect x="296" y="238" width="8" height="2.5" fill="#8a7455"/>
+    <rect x="294" y="240" width="12" height="7" fill="#8a7455" rx="1.5"/>
+    <rect x="293" y="247" width="14" height="5" fill="#3a2f1f" rx="1"/>
+    <path d="M297 242 L303 242 L302.5 246 L297.5 246 Z" fill="#6e0d0d"/>
+    <path d="M299 247 L296 240 Q296 148 299 128 Q302 148 302 240 Z" fill="#c9a876"/>
+    <path d="M299 247 L299 130" stroke="#f4a742" stroke-width="0.6" opacity="0.7" fill="none"/>
+    <path d="M299 240 C288 238 278 232 272 226 C280 234 290 236 299 235 Z" fill="#c9a876"/>
+    <path d="M299 240 C310 238 320 232 326 226 C318 234 308 236 299 235 Z" fill="#c9a876"/>
+    <circle cx="299" cy="237" r="3" fill="#8a7455" stroke="#c9a876" stroke-width="1"/>
+  </g>
+
+  <!-- FLAME LAYERS (organic asymmetric bezier tongues) -->
+  <path class="flameA" d="M300 240 C258 238 246 208 254 184 C259 170 270 162 266 148 C280 156 286 150 284 138 C292 148 294 142 300 130 C302 142 306 148 310 140 C316 150 322 152 330 144 C328 156 334 162 340 168 C354 182 342 236 300 240 Z" fill="url(#gradeflame)"/>
+  <path class="flameB" d="M300 240 C266 238 258 214 264 194 C269 182 278 176 276 166 C286 172 292 168 292 158 C298 168 302 162 304 154 C308 164 314 168 318 162 C316 174 322 180 326 188 C334 204 328 236 300 240 Z" fill="#a03a10"/>
+  <path class="flameC" d="M300 240 C278 238 272 220 278 206 C282 196 288 192 286 184 C292 190 296 188 296 180 C300 188 304 186 306 178 C310 186 314 190 316 186 C314 198 318 204 320 210 C326 222 318 238 300 240 Z" fill="#f4a742"/>
+  <path class="flameD" d="M300 240 C290 238 286 228 290 218 C293 210 298 208 297 202 C302 208 306 206 306 200 C308 208 312 210 313 206 C312 214 314 218 314 222 C316 230 310 238 300 240 Z" fill="#ffe9c4"/>
+
+  <!-- rising embers (varied drift, sizes, speeds, staggered delays) -->
+  <g fill="#f4a742">
+    <circle class="emberL" style="animation-duration: 3.2s; animation-delay: 0.2s;" cx="286" cy="230" r="1.8"/>
+    <circle class="emberR" style="animation-duration: 4.1s; animation-delay: 1.4s;" cx="310" cy="234" r="1.3"/>
+    <circle class="emberC" style="animation-duration: 2.7s; animation-delay: 2.3s;" cx="300" cy="228" r="2.2"/>
+    <circle class="emberL" style="animation-duration: 3.8s; animation-delay: 0.9s;" cx="292" cy="224" r="1.5"/>
+    <circle class="emberR" style="animation-duration: 2.9s; animation-delay: 2.8s;" cx="312" cy="226" r="1.1"/>
+    <circle class="emberC" style="animation-duration: 4.4s; animation-delay: 0.5s;" cx="296" cy="222" r="1.7"/>
+    <circle class="emberL" style="animation-duration: 3.5s; animation-delay: 1.9s;" cx="306" cy="220" r="1.4"/>
+    <circle class="emberR" style="animation-duration: 2.5s; animation-delay: 0.7s;" cx="288" cy="218" r="1"/>
+    <circle class="emberC" style="animation-duration: 4.8s; animation-delay: 3.1s;" cx="314" cy="216" r="1.9"/>
+    <circle class="emberL" style="animation-duration: 3.3s; animation-delay: 1.1s;" cx="298" cy="214" r="1.2"/>
+  </g>
+
+  <!-- foreground stones -->
+  <g fill="#1a1a1a" stroke="#0d0d0d" stroke-width="1">
+    <path d="M180 268 L192 252 L216 248 L232 262 L230 276 L188 278 Z"/>
+    <path d="M372 266 L386 252 L408 250 L420 264 L414 278 L376 278 Z"/>
+    <path d="M236 282 L244 272 L258 270 L268 278 L264 290 L240 290 Z"/>
+    <path d="M348 284 L358 274 L372 272 L380 280 L374 292 L352 292 Z"/>
+  </g>
+
+  <!-- ground fog -->
+  <ellipse class="fogA" cx="140" cy="264" rx="130" ry="16" fill="#cfcfcf"/>
+  <ellipse class="fogB" cx="460" cy="272" rx="120" ry="14" fill="#cfcfcf"/>
+
+  <!-- vignette -->
+  <rect width="600" height="300" fill="url(#vignette)"/>
+</svg>

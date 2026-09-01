@@ -1,6 +1,6 @@
-<div align="center">
+﻿<div align="center">
 
-<img src="./assets/bonfire.svg" width="50" alt="Animated gothic bonfire"/>
+<img src="./assets/scenes/bonfire.svg" width="320" alt="Animated gothic bonfire"/>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0d0d0d&height=220&section=header&text=RADITYA%20BAGUS%20HARDANA&fontSize=34&fontColor=c9a876&fontAlignY=40&desc=UNKILLABLE%20%2F%2F%20ASHEN%20ONE%20OF%20CODE&descColor=f4a742&descAlignY=62&descSize=15&animation=fadeIn" width="100%" alt="Raditya Bagus Hardana banner"/>
 
@@ -16,9 +16,9 @@
 
 </div>
 
-<img src="./assets/divider.svg" width="100%" alt="Gothic section divider"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plate-character.svg" width="480" alt="Chapter plate I — Character Sheet"/></p>
+<p align="center"><img src="./assets/plates/plate-character.svg" width="480" alt="Chapter plate I — Character Sheet"/></p>
 
 <table width="100%">
 <tr>
@@ -33,7 +33,7 @@
 </td>
 <td width="26%" align="center" valign="middle">
 
-<img src="./assets/knight.svg" width="140" alt="Animated Soulslike knight"/>
+<img src="./assets/scenes/knight.svg" width="200" alt="Animated Soulslike knight"/>
 
 </td>
 <td width="40%" valign="top">
@@ -46,9 +46,9 @@
 </tr>
 </table>
 
-<img src="./assets/divider.svg" width="100%" alt="Gothic section divider"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plate-stats.svg" width="480" alt="Chapter plate II — Stats"/></p>
+<p align="center"><img src="./assets/plates/plate-stats.svg" width="480" alt="Chapter plate II — Stats"/></p>
 
 | Attribute | Meaning | Level | Progress |
 |:--|:--|:--:|:--|
@@ -57,15 +57,15 @@
 | **INTELLIGENCE** | Automation and AI craft | **61/99** | `████████████░░░░░░░░` |
 | **DEXTERITY** | Development speed | **48/99** | `██████████░░░░░░░░░░` |
 
-<img src="./assets/divider.svg" width="100%" alt="Gothic section divider"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plate-equipment.svg" width="480" alt="Chapter plate III — Equipment"/></p>
+<p align="center"><img src="./assets/plates/plate-equipment.svg" width="480" alt="Chapter plate III — Equipment"/></p>
 
 <p align="center"><img src="https://skillicons.dev/icons?i=php,nodejs,js,mysql,docker,git&theme=dark&perline=6" alt="Arsenal icons: PHP, Node.js, JavaScript, MySQL, Docker, Git"/></p>
 
-<img src="./assets/divider.svg" width="100%" alt="Gothic section divider"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plate-bosses.svg" width="480" alt="Chapter plate IV — Bosses Defeated"/></p>
+<p align="center"><img src="./assets/plates/plate-bosses.svg" width="480" alt="Chapter plate IV — Bosses Defeated"/></p>
 
 | Boss | Remembrance | Fate |
 |:--|:--|:--:|
@@ -74,15 +74,15 @@
 | **[PROJECT_NAME]** | *[SHORT_DESCRIPTION]* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
 | **[PROJECT_NAME]** | *[SHORT_DESCRIPTION]* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
 
-<img src="./assets/divider.svg" width="100%" alt="Gothic section divider"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plate-covenant.svg" width="480" alt="Chapter plate V — Covenant"/></p>
+<p align="center"><img src="./assets/plates/plate-covenant.svg" width="480" alt="Chapter plate V — Covenant"/></p>
 
 > **Covenant of the Automatons** — AI-powered bots that toil while the host sleeps. The pact is unbroken; the ember is watched.
 
-<img src="./assets/divider.svg" width="100%" alt="Gothic section divider"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plate-battle-log.svg" width="480" alt="Chapter plate VI — Battle Log"/></p>
+<p align="center"><img src="./assets/plates/plate-battle-log.svg" width="480" alt="Chapter plate VI — Battle Log"/></p>
 
 <div align="center">
 
@@ -95,13 +95,13 @@
 
 </div>
 
-<img src="./assets/divider.svg" width="100%" alt="Gothic section divider"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plate-summon.svg" width="480" alt="Chapter plate VII — Summon Sign"/></p>
+<p align="center"><img src="./assets/plates/plate-summon.svg" width="480" alt="Chapter plate VII — Summon Sign"/></p>
 
 <div align="center">
 
-<img src="./assets/summonsign.svg" width="400" alt="Animated golden summon sign"/>
+<img src="./assets/scenes/summonsign.svg" width="420" alt="Animated golden summon sign"/>
 
 </div>
 

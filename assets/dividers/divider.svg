@@ -1,0 +1,32 @@
+<svg width="900" height="36" viewBox="0 0 900 36" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .glow { animation: glow 3s ease-in-out infinite; transform-origin: 450px 18px; }
+    @keyframes glow {
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 1; }
+    }
+  </style>
+  <!-- hairlines -->
+  <line x1="100" y1="18" x2="425" y2="18" stroke="#3a2f1f" stroke-width="1"/>
+  <line x1="475" y1="18" x2="800" y2="18" stroke="#3a2f1f" stroke-width="1"/>
+  <path d="M415 18 L425 18 L425 12" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
+  <path d="M485 18 L475 18 L475 12" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
+  <path d="M415 18 L425 18 L425 24" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
+  <path d="M485 18 L475 18 L475 24" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
+  <circle cx="100" cy="18" r="1.5" fill="#3a2f1f"/>
+  <circle cx="800" cy="18" r="1.5" fill="#3a2f1f"/>
+  <!-- center medallion -->
+  <path d="M450 9 L459 18 L450 27 L441 18 Z" fill="none" stroke="#c9a876" stroke-width="1.5"/>
+  <path d="M450 12 L456 18 L450 24 L444 18 Z" fill="none" stroke="#3a2f1f" stroke-width="0.7"/>
+  <path d="M450 15.5 Q453 18 450 20.5" fill="none" stroke="#3a2f1f" stroke-width="0.7"/>
+  <circle class="glow" cx="450" cy="18" r="2" fill="#f4a742"/>
+  <circle cx="441" cy="18" r="1.6" fill="#6e0d0d"/>
+  <circle cx="459" cy="18" r="1.6" fill="#6e0d0d"/>
+  <!-- outward flourishes -->
+  <g fill="none" stroke="#3a2f1f" stroke-width="1.2" stroke-linecap="round">
+    <path d="M441 18 Q436 14 432 15"/>
+    <path d="M459 18 Q464 14 468 15"/>
+    <path d="M441 18 Q436 22 432 21"/>
+    <path d="M459 18 Q464 22 468 21"/>
+  </g>
+</svg>
