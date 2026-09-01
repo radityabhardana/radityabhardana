@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <style>
+    .fl1 { animation: flick1 1.6s ease-in-out infinite; transform-origin: 200px 78px; }
+    .fl2 { animation: flick2 1.3s ease-in-out infinite; transform-origin: 200px 78px; }
+    .fl3 { animation: flick3 0.9s ease-in-out infinite; transform-origin: 200px 78px; }
+    .fl4 { animation: flick1 2.1s ease-in-out infinite reverse; transform-origin: 200px 78px; }
+    @keyframes flick1 { 0%,100% { transform: scaleY(1) scaleX(1); opacity: .95; } 50% { transform: scaleY(1.14) scaleX(.94); opacity: .8; } }
+    @keyframes flick2 { 0%,100% { transform: scaleY(1); opacity: .85; } 50% { transform: scaleY(.88); opacity: 1; } }
+    @keyframes flick3 { 0%,100% { transform: scaleY(1.05) skewX(0deg); opacity: .9; } 33% { transform: scaleY(1.18) skewX(1.6deg); opacity: .75; } 66% { transform: scaleY(.92) skewX(-1.4deg); opacity: 1; } }
+    .e1 { animation: rise 2.8s linear infinite; }
+    .e2 { animation: rise 3.4s linear infinite 0.7s; }
+    .e3 { animation: rise 2.4s linear infinite 1.3s; }
+    .e4 { animation: rise 3.1s linear infinite 1.9s; }
+    .e5 { animation: rise 2.6s linear infinite 0.3s; }
+    .e6 { animation: rise 3.7s linear infinite 2.2s; }
+    @keyframes rise {
+      0%   { opacity: 0; transform: translateY(0); }
+      12%  { opacity: .9; }
+      70%  { opacity: .5; }
+      100% { opacity: 0; transform: translateY(-64px); }
+    }
+    .smoke { animation: smoulder 4.2s ease-in-out infinite; }
+    .smoke2 { animation: smoulder 4.2s ease-in-out infinite 2.1s; }
+    @keyframes smoulder { 0%,100% { opacity: .12; transform: translateY(0); } 50% { opacity: .3; transform: translateY(-6px); } }
+    .glow { animation: glowpulse 1.6s ease-in-out infinite; }
+    @keyframes glowpulse { 0%,100% { opacity: .10; } 50% { opacity: .3; } }
+  </style>
+
+  <!-- ground halo -->
+  <ellipse class="glow" cx="200" cy="86" rx="120" ry="20" fill="#f4a742"/>
+
+  <!-- coiled sword -->
+  <g>
+    <rect x="196" y="52" width="8" height="30" fill="#c9a876" rx="1"/>
+    <rect x="188" y="80" width="24" height="6" fill="#a0855c" rx="1"/>
+    <path d="M200 34 l6 8 -6 10 -6 -10 z" fill="#c9a876"/>
+    <rect x="192" y="78" width="16" height="4" fill="#6e0d0d" opacity=".7"/>
+  </g>
+
+  <!-- drifting smoke -->
+  <g fill="#4a4a4a">
+    <ellipse class="smoke" cx="176" cy="40" rx="16" ry="7"/>
+    <ellipse class="smoke2" cx="224" cy="34" rx="14" ry="6"/>
+  </g>
+
+  <!-- flame layers -->
+  <path class="fl1" d="M200 18 C224 44 236 62 226 74 C220 82 208 84 200 84 C192 84 180 82 174 74 C164 62 176 44 200 18 Z" fill="#6e0d0d"/>
+  <path class="fl2" d="M200 32 C216 50 224 62 217 71 C212 78 205 80 200 80 C195 80 188 78 183 71 C176 62 184 50 200 32 Z" fill="#a03a10"/>
+  <path class="fl3" d="M200 46 C210 58 214 65 210 71 C207 76 203 77 200 77 C197 77 193 76 190 71 C186 65 190 58 200 46 Z" fill="#f4a742"/>
+  <path class="fl4" d="M200 60 C205 66 207 70 205 73 C203 76 201 76 200 76 C199 76 197 76 195 73 C193 70 195 66 200 60 Z" fill="#ffe9c4"/>
+
+  <!-- stone base -->
+  <g fill="#2a2a2a" stroke="#1a1a1a" stroke-width="1">
+    <ellipse cx="200" cy="90" rx="46" ry="10"/>
+    <ellipse cx="152" cy="94" rx="9" ry="4"/>
+    <ellipse cx="248" cy="94" rx="10" ry="4"/>
+    <ellipse cx="130" cy="98" rx="6" ry="3"/>
+    <ellipse cx="272" cy="98" rx="7" ry="3"/>
+  </g>
+  <ellipse cx="200" cy="88" rx="30" ry="6" fill="#1a1a1a"/>
+  <ellipse cx="200" cy="86" rx="22" ry="4.5" fill="#f4a742" opacity=".18"/>
+
+  <!-- embers -->
+  <g fill="#f4a742">
+    <circle class="e1" cx="186" cy="74" r="1.6"/>
+    <circle class="e2" cx="212" cy="72" r="1.2"/>
+    <circle class="e3" cx="200" cy="68" r="1.4"/>
+    <circle class="e4" cx="178" cy="76" r="1.7"/>
+  </g>
+  <g fill="#c9a876">
+    <circle class="e5" cx="224" cy="70" r="1.1"/>
+    <circle class="e6" cx="194" cy="64" r="1.3"/>
+  </g>
+</svg>

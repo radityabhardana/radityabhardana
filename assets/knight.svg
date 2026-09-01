@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <style>
+    .body { animation: breathe 4.5s ease-in-out infinite; transform-origin: 200px 116px; }
+    .plume { animation: sway 3.2s ease-in-out infinite; transform-origin: 203px 22px; }
+    .eye { animation: eyeflare 3s ease-in-out infinite; }
+    .sigil { animation: sigil 4s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.012,1.02); } }
+    @keyframes sway { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg); } }
+    @keyframes eyeflare { 0%,72%,100% { opacity: .35; } 82% { opacity: 1; } }
+    @keyframes sigil { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  </style>
+
+  <g class="body">
+    <!-- ground shadow -->
+    <ellipse cx="200" cy="114" rx="46" ry="5" fill="#000000" opacity=".5"/>
+
+    <!-- legs -->
+    <path d="M188 104 L182 114 M212 104 L218 114" stroke="#cfcfcf" stroke-width="4" stroke-linecap="round" fill="none" opacity=".85"/>
+
+    <!-- torso -->
+    <path d="M172 106 C166 84 172 68 186 62 L214 62 C228 68 234 84 228 106 Z" fill="#1a1a1a" stroke="#c9a876" stroke-width="2"/>
+
+    <!-- pauldrons -->
+    <path d="M170 66 C158 68 152 76 154 86 L172 84 Z" fill="#cfcfcf" stroke="#c9a876" stroke-width="1.5"/>
+    <path d="M230 66 C242 68 248 76 246 86 L228 84 Z" fill="#cfcfcf" stroke="#c9a876" stroke-width="1.5"/>
+
+    <!-- chest sigil -->
+    <circle class="sigil" cx="200" cy="82" r="5" fill="none" stroke="#f4a742" stroke-width="2"/>
+
+    <!-- helmet -->
+    <path d="M186 62 L186 32 C186 18 192 22 200 22 C208 22 214 18 214 32 L214 62 Z" fill="#1a1a1a" stroke="#c9a876" stroke-width="2"/>
+
+    <!-- visor slit -->
+    <rect x="188" y="42" width="24" height="12" rx="4" fill="#0d0d0d" stroke="#6e0d0d" stroke-width="1"/>
+
+    <!-- glowing eyes -->
+    <circle class="eye" cx="195" cy="48" r="2.2" fill="#f4a742"/>
+    <circle class="eye" cx="205" cy="48" r="2.2" fill="#f4a742"/>
+
+    <!-- swaying plume -->
+    <path class="plume" d="M199 22 C193 14 195 6 202 2 C209 6 208 14 203 21 Z" fill="#c9a876"/>
+  </g>
+</svg>
