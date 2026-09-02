@@ -2,7 +2,7 @@
 
 <img src="./assets/scenes/bonfire.svg" width="320" alt="Animated gothic bonfire"/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0d0d0d&height=220&section=header&text=RADITYA%20BAGUS%20HARDANA&fontSize=34&fontColor=c9a876&fontAlignY=40&desc=UNKILLABLE%20%2F%2F%20ASHEN%20ONE%20OF%20CODE&descColor=f4a742&descAlignY=62&descSize=15&animation=fadeIn" width="100%" alt="Raditya Bagus Hardana banner"/>
+<img src="./assets/scenes/banner.svg" width="100%" alt="Raditya Bagus Hardana pixel banner"/>
 
 <br/>
 
@@ -116,7 +116,7 @@
 
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0d0d0d&height=100&section=footer" width="100%" alt="Dark footer"/>
+<img src="./assets/dividers/divider.svg" width="100%" alt="Pixel section divider footer"/>
 
 <div align="center">
 
