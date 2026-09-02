@@ -33,7 +33,7 @@
 </td>
 <td width="26%" align="center" valign="middle">
 
-<img src="./assets/scenes/knight.svg" width="200" alt="Animated Soulslike knight"/>
+ <img src="./assets/scenes/knight-pixel.svg" width="200" alt="Animated pixel-art knight"/>
 
 </td>
 <td width="40%" valign="top">

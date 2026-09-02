@@ -1,32 +1,75 @@
-<svg width="900" height="36" viewBox="0 0 900 36" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="36" viewBox="0 0 900 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
   <style>
-    .glow { animation: glow 3s ease-in-out infinite; transform-origin: 450px 18px; }
-    @keyframes glow {
-      0%, 100% { opacity: 0.55; }
-      50% { opacity: 1; }
-    }
+    .glow { animation: gl 3s step-end infinite; }
+    @keyframes gl { 0%,100% {opacity:.55;} 50% {opacity:1;} }
   </style>
-  <!-- hairlines -->
-  <line x1="100" y1="18" x2="425" y2="18" stroke="#3a2f1f" stroke-width="1"/>
-  <line x1="475" y1="18" x2="800" y2="18" stroke="#3a2f1f" stroke-width="1"/>
-  <path d="M415 18 L425 18 L425 12" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
-  <path d="M485 18 L475 18 L475 12" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
-  <path d="M415 18 L425 18 L425 24" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
-  <path d="M485 18 L475 18 L475 24" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
-  <circle cx="100" cy="18" r="1.5" fill="#3a2f1f"/>
-  <circle cx="800" cy="18" r="1.5" fill="#3a2f1f"/>
-  <!-- center medallion -->
-  <path d="M450 9 L459 18 L450 27 L441 18 Z" fill="none" stroke="#c9a876" stroke-width="1.5"/>
-  <path d="M450 12 L456 18 L450 24 L444 18 Z" fill="none" stroke="#3a2f1f" stroke-width="0.7"/>
-  <path d="M450 15.5 Q453 18 450 20.5" fill="none" stroke="#3a2f1f" stroke-width="0.7"/>
-  <circle class="glow" cx="450" cy="18" r="2" fill="#f4a742"/>
-  <circle cx="441" cy="18" r="1.6" fill="#6e0d0d"/>
-  <circle cx="459" cy="18" r="1.6" fill="#6e0d0d"/>
-  <!-- outward flourishes -->
-  <g fill="none" stroke="#3a2f1f" stroke-width="1.2" stroke-linecap="round">
-    <path d="M441 18 Q436 14 432 15"/>
-    <path d="M459 18 Q464 14 468 15"/>
-    <path d="M441 18 Q436 22 432 21"/>
-    <path d="M459 18 Q464 22 468 21"/>
+
+  <rect width="900" height="36" fill="#0d0d0d"/>
+
+  <!-- pixel hairlines (dashed segments) -->
+  <g fill="#3a2f1f">
+    <rect x="100" y="17" width="40" height="2"/>
+    <rect x="148" y="17" width="24" height="2"/>
+    <rect x="180" y="17" width="40" height="2"/>
+    <rect x="228" y="17" width="24" height="2"/>
+    <rect x="260" y="17" width="40" height="2"/>
+    <rect x="308" y="17" width="24" height="2"/>
+    <rect x="340" y="17" width="40" height="2"/>
+    <rect x="388" y="17" width="16" height="2"/>
+    <rect x="496" y="17" width="16" height="2"/>
+    <rect x="520" y="17" width="40" height="2"/>
+    <rect x="568" y="17" width="24" height="2"/>
+    <rect x="600" y="17" width="40" height="2"/>
+    <rect x="648" y="17" width="24" height="2"/>
+    <rect x="680" y="17" width="40" height="2"/>
+    <rect x="728" y="17" width="24" height="2"/>
+    <rect x="760" y="17" width="40" height="2"/>
+  </g>
+
+  <!-- line terminus dots -->
+  <rect x="96" y="16" width="3" height="3" fill="#3a2f1f"/>
+  <rect x="802" y="16" width="3" height="3" fill="#3a2f1f"/>
+
+  <!-- PIXEL DIAMOND medallion (stepped) -->
+  <g fill="#c9a876">
+    <rect x="449" y="9" width="4" height="4"/>
+    <rect x="453" y="13" width="4" height="4"/>
+    <rect x="449" y="17" width="4" height="4"/>
+    <rect x="445" y="13" width="4" height="4"/>
+    <rect x="453" y="9" width="2" height="2"/>
+    <rect x="457" y="11" width="2" height="2"/>
+    <rect x="457" y="15" width="2" height="2"/>
+    <rect x="453" y="21" width="2" height="2"/>
+    <rect x="449" y="21" width="2" height="2"/>
+    <rect x="445" y="15" width="2" height="2"/>
+    <rect x="443" y="11" width="2" height="2"/>
+    <rect x="447" y="9" width="2" height="2"/>
+  </g>
+  <!-- inner dark diamond -->
+  <g fill="#1a1a1a">
+    <rect x="451" y="14" width="2" height="2"/>
+  </g>
+  <!-- ember core (step-blink) -->
+  <rect class="glow" x="450" y="13" width="4" height="4" fill="#f4a742"/>
+  <rect class="glow" x="451" y="14" width="2" height="2" fill="#ffe9c4"/>
+
+  <!-- blood accents -->
+  <rect x="436" y="16" width="3" height="3" fill="#6e0d0d"/>
+  <rect x="463" y="16" width="3" height="3" fill="#6e0d0d"/>
+
+  <!-- pixel flourish steps -->
+  <g fill="#3a2f1f">
+    <rect x="424" y="15" width="4" height="2"/>
+    <rect x="420" y="13" width="4" height="2"/>
+    <rect x="416" y="11" width="4" height="2"/>
+    <rect x="472" y="15" width="4" height="2"/>
+    <rect x="476" y="13" width="4" height="2"/>
+    <rect x="480" y="11" width="4" height="2"/>
+    <rect x="424" y="19" width="4" height="2"/>
+    <rect x="420" y="21" width="4" height="2"/>
+    <rect x="416" y="23" width="4" height="2"/>
+    <rect x="472" y="19" width="4" height="2"/>
+    <rect x="476" y="21" width="4" height="2"/>
+    <rect x="480" y="23" width="4" height="2"/>
   </g>
 </svg>
