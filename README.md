@@ -88,8 +88,12 @@ Software developer and automation engineer focused on building resilient backend
 
 <div align="center">
 
-<!-- GitHub Daily Contribution Heatmap Calendar (53 Weeks x 7 Days) -->
-<img src="./assets/scenes/contribution-grid.svg" width="100%" alt="GitHub Daily Contribution Heatmap Grid — radityabhardana"/>
+<!-- GitHub Contribution Snake Animation -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/scenes/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/scenes/github-contribution-grid-snake.svg">
+  <img src="./assets/scenes/github-contribution-grid-snake-dark.svg" width="100%" alt="GitHub Contribution Snake Animation — radityabhardana"/>
+</picture>
 
 <br/><br/>
 
