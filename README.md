@@ -99,22 +99,12 @@
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plates/plate-summon.svg" width="480" alt="Chapter plate VII — Summon Sign"/></p>
-
-<div align="center">
-
-<img src="./assets/scenes/summonsign.svg" width="480" alt="Animated golden summon sign"/>
-
-</div>
-
-<p align="center"><i>The golden sign glows faintly. Leave a mark, and the bell may answer.</i></p>
-
 <p align="center">
 
-<a href="[YOUR_LINKEDIN]"><img src="https://img.shields.io/badge/LinkedIn-SUMMON-0d0d0d?style=for-the-badge&logo=linkedin&logoColor=c9a876&labelColor=0d0d0d" alt="LinkedIn summon sign"/></a>
-<a href="mailto:[YOUR_EMAIL]"><img src="https://img.shields.io/badge/Email-SUMMON-0d0d0d?style=for-the-badge&logo=gmail&logoColor=c9a876&labelColor=0d0d0d" alt="Email summon sign"/></a>
-<a href="[YOUR_INSTAGRAM]"><img src="https://img.shields.io/badge/Instagram-SUMMON-0d0d0d?style=for-the-badge&logo=instagram&logoColor=c9a876&labelColor=0d0d0d" alt="Instagram summon sign"/></a>
-<a href="https://github.com/radityabhardana"><img src="https://img.shields.io/badge/GitHub-SUMMON-0d0d0d?style=for-the-badge&logo=github&logoColor=c9a876&labelColor=0d0d0d" alt="GitHub summon sign"/></a>
+<a href="[YOUR_LINKEDIN]"><img src="https://img.shields.io/badge/LinkedIn-CONNECT-0d0d0d?style=for-the-badge&logo=linkedin&logoColor=c9a876&labelColor=0d0d0d" alt="LinkedIn"/></a>
+<a href="mailto:[YOUR_EMAIL]"><img src="https://img.shields.io/badge/Email-CONTACT-0d0d0d?style=for-the-badge&logo=gmail&logoColor=c9a876&labelColor=0d0d0d" alt="Email"/></a>
+<a href="[YOUR_INSTAGRAM]"><img src="https://img.shields.io/badge/Instagram-FOLLOW-0d0d0d?style=for-the-badge&logo=instagram&logoColor=c9a876&labelColor=0d0d0d" alt="Instagram"/></a>
+<a href="https://github.com/radityabhardana"><img src="https://img.shields.io/badge/GitHub-FOLLOW-0d0d0d?style=for-the-badge&logo=github&logoColor=c9a876&labelColor=0d0d0d" alt="GitHub"/></a>
 
 </p>
 
