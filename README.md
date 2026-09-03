@@ -10,9 +10,9 @@
 
 <br/>
 
-<img src="https://img.shields.io/badge/CLASS-AUTOMATION%20SORCERER-c9a876?style=for-the-badge&labelColor=0d0d0d" alt="Class: Automation Sorcerer"/>
-<img src="https://img.shields.io/badge/ORIGIN-INDONESIA-6e0d0d?style=for-the-badge&labelColor=0d0d0d" alt="Origin: Indonesia"/>
-<img src="https://img.shields.io/badge/BONFIRE-LIT-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Bonfire lit"/>
+<img src="https://img.shields.io/badge/FOCUS-FULL--STACK%20%26%20AUTOMATION-c9a876?style=for-the-badge&labelColor=0d0d0d" alt="Focus: Full-Stack &amp; Automation"/>
+<img src="https://img.shields.io/badge/ORIGIN-INDONESIA-3a2f1f?style=for-the-badge&labelColor=0d0d0d" alt="Origin: Indonesia"/>
+<img src="https://img.shields.io/badge/STATUS-BONFIRE%20LIT-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Status: Bonfire Lit"/>
 
 </div>
 
@@ -28,17 +28,17 @@
 <img src="./assets/scenes/knight-pixel.svg" width="200" alt="Animated pixel-art knight"/><br/><br/>
 
 **RADITYA BAGUS HARDANA**<br/>
-<sub>Web Developer &amp; Automation Sorcerer</sub><br/>
-<code>Full-Stack Engineer · Automation</code>
+<sub>Full-Stack Developer &amp; Automation Specialist</sub><br/>
+<code>Node.js · PHP · TypeScript · Python · Docker</code>
 
 </td>
 <td width="62%" valign="middle">
 
-*An ash-marked web developer, sworn to the quiet machinery beneath the keep. PHP and Node.js answer his hand; JavaScript gives motion to the hollow forms. From MySQL he draws memory, and through Docker he seals each vessel. His bots toil where men would falter. Whether craft or curse, none can say.*
+Software developer and automation engineer focused on building resilient backends, autonomous bots, and interactive web platforms. Turning complex operational workflows into clean, deterministic software that runs reliably day and night.
 
 <br/><br/>
 
-**Location:** `Indonesia`
+📍 **Location:** `Indonesia` &nbsp;·&nbsp; ⚡ **Specialization:** `Web Platforms · Bot Automation · AI Tools`
 
 </td>
 </tr>

@@ -1,7 +1,10 @@
 /**
  * scripts/generate-repo-cards.mjs
- * Generates custom Dark Souls pixel-art Boss / Pinned Repo Cards.
- * Completely eliminates the ugly default Markdown table with blue links.
+ * Generates custom Soft Dark Souls Pinned Repo Cards:
+ * - Subtle, elegant gothic luxury aesthetics (no excessive cringe gaming hype)
+ * - Sharp pixel-art domain icons in antique bronze frames
+ * - Category domain badges, language indicators, crisp descriptions
+ * - Professional repo metadata and clean interactive prompts
  */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -14,7 +17,6 @@ mkdirSync(CARDS_DIR, { recursive: true });
 
 const S = 3; // 1 pixel = 3x3 for icons
 
-// Helper to convert pixel matrix
 function renderMatrix(map, pal, startX, startY) {
   const rects = [];
   for (let r = 0; r < map.length; r++) {
@@ -33,7 +35,7 @@ function renderMatrix(map, pal, startX, startY) {
   return rects.join('');
 }
 
-// Pixel Icons (16x16)
+// 16x16 Pixel Icons
 const ICON_SPECTRE = [
   '.....KKKKKK.....',
   '...KKCCCCCCKK...',
@@ -126,8 +128,8 @@ const ICON_SMARTSTUDY = [
   'GGWWWWWWWWWWWWWG',
   'GGWKKWKKWKKWKWWG',
   'GGWWWWWWWWWWWWWG',
-  '.GGWWWWWWWWWWGG.',
-  '..GGGGGGGGGGGG..',
+  '..GGWWWWWWWWGG..',
+  '...GGGGGGGGGG...',
   '....GGssssGG....',
   '.....GGGGGG.....',
   '................',
@@ -137,53 +139,73 @@ const PAL_SMARTSTUDY = { G: '#a855f7', W: '#f3e8ff', K: '#3b0764', s: '#6b21a8' 
 const projects = [
   {
     id: 'spectre',
-    name: 'spectre_terminal',
+    name: 'radityabhardana/spectre_terminal',
+    category: 'FINTECH · EV CALCULATOR',
     title: 'SPECTRE TERMINAL',
     lang: 'JavaScript',
+    langColor: '#f1e05a',
     iconMatrix: ICON_SPECTRE,
     iconPal: PAL_SPECTRE,
-    descLine1: 'Polymarket intelligence terminal with',
-    descLine2: 'deterministic EV mathematical guardrails.',
+    descLine1: 'Polymarket intelligence terminal with mathematical',
+    descLine2: 'expected-value guardrails for market decisions.',
+    status: 'Active Project',
+    tag: 'Fintech / EV',
   },
   {
     id: 'icarus',
-    name: 'icarus-watermark-remover',
-    title: 'ICARUS WATERMARK',
+    name: 'radityabhardana/icarus-watermark-remover',
+    category: 'AI · COMPUTER VISION',
+    title: 'ICARUS WATERMARK REMOVER',
     lang: 'JavaScript',
+    langColor: '#f1e05a',
     iconMatrix: ICON_ICARUS,
     iconPal: PAL_ICARUS,
-    descLine1: 'AI-powered image editing suite for',
-    descLine2: 'seamless watermark & object erasure.',
+    descLine1: 'AI-assisted web canvas suite for intelligent',
+    descLine2: 'watermark cleaning and object inpainting.',
+    status: 'Open Source',
+    tag: 'AI / Image',
   },
   {
     id: 'blackbox',
-    name: 'blackbox_signal_lost',
-    title: 'BLACKBOX SIGNAL LOST',
+    name: 'radityabhardana/blackbox_signal_lost',
+    category: 'SIMULATION · BROWSER OS',
+    title: 'BLACKBOX: SIGNAL LOST',
     lang: 'TypeScript',
+    langColor: '#3178c6',
     iconMatrix: ICON_BLACKBOX,
     iconPal: PAL_BLACKBOX,
-    descLine1: 'Browser OS detective simulation game',
-    descLine2: 'set inside a fictional civic system.',
+    descLine1: 'Atmospheric detective simulator set within an',
+    descLine2: 'enigmatic vintage civic operating system.',
+    status: 'Interactive Game',
+    tag: 'Web OS / Audio',
   },
   {
     id: 'kalpindo',
-    name: 'Kalpindo',
-    title: 'KALPINDO PORTAL',
-    lang: 'Corporate Web',
+    name: 'radityabhardana/Kalpindo',
+    category: 'ENTERPRISE · WEB PLATFORM',
+    title: 'KALPINDO PROFILE',
+    lang: 'PHP / Web',
+    langColor: '#4f5d95',
     iconMatrix: ICON_KALPINDO,
     iconPal: PAL_KALPINDO,
-    descLine1: 'Official company profile web platform for',
-    descLine2: 'PT Kalibrasi Pengujian Indonesia.',
+    descLine1: 'Official corporate web platform & service portal',
+    descLine2: 'for PT Kalibrasi Pengujian Indonesia.',
+    status: 'Production',
+    tag: 'Company Profile',
   },
   {
     id: 'smartstudy',
-    name: 'smart_study',
+    name: 'radityabhardana/smart_study',
+    category: 'EDTECH · ADAPTIVE AI',
     title: 'SMART STUDY AI',
     lang: 'TypeScript',
+    langColor: '#3178c6',
     iconMatrix: ICON_SMARTSTUDY,
     iconPal: PAL_SMARTSTUDY,
-    descLine1: 'Intelligent AI-driven learning platform',
-    descLine2: '& adaptive study companion application.',
+    descLine1: 'Intelligent learning companion designed with',
+    descLine2: 'automated study planning and adaptive revision.',
+    status: 'AI Platform',
+    tag: 'Education / AI',
   },
 ];
 
@@ -192,68 +214,77 @@ function escXml(str) {
 }
 
 for (const p of projects) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="130" viewBox="0 0 450 130" shape-rendering="crispEdges">
-  <title>${escXml(p.title)} — Boss Defeated</title>
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="135" viewBox="0 0 450 135" shape-rendering="crispEdges">
+  <title>${escXml(p.title)} — ${escXml(p.category)}</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="100%">
+    <linearGradient id="cardBg_${p.id}" x1="0" y1="0" x2="0" y2="100%">
       <stop offset="0%" stop-color="#14110d"/>
       <stop offset="100%" stop-color="#090807"/>
     </linearGradient>
   </defs>
 
-  <style>
-    .card-border { stroke: #3a2e20; stroke-width: 1.5; }
-    .card-glow { animation: cGlow 3.5s ease-in-out infinite; }
-    @keyframes cGlow {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-  </style>
+  <!-- Card Background -->
+  <rect x="2" y="2" width="446" height="131" rx="2" fill="url(#cardBg_${p.id})"/>
+  <!-- Outer Bronze Border -->
+  <rect x="2" y="2" width="446" height="131" rx="2" fill="none" stroke="#332719" stroke-width="1.5"/>
+  <!-- Inner Muted Inscription Line -->
+  <rect x="5" y="5" width="440" height="125" rx="1" fill="none" stroke="#1f1811" stroke-width="1"/>
 
-  <!-- Card Body -->
-  <rect x="2" y="2" width="446" height="126" rx="2" fill="url(#bgGrad)"/>
-  <rect class="card-border" x="2" y="2" width="446" height="126" rx="2" fill="none"/>
-  <rect x="5" y="5" width="440" height="120" fill="none" stroke="#211910" stroke-width="1"/>
-
-  <!-- Stepped Golden Corner Rivets -->
+  <!-- Antique Gold Corner Accents -->
   <g fill="#c9a876">
     <rect x="2" y="2" width="6" height="2"/>
     <rect x="2" y="2" width="2" height="6"/>
     <rect x="442" y="2" width="6" height="2"/>
     <rect x="446" y="2" width="2" height="6"/>
-    <rect x="2" y="126" width="6" height="2"/>
-    <rect x="2" y="122" width="2" height="6"/>
-    <rect x="442" y="126" width="6" height="2"/>
-    <rect x="446" y="122" width="2" height="6"/>
+    <rect x="2" y="131" width="6" height="2"/>
+    <rect x="2" y="127" width="2" height="6"/>
+    <rect x="442" y="131" width="6" height="2"/>
+    <rect x="446" y="127" width="2" height="6"/>
   </g>
 
-  <!-- Left Icon Frame -->
-  <rect x="14" y="18" width="56" height="56" fill="#090807" stroke="#332719" stroke-width="1"/>
-  <rect x="16" y="20" width="52" height="52" fill="#14110c"/>
-  <!-- Relic / Boss Icon -->
+  <!-- Left Icon Frame (Antique Stone Alcove) -->
+  <rect x="14" y="18" width="56" height="56" rx="2" fill="#090807" stroke="#2b2014" stroke-width="1.5"/>
+  <rect x="16" y="20" width="52" height="52" fill="#14100b"/>
+  <!-- Pixel Art Relic Icon -->
   ${renderMatrix(p.iconMatrix, p.iconPal, 18, 22)}
 
-  <!-- Title & Repo Name -->
-  <text x="82" y="32" font-family="'Press Start 2P', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#f4a742">${escXml(p.title)}</text>
+  <!-- Category Tag (Top Subtitle) -->
+  <text x="82" y="26" font-family="'Press Start 2P', ui-monospace, monospace" font-size="7" letter-spacing="1.5" fill="#8a7455">${escXml(p.category)}</text>
+
+  <!-- Project Title -->
+  <text x="82" y="44" font-family="'Press Start 2P', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#f4a742">${escXml(p.title)}</text>
 
   <!-- Language Badge (Top Right) -->
-  <rect x="330" y="18" width="104" height="18" rx="2" fill="#1b150f" stroke="#4a3620" stroke-width="1"/>
-  <text x="382" y="30" font-family="ui-monospace, Consolas, monospace" font-size="9" font-weight="bold" letter-spacing="1" fill="#c9a876" text-anchor="middle">${escXml(p.lang)}</text>
+  <g transform="translate(330, 16)">
+    <rect x="0" y="0" width="106" height="20" rx="3" fill="#120e0a" stroke="#2e2215" stroke-width="1"/>
+    <!-- Language Circle -->
+    <circle cx="12" cy="10" r="4" fill="${p.langColor}"/>
+    <text x="22" y="13" font-family="ui-monospace, Consolas, monospace" font-size="9" font-weight="bold" fill="#cfcfcf">${escXml(p.lang)}</text>
+  </g>
 
-  <!-- Description Lines -->
-  <text x="82" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#d1cbc3">${escXml(p.descLine1)}</text>
-  <text x="82" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#d1cbc3">${escXml(p.descLine2)}</text>
+  <!-- Description (2 Lines, Clean & Informative) -->
+  <text x="82" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#d4cec7">${escXml(p.descLine1)}</text>
+  <text x="82" y="79" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#d4cec7">${escXml(p.descLine2)}</text>
 
-  <!-- Divider Line -->
-  <line x1="14" y1="88" x2="436" y2="88" stroke="#2b2014" stroke-width="1"/>
+  <!-- Subtle Inscription Divider Line -->
+  <line x1="14" y1="94" x2="436" y2="94" stroke="#21180f" stroke-width="1"/>
 
   <!-- Footer Elements -->
-  <!-- Status Badge (Left) -->
-  <rect x="14" y="96" width="94" height="20" rx="2" fill="#6e0d0d" stroke="#a82828" stroke-width="1"/>
-  <text x="61" y="110" font-family="'Press Start 2P', ui-monospace, monospace" font-size="7" letter-spacing="1" fill="#ffffff" text-anchor="middle">⚔️ DEFEATED</text>
+  <!-- Status Pill (Soft Dark Souls touch: embered status) -->
+  <g transform="translate(14, 103)">
+    <rect x="0" y="0" width="112" height="20" rx="3" fill="#1a140d" stroke="#3d2c19" stroke-width="1"/>
+    <circle cx="10" cy="10" r="3" fill="#10b981"/>
+    <text x="20" y="13.5" font-family="ui-monospace, Consolas, monospace" font-size="9" fill="#c9a876">${escXml(p.status)}</text>
+  </g>
+
+  <!-- Tag Chip (Middle) -->
+  <g transform="translate(136, 103)">
+    <rect x="0" y="0" width="94" height="20" rx="3" fill="#120e0a" stroke="#261c11" stroke-width="1"/>
+    <text x="47" y="13.5" font-family="ui-monospace, Consolas, monospace" font-size="8.5" fill="#8a7455" text-anchor="middle">${escXml(p.tag)}</text>
+  </g>
 
   <!-- Action Prompt (Right) -->
-  <text x="436" y="110" font-family="'Press Start 2P', ui-monospace, monospace" font-size="7" letter-spacing="1" fill="#c9a876" text-anchor="end">VIEW REMEMBRANCE ➔</text>
+  <text x="436" y="117" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold" letter-spacing="1" fill="#c9a876" text-anchor="end">VIEW ON GITHUB ↗</text>
 </svg>
 `;
 
@@ -261,4 +292,4 @@ for (const p of projects) {
   console.log(`Generated card-${p.id}.svg`);
 }
 
-console.log('✨ All Dark Souls Boss Repo Cards generated successfully!');
+console.log('✨ All Soft Dark Souls Repo Cards generated successfully!');
