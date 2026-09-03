@@ -27,7 +27,7 @@
 <tr>
 <td width="34%" align="center" valign="middle">
 
-<img src="./assets/scenes/claymore-pixel.svg" width="150" alt="Pixel art Dark Souls Claymore Greatsword"/>
+<img src="./assets/scenes/claymore-pixel.svg" width="160" alt="Pixel art Dark Souls Claymore Greatsword"/>
 
 </td>
 <td width="66%" valign="middle">
