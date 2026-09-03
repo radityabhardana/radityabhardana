@@ -22,25 +22,22 @@
 
 <table width="100%">
 <tr>
-<td width="34%" align="center" valign="top">
+<td width="38%" align="center" valign="middle">
 
-<img src="https://github.com/radityabhardana.png?size=460" width="200" border="2" alt="Raditya Bagus Hardana profile photo"/>
+<img src="./assets/scenes/knight-pixel.svg" width="200" alt="Animated pixel-art knight"/><br/><br/>
 
 **RADITYA BAGUS HARDANA**<br/>
 <sub>Chosen Undead of Automation</sub><br/>
 <code>Sorcerer-Pyromancer of Automation</code>
 
 </td>
-<td width="26%" align="center" valign="middle">
-
- <img src="./assets/scenes/knight-pixel.svg" width="200" alt="Animated pixel-art knight"/>
-
-</td>
-<td width="40%" valign="top">
+<td width="62%" valign="middle">
 
 *An ash-marked web developer, sworn to the quiet machinery beneath the keep. PHP and Node.js answer his hand; JavaScript gives motion to the hollow forms. From MySQL he draws memory, and through Docker he seals each vessel. His bots toil where men would falter. Whether craft or curse, none can say.*
 
-**Bonfire lit at:** `[YOUR_CITY]`
+<br/><br/>
+
+**Bonfire lit at:** `Indonesia`
 
 </td>
 </tr>
@@ -69,10 +66,11 @@
 
 | Boss | Remembrance | Fate |
 |:--|:--|:--:|
-| **[PROJECT_NAME]** | *[SHORT_DESCRIPTION]* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
-| **[PROJECT_NAME]** | *[SHORT_DESCRIPTION]* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
-| **[PROJECT_NAME]** | *[SHORT_DESCRIPTION]* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
-| **[PROJECT_NAME]** | *[SHORT_DESCRIPTION]* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
+| [**spectre_terminal**](https://github.com/radityabhardana/spectre_terminal) | *Polymarket intelligence terminal with deterministic EV guardrails* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
+| [**icarus-watermark-remover**](https://github.com/radityabhardana/icarus-watermark-remover) | *AI-powered intelligent image editing & watermark removal tool* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
+| [**blackbox_signal_lost**](https://github.com/radityabhardana/blackbox_signal_lost) | *Browser-based operating system detective & civic-analysis game* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
+| [**Kalpindo**](https://github.com/radityabhardana/Kalpindo) | *Official corporate company profile for PT Kalibrasi Pengujian Indonesia* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
+| [**smart_study**](https://github.com/radityabhardana/smart_study) | *AI-assisted intelligent study companion & learning platform* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
