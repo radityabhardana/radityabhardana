@@ -1,22 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="56" viewBox="0 0 800 56" shape-rendering="crispEdges">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="74" viewBox="0 0 800 74" shape-rendering="crispEdges">
   <title>TECH STACK</title>
   <defs>
     <!-- Tapering Left Wing Gradient -->
-    <linearGradient id="fadeL" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="fadeL_II" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
       <stop offset="60%" stop-color="#8a7455" stop-opacity="0.5"/>
       <stop offset="100%" stop-color="#f4a742" stop-opacity="1"/>
     </linearGradient>
     <!-- Tapering Right Wing Gradient -->
-    <linearGradient id="fadeR" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="fadeR_II" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#f4a742" stop-opacity="1"/>
       <stop offset="40%" stop-color="#8a7455" stop-opacity="0.5"/>
       <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
     </linearGradient>
     <!-- Gold Text Shimmer -->
-    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="goldText_II" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#fff5cc"/>
-      <stop offset="45%" stop-color="#f4a742"/>
+      <stop offset="40%" stop-color="#f4a742"/>
       <stop offset="100%" stop-color="#c9a876"/>
     </linearGradient>
   </defs>
@@ -24,32 +24,33 @@
   <style>
     .crest-glow { animation: cPulse 2.4s ease-in-out infinite; }
     @keyframes cPulse {
-      0%, 100% { opacity: 0.7; }
+      0%, 100% { opacity: 0.75; }
       50% { opacity: 1; }
     }
   </style>
 
   <!-- Left Horizontal Tapering Wing -->
-  <line x1="80" y1="28" x2="260" y2="28" stroke="url(#fadeL)" stroke-width="1.5"/>
-  <rect x="264" y="27" width="3" height="3" fill="#f4a742"/>
-  <rect x="270" y="26" width="5" height="5" fill="#c9a876"/>
-  <line x1="278" y1="28" x2="294" y2="28" stroke="#f4a742" stroke-width="1.5"/>
+  <line x1="40" y1="41" x2="225" y2="41" stroke="url(#fadeL_II)" stroke-width="1.8"/>
+  <rect x="229" y="39.5" width="4" height="4" fill="#f4a742"/>
+  <rect x="237" y="38" width="6" height="6" fill="#c9a876"/>
+  <line x1="247" y1="41" x2="255" y2="41" stroke="#f4a742" stroke-width="1.8"/>
 
   <!-- Right Horizontal Tapering Wing -->
-  <line x1="506" y1="28" x2="522" y2="28" stroke="#f4a742" stroke-width="1.5"/>
-  <rect x="525" y="26" width="5" height="5" fill="#c9a876"/>
-  <rect x="533" y="27" width="3" height="3" fill="#f4a742"/>
-  <line x1="540" y1="28" x2="720" y2="28" stroke="url(#fadeR)" stroke-width="1.5"/>
+  <line x1="545" y1="41" x2="553" y2="41" stroke="#f4a742" stroke-width="1.8"/>
+  <rect x="557" y="38" width="6" height="6" fill="#c9a876"/>
+  <rect x="567" y="39.5" width="4" height="4" fill="#f4a742"/>
+  <line x1="575" y1="41" x2="760" y2="41" stroke="url(#fadeR_II)" stroke-width="1.8"/>
 
   <!-- Top Center Roman Crest -->
   <g class="crest-glow">
-    <polygon points="400,2 404,7 400,12 396,7" fill="#f4a742"/>
-    <text x="400" y="19" font-family="'Press Start 2P', ui-monospace, monospace" font-size="7.5" fill="#c9a876" text-anchor="middle">II</text>
+    <polygon points="400,2 406,8 400,14 394,8" fill="#f4a742"/>
+    <polygon points="400,4 403,8 400,12 397,8" fill="#fff5cc"/>
+    <text x="400" y="24" font-family="'Press Start 2P', ui-monospace, monospace" font-size="10.5" font-weight="bold" fill="#f4a742" text-anchor="middle">II</text>
   </g>
 
-  <!-- Main Section Title (Cinematic Dark Souls Typography) -->
-  <text x="400" y="36" font-family="'Press Start 2P', ui-monospace, monospace" font-size="13" letter-spacing="4" fill="url(#goldText)" text-anchor="middle">TECH STACK</text>
+  <!-- Main Section Title (Prominent, Bold & Clear) -->
+  <text x="400" y="48" font-family="'Press Start 2P', ui-monospace, monospace" font-size="19" letter-spacing="4.5" fill="url(#goldText_II)" text-anchor="middle">TECH STACK</text>
 
-  <!-- Subtitle Caption -->
-  <text x="400" y="49" font-family="ui-monospace, Consolas, monospace" font-size="8" letter-spacing="3" fill="#8a7455" text-anchor="middle">TOOLS &amp; TECHNOLOGIES</text>
+  <!-- Subtitle Caption (Crisp & Readable) -->
+  <text x="400" y="67" font-family="ui-monospace, Consolas, monospace" font-size="11.5" font-weight="600" letter-spacing="3.5" fill="#c9a876" text-anchor="middle">TOOLS &amp; TECHNOLOGIES</text>
 </svg>
