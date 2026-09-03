@@ -4,7 +4,9 @@
 
 <br/>
 
-<img src="./assets/scenes/bonfire-knight-pixel.jpg" width="380" alt="2D Pixel Art Dark Souls Chibi Knight resting at Bonfire — Bonfire Lit"/>
+<a href="./assets/scenes/bonfire.mp4">
+  <img src="./assets/scenes/bonfire.gif" width="340" alt="Dark Souls Bonfire Video Animation"/>
+</a>
 
 <br/>
 
