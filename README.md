@@ -106,11 +106,6 @@ Software developer and automation engineer focused on building resilient backend
 <!-- Bespoke Dark Souls Engineering Activity & Production Codex -->
 <img src="./assets/scenes/codex-stats.svg" width="100%" alt="Engineering Activity and Production Codex Summary — radityabhardana"/>
 
-<br/><br/>
-
-<!-- Lord Souls Harvested & System Milestones -->
-<img src="./assets/scenes/achievements.svg" width="100%" alt="Lord Souls Harvested and System Milestones — radityabhardana"/>
-
 </div>
 
 <br/>
@@ -131,7 +126,6 @@ Software developer and automation engineer focused on building resilient backend
 <img src="https://komarev.com/ghpvc/?username=radityabhardana&label=SOULS+RETRIEVED&color=c9a876&style=for-the-badge&labelColor=0d1117" alt="Souls Retrieved Visitor Counter"/>
 
 <br/><br/>
-
 <p>
 <a href="[YOUR_LINKEDIN]"><img src="https://img.shields.io/badge/LinkedIn-CONNECT-0d0d0d?style=for-the-badge&logo=linkedin&logoColor=c9a876&labelColor=0d0d0d" alt="LinkedIn"/></a>
 <a href="mailto:[YOUR_EMAIL]"><img src="https://img.shields.io/badge/Email-CONTACT-0d0d0d?style=for-the-badge&logo=gmail&logoColor=c9a876&labelColor=0d0d0d" alt="Email"/></a>
