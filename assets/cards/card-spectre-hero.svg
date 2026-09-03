@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="150" viewBox="0 0 900 150">
+  <title>Spectre Terminal — Flagship Repository</title>
+  <defs>
+    <linearGradient id="heroBg" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="heroTopGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#c9a876" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#e3b341" stop-opacity="0.8"/>
+      <stop offset="75%" stop-color="#c9a876" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .h-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      fill: #f0f6fc;
+    }
+    .h-flag {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      fill: #e3b341;
+    }
+    .h-repo {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+      fill: #8b949e;
+    }
+    .h-desc {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      fill: #c9d1d9;
+    }
+    .h-meta {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      fill: #8b949e;
+    }
+    .h-link {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      fill: #e3b341;
+    }
+  </style>
+
+  <rect x="1" y="1" width="898" height="148" rx="6" fill="url(#heroBg)"/>
+  <rect x="1" y="1" width="898" height="148" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
+  <line x1="30" y1="1.5" x2="870" y2="1.5" stroke="url(#heroTopGlow)" stroke-width="2"/>
+
+  <!-- Left Sigil (46x46) -->
+  <g transform="translate(24, 20)">
+    <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    
+    <circle cx="23" cy="23" r="15" fill="none" stroke="#30363d" stroke-width="1.2"/>
+    <path d="M9 23 C14 14, 32 14, 37 23 C32 32, 14 32, 9 23 Z" fill="none" stroke="#c9a876" stroke-width="1.5"/>
+    <circle cx="23" cy="23" r="5.5" fill="#0d1117" stroke="#e3b341" stroke-width="1.3"/>
+    <circle cx="23" cy="23" r="2" fill="#ffffff"/>
+    <line x1="5" y1="23" x2="8" y2="23" stroke="#c9a876" stroke-width="1.5"/>
+    <line x1="38" y1="23" x2="41" y2="23" stroke="#c9a876" stroke-width="1.5"/>
+  
+  </g>
+
+  <!-- Title & Flagship Pill -->
+  <text x="86" y="35" class="h-title">Spectre Terminal</text>
+  <rect x="250" y="22" width="145" height="18" rx="3" fill="#211d15" stroke="#4d3b1e" stroke-width="1"/>
+  <text x="322" y="34" class="h-flag" text-anchor="middle">★ FEATURED SYSTEM</text>
+  <text x="86" y="53" class="h-repo">radityabhardana/spectre_terminal</text>
+
+  <!-- Language (Top Right) -->
+  <g transform="translate(876, 35)">
+    <text text-anchor="end" class="h-meta">
+      <tspan fill="#f1e05a" font-size="14">● </tspan>JavaScript
+    </text>
+  </g>
+
+  <!-- Description -->
+  <text x="86" y="78" class="h-desc">Polymarket intelligence terminal with mathematical expected-value</text>
+  <text x="86" y="96" class="h-desc">guardrails designed for disciplined and deterministic trading decisions.</text>
+
+  <line x1="24" y1="114" x2="876" y2="114" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="24" y="133" class="h-meta">Polymarket · EV Math · Trading Terminal</text>
+  <text x="876" y="133" text-anchor="end" class="h-link">EXPLORE FLAGSHIP REPOSITORY ↗</text>
+</svg>

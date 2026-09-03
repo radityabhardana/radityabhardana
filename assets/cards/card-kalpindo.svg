@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165">
   <title>Kalpindo Company Profile — Enterprise · Web Platform</title>
   <defs>
-    <!-- Neutral Dark Slate Background (Standard GitHub Dark) -->
     <linearGradient id="cardBg_kalpindo" x1="0" y1="0" x2="0" y2="100%">
       <stop offset="0%" stop-color="#161b22"/>
       <stop offset="100%" stop-color="#0d1117"/>
     </linearGradient>
-    <!-- Subtle Gold Ember Top Edge Accent -->
     <linearGradient id="topGlow_kalpindo" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
       <stop offset="35%" stop-color="#c9a876" stop-opacity="0.35"/>
@@ -50,14 +48,10 @@
     }
   </style>
 
-  <!-- Card Base Plate: Neutral Dark Slate with Subtle Clean Outline -->
   <rect x="1" y="1" width="478" height="163" rx="6" fill="url(#cardBg_kalpindo)"/>
   <rect x="1" y="1" width="478" height="163" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
-
-  <!-- Subtle Top Ember Accent -->
   <line x1="24" y1="1.5" x2="456" y2="1.5" stroke="url(#topGlow_kalpindo)" stroke-width="1.5"/>
 
-  <!-- Left Sigil Alcove (46x46) -->
   <g transform="translate(18, 20)">
     <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
     
@@ -69,28 +63,20 @@
   
   </g>
 
-  <!-- Title & Repo Path Header -->
   <text x="76" y="36" class="title-text">Kalpindo Company Profile</text>
   <text x="76" y="54" class="repo-name">radityabhardana/Kalpindo</text>
 
-  <!-- Language Indicator (Top Right, Clean & Neutral) -->
   <g transform="translate(460, 36)">
     <text text-anchor="end" class="meta-text">
       <tspan fill="#777bb4" font-size="13">● </tspan>PHP / Web
     </text>
   </g>
 
-  <!-- Description (Generous Spacing, Clean Neutral White/Gray) -->
   <text x="76" y="82" class="desc-text">Official corporate platform &amp; laboratory testing service catalog</text>
   <text x="76" y="102" class="desc-text">engineered for PT Kalibrasi Pengujian Indonesia.</text>
 
-  <!-- Clean Subtle Divider -->
   <line x1="18" y1="126" x2="462" y2="126" stroke="#21262d" stroke-width="1"/>
 
-  <!-- Footer Info -->
-  <!-- Left: Domain Tags -->
   <text x="18" y="146" class="meta-text">B2B Enterprise · Web Portal · Calibration</text>
-
-  <!-- Right: Clean Repo Link -->
   <text x="462" y="146" text-anchor="end" class="link-text">VIEW REPO ↗</text>
 </svg>

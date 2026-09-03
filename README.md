@@ -25,22 +25,25 @@
 
 <table width="100%">
 <tr>
-<td width="38%" align="center" valign="middle">
+<td width="34%" align="center" valign="middle">
 
-<img src="./assets/scenes/claymore-pixel.svg" width="160" alt="Pixel art Dark Souls Claymore Greatsword"/><br/><br/>
-
-**RADITYA BAGUS HARDANA**<br/>
-<sub>Full-Stack Developer &amp; Automation Specialist</sub><br/>
-<code>Node.js · PHP · TypeScript · Python · Docker</code>
+<img src="./assets/scenes/claymore-pixel.svg" width="150" alt="Pixel art Dark Souls Claymore Greatsword"/>
 
 </td>
-<td width="62%" valign="middle">
+<td width="66%" valign="middle">
+
+### Raditya Bagus Hardana
+<sub>Full-Stack Developer &amp; Automation Specialist</sub>
+
+<br/>
 
 Software developer and automation engineer focused on building resilient backends, autonomous bots, and interactive web platforms. Turning complex operational workflows into clean, deterministic software that runs reliably day and night.
 
-<br/><br/>
+<br/>
 
-📍 **Location:** `Indonesia` &nbsp;·&nbsp; ⚡ **Specialization:** `Web Platforms · Bot Automation · AI Tools`
+- 📍 **Location:** Indonesia
+- ⚡ **Specialization:** Bot Automation · High-Throughput Backends · AI Pipelines
+- 🗡️ **Philosophy:** Deterministic machinery that endures without supervision.
 
 </td>
 </tr>
@@ -51,7 +54,13 @@ Software developer and automation engineer focused on building resilient backend
 <!-- SECTION II: TECH STACK -->
 <p align="center"><img src="./assets/plates/plate-stack.svg" width="100%" alt="Section II — Tech Stack"/></p>
 
-<p align="center"><img src="https://skillicons.dev/icons?i=php,nodejs,js,mysql,docker,git&theme=dark&perline=6" alt="Arsenal icons: PHP, Node.js, JavaScript, MySQL, Docker, Git"/></p>
+<div align="center">
+
+<p><sub>CORE TECHNOLOGIES &amp; ARSENAL</sub></p>
+
+<img src="https://skillicons.dev/icons?i=nodejs,php,js,ts,python,mysql,postgres,docker,git,linux,bash,postman&theme=dark&perline=12" alt="Tech stack icons"/>
+
+</div>
 
 <br/>
 
@@ -60,12 +69,18 @@ Software developer and automation engineer focused on building resilient backend
 
 <div align="center">
 
-<a href="https://github.com/radityabhardana/spectre_terminal"><img src="./assets/cards/card-spectre.svg" width="49%" alt="Spectre Terminal"/></a>
+<!-- 1. Flagship Full-Width Showcase Card -->
+<a href="https://github.com/radityabhardana/spectre_terminal"><img src="./assets/cards/card-spectre-hero.svg" width="100%" alt="Spectre Terminal — Flagship Repository"/></a>
+
+<br/><br/>
+
+<!-- 2. Symmetrical 2x2 Grid -->
 <a href="https://github.com/radityabhardana/icarus-watermark-remover"><img src="./assets/cards/card-icarus.svg" width="49%" alt="Icarus Watermark Remover"/></a>
-
 <a href="https://github.com/radityabhardana/blackbox_signal_lost"><img src="./assets/cards/card-blackbox.svg" width="49%" alt="Blackbox Signal Lost"/></a>
-<a href="https://github.com/radityabhardana/Kalpindo"><img src="./assets/cards/card-kalpindo.svg" width="49%" alt="Kalpindo Company Profile"/></a>
 
+<br/>
+
+<a href="https://github.com/radityabhardana/Kalpindo"><img src="./assets/cards/card-kalpindo.svg" width="49%" alt="Kalpindo Company Profile"/></a>
 <a href="https://github.com/radityabhardana/smart_study"><img src="./assets/cards/card-smartstudy.svg" width="49%" alt="Smart Study AI"/></a>
 
 </div>
@@ -82,7 +97,7 @@ Software developer and automation engineer focused on building resilient backend
 
 <br/><br/>
 
-<img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=radityabhardana&layout=compact&bg_color=0d0d0d&border_color=3a2f1f&title_color=c9a876&text_color=cfcfcf" width="49%" alt="Top languages"/>
+<img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=radityabhardana&layout=compact&bg_color=0d0d0d&border_color=3a2f1f&title_color=c9a876&text_color=cfcfcf" width="65%" alt="Top languages"/>
 
 </div>
 
