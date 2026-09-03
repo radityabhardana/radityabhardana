@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/scenes/bonfire.svg" width="460" alt="Animated Dark Souls bonfire"/>
+<img src="./assets/scenes/bonfire.svg" width="480" alt="Animated Dark Souls pixel bonfire"/>
 
 <img src="./assets/scenes/banner.svg" width="100%" alt="Raditya Bagus Hardana pixel banner"/>
 
@@ -101,7 +101,7 @@
 
 <div align="center">
 
-<img src="./assets/scenes/summonsign.svg" width="420" alt="Animated golden summon sign"/>
+<img src="./assets/scenes/summonsign.svg" width="480" alt="Animated golden summon sign"/>
 
 </div>
 
