@@ -1,102 +1,261 @@
-<svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="260" viewBox="0 0 600 260">
+  <title>Dark Souls — Golden Summon Sign</title>
+  <defs>
+    <!-- Background Ground Gradient -->
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0908"/>
+      <stop offset="50%" stop-color="#12100d"/>
+      <stop offset="100%" stop-color="#080706"/>
+    </linearGradient>
+
+    <!-- Aura Glow Radial Gradients -->
+    <radialGradient id="signGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb833" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#e67e00" stop-opacity="0.25"/>
+      <stop offset="85%" stop-color="#994d00" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0a0908" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="sunCoreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#ffe885" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#f4a742" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#e67e00" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Rising Wisp Light Gradient -->
+    <linearGradient id="wispGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ffe27a" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#f4a742" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f4a742" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
   <style>
-    .r1 { animation: pr1 3.4s step-end infinite; }
-    .r2 { animation: pr2 3.4s step-end infinite; }
-    .r3 { animation: pr3 3.8s step-end infinite; }
-    @keyframes pr1 { 0%,100% {opacity:.45;} 50% {opacity:1;} }
-    @keyframes pr2 { 0%,100% {opacity:1;} 50% {opacity:.35;} }
-    @keyframes pr3 { 0%,100% {opacity:.6;} 50% {opacity:.2;} }
-    .sweep { animation: pw 3.8s step-end infinite; }
-    @keyframes pw { 0% {stroke-dashoffset:1200;} 25% {stroke-dashoffset:1000;} 50% {stroke-dashoffset:800;} 75% {stroke-dashoffset:600;} 100% {stroke-dashoffset:0;} }
-    .gp { animation: gh 2.8s step-end infinite; transform-origin: 250px 112px; }
-    @keyframes gh { 0%,100% {opacity:.5;} 32% {opacity:1;} 60% {opacity:.75;} 85% {opacity:1;} }
-    .sp1 { animation: sk1 3.8s step-end infinite; }
-    .sp2 { animation: sk2 4.6s step-end infinite; }
-    .sp3 { animation: sk3 5.2s step-end infinite; }
-    .sp4 { animation: sk4 4.2s step-end infinite; }
-    @keyframes sk1 { 0%,88%,100% {opacity:0;} 95% {opacity:1;} }
-    @keyframes sk2 { 0%,90%,100% {opacity:0;} 96% {opacity:1;} }
-    @keyframes sk3 { 0%,84%,100% {opacity:0;} 92% {opacity:1;} }
-    @keyframes sk4 { 0%,86%,100% {opacity:0;} 94% {opacity:1;} }
-    .d1 { animation: dd 8s step-end infinite 0s; }
-    .d2 { animation: dd 10s step-end infinite 3s; }
-    .d3 { animation: dd 12s step-end infinite 6s; }
-    @keyframes dd { 0% {opacity:0;transform:translate(0,0);} 25% {opacity:.5;transform:translate(-3px,-12px);} 50% {opacity:.35;transform:translate(-6px,-24px);} 75% {opacity:.2;transform:translate(-9px,-36px);} 100% {opacity:0;transform:translate(-12px,-48px);} }
-    .blink { animation: bl 1.3s step-end infinite; }
-    @keyframes bl { 0%,100% {opacity:1;} 50% {opacity:.3;} }
+    /* Pulsing Holy Radiance */
+    .glow-aura { animation: auraPulse 3.2s ease-in-out infinite; }
+    @keyframes auraPulse {
+      0%, 100% { opacity: 0.65; transform: scale(1); transform-origin: 300px 125px; }
+      50% { opacity: 1; transform: scale(1.03); transform-origin: 300px 125px; }
+    }
+
+    /* Runic Core Breathing */
+    .runes-breathing { animation: runeShimmer 2.4s ease-in-out infinite; }
+    @keyframes runeShimmer {
+      0%, 100% { opacity: 0.88; }
+      50% { opacity: 1; filter: drop-shadow(0 0 6px #ffc83b); }
+    }
+
+    /* Sun Sigil Radiance */
+    .sun-sigil { animation: sunPulse 3.8s ease-in-out infinite; }
+    @keyframes sunPulse {
+      0%, 100% { transform: scale(1); transform-origin: 300px 125px; }
+      50% { transform: scale(1.05); transform-origin: 300px 125px; }
+    }
+
+    /* Rising Golden Light Wisps */
+    .wisp-1 { animation: wRise 3.6s linear infinite; }
+    .wisp-2 { animation: wRise 4.2s linear infinite 0.8s; }
+    .wisp-3 { animation: wRise 3.2s linear infinite 1.6s; }
+    .wisp-4 { animation: wRise 4.6s linear infinite 2.2s; }
+    .wisp-5 { animation: wRise 3.8s linear infinite 1.1s; }
+    .wisp-6 { animation: wRise 4.0s linear infinite 2.7s; }
+    @keyframes wRise {
+      0% { transform: translateY(0); opacity: 0; }
+      20% { opacity: 0.85; }
+      80% { opacity: 0.45; }
+      100% { transform: translateY(-70px); opacity: 0; }
+    }
+
+    /* Mote sparkles */
+    .mote-a { animation: spk 1.6s step-end infinite; }
+    .mote-b { animation: spk 2.1s step-end infinite 0.7s; }
+    @keyframes spk { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.95; } }
   </style>
 
-  <!-- dark ground -->
-  <rect width="500" height="200" fill="#0d0d0d"/>
-  <!-- ground tile dither -->
-  <g fill="#151515">
-    <rect x="30" y="150" width="24" height="6"/>
-    <rect x="60" y="162" width="24" height="6"/>
-    <rect x="420" y="148" width="24" height="6"/>
-    <rect x="450" y="160" width="24" height="6"/>
-    <rect x="200" y="168" width="30" height="6"/>
-    <rect x="300" y="164" width="30" height="6"/>
-  </g>
-  <!-- light spill dither (warm) -->
-  <g fill="#3a2a18">
-    <rect x="150" y="64" width="18" height="6"/>
-    <rect x="120" y="78" width="24" height="6"/>
-    <rect x="330" y="64" width="18" height="6"/>
-    <rect x="354" y="78" width="24" height="6"/>
-    <rect x="162" y="120" width="12" height="6"/>
-    <rect x="324" y="120" width="12" height="6"/>
-    <rect x="96" y="100" width="12" height="6"/>
-    <rect x="390" y="100" width="12" height="6"/>
+  <!-- Deep Stone Background -->
+  <rect width="600" height="260" fill="url(#groundGrad)"/>
+
+  <!-- Surrounding Flagstone Pavement Seams -->
+  <g stroke="#221e1a" stroke-width="1.5" opacity="0.65">
+    <line x1="0" y1="65" x2="600" y2="65"/>
+    <line x1="0" y1="185" x2="600" y2="185"/>
+    <line x1="140" y1="0" x2="140" y2="65"/>
+    <line x1="380" y1="0" x2="380" y2="65"/>
+    <line x1="80" y1="65" x2="80" y2="185"/>
+    <line x1="520" y1="65" x2="520" y2="185"/>
+    <line x1="220" y1="185" x2="220" y2="260"/>
+    <line x1="460" y1="185" x2="460" y2="260"/>
   </g>
 
-  <!-- outer aura (blinking) -->
-  <rect x="40" y="40" width="420" height="120" fill="none" stroke="#f4a742" stroke-width="2" class="blink" opacity="0.4"/>
+  <!-- Ambient Light Bloom Pool on Floor -->
+  <ellipse class="glow-aura" cx="300" cy="125" rx="275" ry="90" fill="url(#signGlow)"/>
+  <ellipse cx="300" cy="125" rx="160" ry="55" fill="url(#sunCoreGlow)" opacity="0.45"/>
 
-  <!-- concentric PIXEL rings (stepped corners) -->
-  <g fill="none" stroke-width="2">
-    <rect class="r1" x="50" y="42" width="400" height="116" stroke="#c9a876" opacity="0.5"/>
-    <rect class="r1" x="50" y="42" width="400" height="116" stroke="#ffe9c4" stroke-width="1" opacity="0.4"/>
-    <rect class="r2" x="76" y="62" width="348" height="76" stroke="#c9a876" opacity="0.7"/>
-    <rect class="r3" x="102" y="78" width="296" height="44" stroke="#c9a876" opacity="0.6"/>
-    <rect class="r3" x="128" y="90" width="244" height="20" stroke="#c9a876" opacity="0.5"/>
-  </g>
+  <!-- ============================================================== -->
+  <!-- THE GOLDEN SUMMON SIGN BODY                                   -->
+  <!-- ============================================================== -->
+  <g class="runes-breathing">
 
-  <!-- shimmer sweep (dashed pixel perimeter) -->
-  <path class="sweep" d="M50 42 H450 A46 46 0 0 1 450 158 H50 A46 46 0 0 1 50 42 Z" fill="none" stroke="#f4a742" stroke-width="3" stroke-dasharray="1200" stroke-dashoffset="1200" shape-rendering="crispEdges"/>
+    <!-- Outer Ornamental Frame / Border -->
+    <rect x="70" y="55" width="460" height="140" rx="4" fill="#14110d" stroke="#c9a876" stroke-width="2"/>
+    <rect x="76" y="61" width="448" height="128" rx="2" fill="none" stroke="#f4a742" stroke-width="1" opacity="0.75"/>
+    <rect x="82" y="67" width="436" height="116" fill="none" stroke="#664d26" stroke-width="1"/>
 
-  <!-- runic glyph core (pixel font runes) -->
-  <g class="gp">
-    <rect x="205" y="90" width="90" height="44" fill="#0d0d0d" stroke="#f4a742" stroke-width="1"/>
-    <g fill="none" stroke="#cfcfcf" stroke-width="2">
-      <path d="M216 98 h5 v4 h-5 Z"/>
-      <path d="M224 98 h5 v4 h-5 Z"/>
-      <path d="M232 98 h5 v4 h-5 Z"/>
-      <path d="M216 106 h17 v4 h-17 Z"/>
-      <path d="M240 98 h5 v4 h-5 Z"/>
-      <path d="M248 98 h5 v4 h-5 Z"/>
-      <path d="M256 98 h5 v4 h-5 Z"/>
-      <path d="M240 106 h21 v4 h-21 Z"/>
-      <path d="M234 120 h5 v-4 h-5 Z"/>
-      <path d="M242 120 h5 v-4 h-5 Z"/>
-      <path d="M250 120 h5 v-4 h-5 Z"/>
-      <path d="M258 120 h5 v-4 h-5 Z"/>
-      <path d="M234 114 h29 v4 h-29 Z"/>
-      <path d="M266 114 h5 v4 h-5 Z"/>
+    <!-- Stepped Corner Bracket Knotwork -->
+    <g fill="#ffe27a">
+      <!-- Top-Left -->
+      <polygon points="66,51 86,51 86,55 70,55 70,71 66,71"/>
+      <rect x="73" y="58" width="4" height="4"/>
+      <!-- Top-Right -->
+      <polygon points="534,51 514,51 514,55 530,55 530,71 534,71"/>
+      <rect x="523" y="58" width="4" height="4"/>
+      <!-- Bottom-Left -->
+      <polygon points="66,199 86,199 86,195 70,195 70,179 66,179"/>
+      <rect x="73" y="188" width="4" height="4"/>
+      <!-- Bottom-Right -->
+      <polygon points="534,199 514,199 514,195 530,195 530,179 534,179"/>
+      <rect x="523" y="188" width="4" height="4"/>
+    </g>
+
+    <!-- Cardinal Barbed Diamond Runes on Perimeter -->
+    <g fill="#f4a742">
+      <!-- Top Center Diamond -->
+      <polygon points="300,43 308,55 300,67 292,55"/>
+      <polygon points="300,48 304,55 300,62 296,55" fill="#fff5cc"/>
+      <!-- Bottom Center Diamond -->
+      <polygon points="300,183 308,195 300,207 292,195"/>
+      <polygon points="300,188 304,195 300,202 296,195" fill="#fff5cc"/>
+      <!-- Left Center Diamond -->
+      <polygon points="58,125 70,117 82,125 70,133"/>
+      <!-- Right Center Diamond -->
+      <polygon points="518,125 530,117 542,125 530,133"/>
+    </g>
+
+    <!-- ============================================================ -->
+    <!-- LEFT RUNIC TABLET INSCRIPTION                                -->
+    <!-- ============================================================ -->
+    <g fill="#f4a742" opacity="0.95">
+      <!-- Vertical dividing rune column -->
+      <line x1="205" y1="72" x2="205" y2="178" stroke="#8a6733" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+      <!-- Ancient Soapstone Runes (Carved Script Lines) -->
+      <!-- Line 1 -->
+      <path d="M102 82 h18 v3 h-18 z M126 82 h12 v3 h-12 z M144 82 h28 v3 h-28 z M178 82 h14 v3 h-14 z"/>
+      <path d="M108 88 h6 v4 h-6 z M120 88 h10 v4 h-10 z M136 88 h24 v4 h-24 z M166 88 h16 v4 h-16 z M188 88 h4 v4 h-4 z"/>
+      <!-- Line 2 (Sigils) -->
+      <path d="M102 100 h8 v14 h-8 z M116 102 h14 v3 h-14 z M116 108 h10 v3 h-10 z M136 98 h6 v18 h-6 z M148 102 h22 v3 h-22 z M158 108 h12 v8 h-12 z M176 100 h16 v3 h-16 z M182 106 h10 v10 h-10 z"/>
+      <!-- Line 3 (Nordic/Dark Souls glyphs) -->
+      <polygon points="106,126 112,120 118,126 112,132"/>
+      <polygon points="128,124 134,120 140,124 134,128"/>
+      <polygon points="150,126 156,120 162,126 156,132"/>
+      <polygon points="172,124 178,120 184,124 178,128"/>
+      <!-- Line 4 (Cuneiform-style runes) -->
+      <path d="M102 142 h14 v3 h-14 z M122 138 h6 v14 h-6 z M134 142 h20 v3 h-20 z M160 138 h6 v14 h-6 z M172 142 h20 v3 h-20 z"/>
+      <!-- Line 5 -->
+      <path d="M102 160 h26 v3 h-26 z M134 160 h18 v3 h-18 z M158 160 h14 v3 h-14 z M178 160 h14 v3 h-14 z"/>
+      <path d="M110 166 h12 v4 h-12 z M128 166 h20 v4 h-20 z M154 166 h10 v4 h-10 z M170 166 h18 v4 h-18 z"/>
+    </g>
+
+    <!-- ============================================================ -->
+    <!-- RIGHT RUNIC TABLET INSCRIPTION                               -->
+    <!-- ============================================================ -->
+    <g fill="#f4a742" opacity="0.95">
+      <!-- Vertical dividing rune column -->
+      <line x1="395" y1="72" x2="395" y2="178" stroke="#8a6733" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+      <!-- Line 1 -->
+      <path d="M408 82 h14 v3 h-14 z M428 82 h28 v3 h-28 z M462 82 h12 v3 h-12 z M480 82 h18 v3 h-18 z"/>
+      <path d="M408 88 h4 v4 h-4 z M418 88 h16 v4 h-16 z M440 88 h24 v4 h-24 z M470 88 h10 v4 h-10 z M486 88 h6 v4 h-6 z"/>
+      <!-- Line 2 -->
+      <path d="M408 100 h16 v3 h-16 z M414 106 h10 v10 h-10 z M430 102 h22 v3 h-22 z M440 108 h12 v8 h-12 z M458 98 h6 v18 h-6 z M470 102 h14 v3 h-14 z M470 108 h10 v3 h-10 z M490 100 h8 v14 h-8 z"/>
+      <!-- Line 3 (Sigils) -->
+      <polygon points="416,124 422,120 428,124 422,128"/>
+      <polygon points="438,126 444,120 450,126 444,132"/>
+      <polygon points="460,124 466,120 472,124 466,128"/>
+      <polygon points="482,126 488,120 494,126 488,132"/>
+      <!-- Line 4 -->
+      <path d="M408 142 h20 v3 h-20 z M434 138 h6 v14 h-6 z M446 142 h20 v3 h-20 z M472 138 h6 v14 h-6 z M484 142 h14 v3 h-14 z"/>
+      <!-- Line 5 -->
+      <path d="M408 160 h14 v3 h-14 z M428 160 h14 v3 h-14 z M448 160 h18 v3 h-18 z M472 160 h26 v3 h-26 z"/>
+      <path d="M412 166 h18 v4 h-18 z M436 166 h10 v4 h-10 z M452 166 h20 v4 h-20 z M478 166 h12 v4 h-12 z"/>
+    </g>
+
+    <!-- ============================================================ -->
+    <!-- CENTRAL RADIANT SUN EMBLEM (WARRIOR OF SUNLIGHT)             -->
+    <!-- ============================================================ -->
+    <g class="sun-sigil">
+
+      <!-- Outer Sun Rays Ring -->
+      <circle cx="300" cy="125" r="50" fill="#14110d" stroke="#f4a742" stroke-width="2"/>
+      <circle cx="300" cy="125" r="44" fill="none" stroke="#ffe27a" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <!-- 16 Flaring Sun Rays -->
+      <g fill="#ffe27a">
+        <!-- 4 Cardinal Major Rays -->
+        <polygon points="300,66 295,78 305,78"/> <!-- Top -->
+        <polygon points="300,184 295,172 305,172"/> <!-- Bottom -->
+        <polygon points="241,125 253,120 253,130"/> <!-- Left -->
+        <polygon points="359,125 347,120 347,130"/> <!-- Right -->
+
+        <!-- 4 Diagonal Major Rays -->
+        <polygon points="258,83 263,94 271,88"/> <!-- Top-Left -->
+        <polygon points="342,83 329,88 337,94"/> <!-- Top-Right -->
+        <polygon points="258,167 271,162 263,156"/> <!-- Bottom-Left -->
+        <polygon points="342,167 337,156 329,162"/> <!-- Bottom-Right -->
+
+        <!-- Intermediate Secondary Rays -->
+        <polygon points="278,71 278,79 285,76" fill="#f4a742"/>
+        <polygon points="322,71 315,76 322,79" fill="#f4a742"/>
+        <polygon points="278,179 285,174 278,171" fill="#f4a742"/>
+        <polygon points="322,179 322,171 315,174" fill="#f4a742"/>
+        <polygon points="246,103 254,103 251,110" fill="#f4a742"/>
+        <polygon points="354,103 349,110 346,103" fill="#f4a742"/>
+        <polygon points="246,147 251,140 254,147" fill="#f4a742"/>
+        <polygon points="354,147 346,147 349,140" fill="#f4a742"/>
+      </g>
+
+      <!-- Inner Sacred Sun Disc -->
+      <circle cx="300" cy="125" r="26" fill="#241b10" stroke="#f4a742" stroke-width="2"/>
+      <circle cx="300" cy="125" r="21" fill="#f4a742"/>
+      <circle cx="300" cy="125" r="16" fill="#ffe999"/>
+
+      <!-- Iconic Solaire Sun Face Features (Stylized Arcane Mask) -->
+      <!-- Eyes -->
+      <ellipse cx="294" cy="122" rx="2.5" ry="2" fill="#241b10"/>
+      <ellipse cx="306" cy="122" rx="2.5" ry="2" fill="#241b10"/>
+      <circle cx="294" cy="121.5" r="0.8" fill="#ffffff"/>
+      <circle cx="306" cy="121.5" r="0.8" fill="#ffffff"/>
+      <!-- Serene Smile -->
+      <path d="M294 128 Q300 133 306 128" fill="none" stroke="#241b10" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Sacred Brow / Forehead Mark -->
+      <polygon points="300,113 297,118 303,118" fill="#996000"/>
     </g>
   </g>
 
-  <!-- ember sparks at corners (hopping) -->
-  <g fill="#f4a742">
-    <rect class="sp1" x="196" y="50" width="6" height="6"/>
-    <rect class="sp2" x="300" y="50" width="6" height="6"/>
-    <rect class="sp3" x="196" y="144" width="6" height="6"/>
-    <rect class="sp4" x="300" y="144" width="6" height="6"/>
+  <!-- ============================================================== -->
+  <!-- RISING ETHEREAL PARTICLES & WISPS                             -->
+  <!-- ============================================================== -->
+  <!-- Vertical Luminous Wisps (Rising upward like divine vapor) -->
+  <rect class="wisp-1" x="145" y="115" width="2" height="34" rx="1" fill="url(#wispGrad)"/>
+  <rect class="wisp-2" x="215" y="125" width="3" height="42" rx="1.5" fill="url(#wispGrad)"/>
+  <rect class="wisp-3" x="275" y="95" width="2" height="28" rx="1" fill="url(#wispGrad)"/>
+  <rect class="wisp-4" x="325" y="90" width="2" height="30" rx="1" fill="url(#wispGrad)"/>
+  <rect class="wisp-5" x="385" y="120" width="3" height="38" rx="1.5" fill="url(#wispGrad)"/>
+  <rect class="wisp-6" x="455" y="110" width="2" height="32" rx="1" fill="url(#wispGrad)"/>
+
+  <!-- Golden Motes & Ash Sparkles -->
+  <g fill="#ffe27a">
+    <circle class="mote-a" cx="160" cy="85" r="1.5"/>
+    <circle class="mote-b" cx="240" cy="70" r="2"/>
+    <circle class="mote-a" cx="360" cy="72" r="1.8"/>
+    <circle class="mote-b" cx="440" cy="82" r="1.5"/>
+    <circle class="mote-a" cx="190" cy="165" r="1.5"/>
+    <circle class="mote-b" cx="410" cy="168" r="2"/>
+    <circle class="mote-a" cx="300" cy="50" r="2.2" fill="#ffffff"/>
   </g>
 
-  <!-- floating dust -->
-  <g fill="#ffe9c4">
-    <rect class="d1" x="180" y="120" width="4" height="4" opacity="0.5"/>
-    <rect class="d2" x="320" y="110" width="4" height="4" opacity="0.4"/>
-    <rect class="d3" x="250" y="70" width="4" height="4" opacity="0.45"/>
-  </g>
+  <!-- Bottom Gothic Caption Inscription -->
+  <text x="300" y="232" font-family="'Press Start 2P', ui-monospace, Consolas, monospace" font-size="9" letter-spacing="3" fill="#c9a876" text-anchor="middle">⚡ WARRIOR OF SUNLIGHT · SUMMON SIGN ⚡</text>
+  <text x="300" y="248" font-family="'Press Start 2P', ui-monospace, Consolas, monospace" font-size="7" letter-spacing="2" fill="#736655" text-anchor="middle">SOAPSTONE MARK BURNING UPON THE COLD STONE</text>
 </svg>
