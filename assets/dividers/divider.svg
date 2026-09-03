@@ -1,37 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1012" height="30" viewBox="0 0 1012 30" shape-rendering="crispEdges">
-<title>Dark Souls Gothic Section Divider</title>
-<style><![CDATA[
-.soul-glide { animation: soulTravel 14s linear infinite; }
-    @keyframes soulTravel {
-      from { transform: translateX(-40px); }
-      to { transform: translateX(1040px); }
-    }
-    .wisp-pulse { animation: wPulse 1.2s ease-in-out infinite; }
-    @keyframes wPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-    .center-glow { animation: cPulse 2s ease-in-out infinite; }
-    @keyframes cPulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
-]]></style>
+<svg width="900" height="36" viewBox="0 0 900 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <style>
+    .glow { animation: gl 3s step-end infinite; }
+    @keyframes gl { 0%,100% {opacity:.55;} 50% {opacity:1;} }
+  </style>
 
-<rect width="1012" height="30" fill="#0d0d0d"/>
+  <rect width="900" height="36" fill="#0d0d0d"/>
 
-<!-- Dashes -->
-<g><rect x="16" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="36" y="14" width="6" height="1" fill="#6b5433"/><rect x="48" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="68" y="14" width="6" height="1" fill="#6b5433"/><rect x="80" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="100" y="14" width="6" height="1" fill="#6b5433"/><rect x="112" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="132" y="14" width="6" height="1" fill="#6b5433"/><rect x="144" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="164" y="14" width="6" height="1" fill="#6b5433"/><rect x="176" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="196" y="14" width="6" height="1" fill="#6b5433"/><rect x="208" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="228" y="14" width="6" height="1" fill="#6b5433"/><rect x="240" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="260" y="14" width="6" height="1" fill="#6b5433"/><rect x="272" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="292" y="14" width="6" height="1" fill="#6b5433"/><rect x="304" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="324" y="14" width="6" height="1" fill="#6b5433"/><rect x="336" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="356" y="14" width="6" height="1" fill="#6b5433"/><rect x="368" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="388" y="14" width="6" height="1" fill="#6b5433"/><rect x="400" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="420" y="14" width="6" height="1" fill="#6b5433"/><rect x="432" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="452" y="14" width="6" height="1" fill="#6b5433"/><rect x="464" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="484" y="14" width="6" height="1" fill="#6b5433"/><rect x="496" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="516" y="14" width="6" height="1" fill="#6b5433"/><rect x="528" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="548" y="14" width="6" height="1" fill="#6b5433"/><rect x="560" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="580" y="14" width="6" height="1" fill="#6b5433"/><rect x="592" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="612" y="14" width="6" height="1" fill="#6b5433"/><rect x="624" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="644" y="14" width="6" height="1" fill="#6b5433"/><rect x="656" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="676" y="14" width="6" height="1" fill="#6b5433"/><rect x="688" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="708" y="14" width="6" height="1" fill="#6b5433"/><rect x="720" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="740" y="14" width="6" height="1" fill="#6b5433"/><rect x="752" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="772" y="14" width="6" height="1" fill="#6b5433"/><rect x="784" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="804" y="14" width="6" height="1" fill="#6b5433"/><rect x="816" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="836" y="14" width="6" height="1" fill="#6b5433"/><rect x="848" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="868" y="14" width="6" height="1" fill="#6b5433"/><rect x="880" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="900" y="14" width="6" height="1" fill="#6b5433"/><rect x="912" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="932" y="14" width="6" height="1" fill="#6b5433"/><rect x="944" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="964" y="14" width="6" height="1" fill="#6b5433"/><rect x="976" y="13" width="16" height="3" fill="#3a2f1f"/><rect x="996" y="14" width="6" height="1" fill="#6b5433"/></g>
-
-<!-- Central Rune Diamond -->
-<g class="center-glow" transform="translate(494, 3)">
-  <g><path d="M10.5 0h3v1.5h-3zM9 1.5h6v1.5h-6zM7.5 3h3v1.5h-3zM13.5 3h3v1.5h-3zM6 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM4.5 6h3v1.5h-3zM16.5 6h3v1.5h-3zM3 7.5h3v1.5h-3zM19.5 7.5h3v1.5h-3zM1.5 9h3v1.5h-3zM19.5 9h3v1.5h-3zM0 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM21 12h3v1.5h-3zM1.5 13.5h3v1.5h-3zM19.5 13.5h3v1.5h-3zM3 15h3v1.5h-3zM19.5 15h3v1.5h-3zM4.5 16.5h3v1.5h-3zM16.5 16.5h3v1.5h-3zM6 18h3v1.5h-3zM15 18h3v1.5h-3zM7.5 19.5h3v1.5h-3zM13.5 19.5h3v1.5h-3zM9 21h6v1.5h-6zM10.5 22.5h3v1.5h-3z" fill="#1f1c19"/><path d="M10.5 3h3v1.5h-3zM9 4.5h6v1.5h-6zM7.5 6h3v1.5h-3zM13.5 6h3v1.5h-3zM6 7.5h3v1.5h-3zM16.5 7.5h3v1.5h-3zM4.5 9h3v1.5h-3zM16.5 9h3v1.5h-3zM3 10.5h3v1.5h-3zM18 10.5h3v1.5h-3zM3 12h3v1.5h-3zM18 12h3v1.5h-3zM4.5 13.5h3v1.5h-3zM16.5 13.5h3v1.5h-3zM6 15h3v1.5h-3zM16.5 15h3v1.5h-3zM7.5 16.5h3v1.5h-3zM13.5 16.5h3v1.5h-3zM9 18h6v1.5h-6zM10.5 19.5h3v1.5h-3z" fill="#947547"/><path d="M10.5 6h1.5v1.5h-1.5zM9 7.5h1.5v1.5h-1.5zM7.5 9h1.5v1.5h-1.5zM15 9h1.5v1.5h-1.5zM6 10.5h1.5v1.5h-1.5zM16.5 10.5h1.5v1.5h-1.5zM6 12h1.5v1.5h-1.5zM16.5 12h1.5v1.5h-1.5zM7.5 13.5h1.5v1.5h-1.5zM15 13.5h1.5v1.5h-1.5zM9 15h1.5v1.5h-1.5zM10.5 16.5h1.5v1.5h-1.5z" fill="#f4a742"/><path d="M12 6h1.5v1.5h-1.5zM10.5 7.5h6v1.5h-6zM9 9h6v1.5h-6zM7.5 10.5h9v1.5h-9zM7.5 12h9v1.5h-9zM9 13.5h6v1.5h-6zM10.5 15h6v1.5h-6zM12 16.5h1.5v1.5h-1.5z" fill="#fff5d6"/></g>
-</g>
-
-<!-- Traveling Soul Wisp -->
-<g class="soul-glide" transform="translate(0, 3)">
-  <g class="wisp-pulse">
-    <g><path d="M7.2 0h7.2v1.8h-7.2zM5.4 1.8h1.8v1.8h-1.8zM14.4 1.8h1.8v1.8h-1.8zM3.6 3.6h1.8v1.8h-1.8zM16.2 3.6h1.8v1.8h-1.8zM1.8 5.4h1.8v1.8h-1.8zM18 5.4h1.8v1.8h-1.8zM0 7.2h1.8v1.8h-1.8zM19.8 7.2h1.8v1.8h-1.8zM0 9h1.8v1.8h-1.8zM19.8 9h1.8v1.8h-1.8zM0 10.8h1.8v1.8h-1.8zM19.8 10.8h1.8v1.8h-1.8zM1.8 12.6h1.8v1.8h-1.8zM18 12.6h1.8v1.8h-1.8zM3.6 14.4h1.8v1.8h-1.8zM16.2 14.4h1.8v1.8h-1.8zM5.4 16.2h1.8v1.8h-1.8zM14.4 16.2h1.8v1.8h-1.8zM7.2 18h7.2v1.8h-7.2zM9 19.8h3.6v1.8h-3.6z" fill="#2d537a"/><path d="M7.2 1.8h7.2v1.8h-7.2zM5.4 3.6h3.6v1.8h-3.6zM3.6 5.4h3.6v1.8h-3.6zM1.8 7.2h3.6v1.8h-3.6zM1.8 9h1.8v1.8h-1.8zM1.8 10.8h1.8v1.8h-1.8zM3.6 12.6h1.8v1.8h-1.8zM5.4 14.4h3.6v1.8h-3.6zM7.2 16.2h7.2v1.8h-7.2z" fill="#528cb8"/><path d="M9 3.6h3.6v1.8h-3.6zM7.2 5.4h7.2v1.8h-7.2zM5.4 7.2h10.8v1.8h-10.8zM3.6 9h14.4v1.8h-14.4zM3.6 10.8h14.4v1.8h-14.4zM5.4 12.6h10.8v1.8h-10.8zM9 14.4h3.6v1.8h-3.6z" fill="#8ac4e6"/><path d="M12.6 3.6h3.6v1.8h-3.6zM14.4 5.4h3.6v1.8h-3.6zM16.2 7.2h3.6v1.8h-3.6zM18 9h1.8v1.8h-1.8zM18 10.8h1.8v1.8h-1.8zM16.2 12.6h1.8v1.8h-1.8zM12.6 14.4h3.6v1.8h-3.6z" fill="#eef8ff"/></g>
+  <!-- pixel hairlines (dashed segments) -->
+  <g fill="#3a2f1f">
+    <rect x="100" y="17" width="40" height="2"/>
+    <rect x="148" y="17" width="24" height="2"/>
+    <rect x="180" y="17" width="40" height="2"/>
+    <rect x="228" y="17" width="24" height="2"/>
+    <rect x="260" y="17" width="40" height="2"/>
+    <rect x="308" y="17" width="24" height="2"/>
+    <rect x="340" y="17" width="40" height="2"/>
+    <rect x="388" y="17" width="16" height="2"/>
+    <rect x="496" y="17" width="16" height="2"/>
+    <rect x="520" y="17" width="40" height="2"/>
+    <rect x="568" y="17" width="24" height="2"/>
+    <rect x="600" y="17" width="40" height="2"/>
+    <rect x="648" y="17" width="24" height="2"/>
+    <rect x="680" y="17" width="40" height="2"/>
+    <rect x="728" y="17" width="24" height="2"/>
+    <rect x="760" y="17" width="40" height="2"/>
   </g>
-</g>
 
-<!-- Terminus Diamonds -->
-<g fill="#c9a876">
-  <polygon points="4,15 10,11 16,15 10,19"/>
-  <polygon points="996,15 1002,11 1008,15 1002,19"/>
-</g>
+  <!-- line terminus dots -->
+  <rect x="96" y="16" width="3" height="3" fill="#3a2f1f"/>
+  <rect x="802" y="16" width="3" height="3" fill="#3a2f1f"/>
+
+  <!-- PIXEL DIAMOND medallion (stepped) -->
+  <g fill="#c9a876">
+    <rect x="449" y="9" width="4" height="4"/>
+    <rect x="453" y="13" width="4" height="4"/>
+    <rect x="449" y="17" width="4" height="4"/>
+    <rect x="445" y="13" width="4" height="4"/>
+    <rect x="453" y="9" width="2" height="2"/>
+    <rect x="457" y="11" width="2" height="2"/>
+    <rect x="457" y="15" width="2" height="2"/>
+    <rect x="453" y="21" width="2" height="2"/>
+    <rect x="449" y="21" width="2" height="2"/>
+    <rect x="445" y="15" width="2" height="2"/>
+    <rect x="443" y="11" width="2" height="2"/>
+    <rect x="447" y="9" width="2" height="2"/>
+  </g>
+  <!-- inner dark diamond -->
+  <g fill="#1a1a1a">
+    <rect x="451" y="14" width="2" height="2"/>
+  </g>
+  <!-- ember core (step-blink) -->
+  <rect class="glow" x="450" y="13" width="4" height="4" fill="#f4a742"/>
+  <rect class="glow" x="451" y="14" width="2" height="2" fill="#ffe9c4"/>
+
+  <!-- blood accents -->
+  <rect x="436" y="16" width="3" height="3" fill="#6e0d0d"/>
+  <rect x="463" y="16" width="3" height="3" fill="#6e0d0d"/>
+
+  <!-- pixel flourish steps -->
+  <g fill="#3a2f1f">
+    <rect x="424" y="15" width="4" height="2"/>
+    <rect x="420" y="13" width="4" height="2"/>
+    <rect x="416" y="11" width="4" height="2"/>
+    <rect x="472" y="15" width="4" height="2"/>
+    <rect x="476" y="13" width="4" height="2"/>
+    <rect x="480" y="11" width="4" height="2"/>
+    <rect x="424" y="19" width="4" height="2"/>
+    <rect x="420" y="21" width="4" height="2"/>
+    <rect x="416" y="23" width="4" height="2"/>
+    <rect x="472" y="19" width="4" height="2"/>
+    <rect x="476" y="21" width="4" height="2"/>
+    <rect x="480" y="23" width="4" height="2"/>
+  </g>
 </svg>
