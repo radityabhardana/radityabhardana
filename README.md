@@ -39,6 +39,7 @@ Software developer and automation engineer focused on building resilient backend
 
 - 📍 **Location:** Indonesia
 - ⚡ **Specialization:** Bot Automation · High-Throughput Backends · AI Pipelines
+- 🔨 **Current Quest:** Architecting deterministic trading bots &amp; autonomous AI workflows
 - 🗡️ **Philosophy:** Deterministic machinery that endures without supervision.
 
 </td>
@@ -114,6 +115,10 @@ Software developer and automation engineer focused on building resilient backend
 <br/>
 
 <sub>Rest here, traveler. The journey through the codebase is complete.</sub>
+
+<br/><br/>
+
+<img src="https://komarev.com/ghpvc/?username=radityabhardana&label=SOULS+RETRIEVED&color=c9a876&style=for-the-badge&labelColor=0d1117" alt="Souls Retrieved Visitor Counter"/>
 
 <br/><br/>
 
