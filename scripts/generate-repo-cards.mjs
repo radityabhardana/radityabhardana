@@ -1,10 +1,11 @@
 /**
  * scripts/generate-repo-cards.mjs
- * Generates custom Soft Dark Souls Pinned Repo Cards:
- * - Subtle, elegant gothic luxury aesthetics (no excessive cringe gaming hype)
- * - Sharp pixel-art domain icons in antique bronze frames
- * - Category domain badges, language indicators, crisp descriptions
- * - Professional repo metadata and clean interactive prompts
+ * Generates truly elegant, Soft Dark Souls Pinned Repo Cards:
+ * - Eliminates chunky cartoonish corner brackets and colorful arcade sprites
+ * - Subtle obsidian/bronze slate with whisper-thin glowing ember top edge
+ * - Unified antique gold & steel sigils for each repository
+ * - Clean, comfortable champagne typography with generous whitespace
+ * - Minimalist meta information without cluttered pill boxes
  */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -15,197 +16,118 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARDS_DIR = join(__dirname, '..', 'assets', 'cards');
 mkdirSync(CARDS_DIR, { recursive: true });
 
-const S = 3; // 1 pixel = 3x3 for icons
+// 5 Unified Antique Gold Sigils (28x28 viewBox or drawn inside 36x36 alcove)
+const SIGILS = {
+  // Spectre Terminal: Occult Eye of Determinism / Horizon Scanner
+  spectre: `
+    <circle cx="18" cy="18" r="13" fill="none" stroke="#3a2e20" stroke-width="1.2"/>
+    <path d="M7 18 C11 11, 25 11, 29 18 C25 25, 11 25, 7 18 Z" fill="none" stroke="#c9a876" stroke-width="1.4"/>
+    <circle cx="18" cy="18" r="4.5" fill="#18130d" stroke="#f4a742" stroke-width="1.2"/>
+    <circle cx="18" cy="18" r="1.8" fill="#fff5cc"/>
+    <line x1="4" y1="18" x2="6" y2="18" stroke="#c9a876" stroke-width="1.5"/>
+    <line x1="30" y1="18" x2="32" y2="18" stroke="#c9a876" stroke-width="1.5"/>
+  `,
 
-function renderMatrix(map, pal, startX, startY) {
-  const rects = [];
-  for (let r = 0; r < map.length; r++) {
-    const line = map[r];
-    let c = 0;
-    while (c < line.length) {
-      const ch = line[c];
-      const color = pal[ch];
-      if (!color) { c++; continue; }
-      let len = 1;
-      while (c + len < line.length && line[c + len] === ch) len++;
-      rects.push(`<rect x="${startX + c * S}" y="${startY + r * S}" width="${len * S}" height="${S}" fill="${color}"/>`);
-      c += len;
-    }
-  }
-  return rects.join('');
-}
+  // Icarus Watermark: Arcane Inpainting Feather & Sparkle
+  icarus: `
+    <path d="M10 27 C11 20, 16 12, 26 7 C23 14, 21 21, 16 25 C14 26.5, 11.5 27, 10 27 Z" fill="#241b12" stroke="#c9a876" stroke-width="1.3"/>
+    <line x1="10" y1="27" x2="23" y2="11" stroke="#f4a742" stroke-width="1.2"/>
+    <!-- Sparkle -->
+    <path d="M26 13 L27.5 16.5 L31 18 L27.5 19.5 L26 23 L24.5 19.5 L21 18 L24.5 16.5 Z" fill="#fff5cc"/>
+  `,
 
-// 16x16 Pixel Icons
-const ICON_SPECTRE = [
-  '.....KKKKKK.....',
-  '...KKCCCCCCKK...',
-  '..KCCCCCCCCCCK..',
-  '.KCCWKKCCWKKCCK.',
-  '.KCCWKKCCWKKCCK.',
-  '.KCCCCCCCCCCCCK.',
-  '.KCCCCCCCCCCCCK.',
-  '..KCCKKKKKKCCK..',
-  '..KCCKCCCCKCCK..',
-  '...KKCCCCCCKK...',
-  '....KCCCCCCK....',
-  '...KCCCCCCCCK...',
-  '..KC.CC..CC.CK..',
-  '..K..CC..CC..K..',
-  '.....CC..CC.....',
-  '................',
-];
-const PAL_SPECTRE = { K: '#111927', C: '#38bdf8', W: '#ffffff' };
+  // Blackbox Signal Lost: Vintage Radio Wave & Sealed Monolith
+  blackbox: `
+    <rect x="10" y="8" width="16" height="20" rx="1.5" fill="#14100c" stroke="#c9a876" stroke-width="1.4"/>
+    <rect x="13" y="11" width="10" height="7" rx="1" fill="#090807" stroke="#3d2f1e" stroke-width="1"/>
+    <!-- Waveform inside -->
+    <path d="M14 14.5 L16 13 L18 16 L20 14 L22 14.5" fill="none" stroke="#f4a742" stroke-width="1.2"/>
+    <!-- Dial / Beacon -->
+    <circle cx="18" cy="23" r="2" fill="#c9a876"/>
+    <!-- Radiating pulse arcs -->
+    <path d="M6 14 C4 16, 4 20, 6 22" fill="none" stroke="#8a7455" stroke-width="1.2"/>
+    <path d="M30 14 C32 16, 32 20, 30 22" fill="none" stroke="#8a7455" stroke-width="1.2"/>
+  `,
 
-const ICON_ICARUS = [
-  '.......YY.......',
-  '......YYYY......',
-  '.....YYWWYY.....',
-  '....YYYYYYYY....',
-  '...YY.YYYY.YY...',
-  '..YY..YYYY..YY..',
-  '.YY...YYYY...YY.',
-  'YY....YYYY....YY',
-  '......YYYY......',
-  '......RRRR......',
-  '.....RRRRRR.....',
-  '.....GGGGGG.....',
-  '......ssss......',
-  '......ssss......',
-  '......GGGG......',
-  '................',
-];
-const PAL_ICARUS = { Y: '#f59e0b', W: '#ffffff', R: '#ef4444', G: '#c9a876', s: '#451a03' };
+  // Kalpindo: Precision Balance Scale & Heraldic Shield
+  kalpindo: `
+    <path d="M9 10 L27 10 L25 21 C24 25, 18 28, 18 28 C18 28, 12 25, 11 21 Z" fill="#18130d" stroke="#c9a876" stroke-width="1.3"/>
+    <line x1="18" y1="12" x2="18" y2="24" stroke="#f4a742" stroke-width="1.2"/>
+    <line x1="13" y1="15" x2="23" y2="15" stroke="#f4a742" stroke-width="1.2"/>
+    <circle cx="13" cy="18" r="1.5" fill="#fff5cc"/>
+    <circle cx="23" cy="18" r="1.5" fill="#fff5cc"/>
+  `,
 
-const ICON_BLACKBOX = [
-  'KKKKKKKKKKKKKKKK',
-  'KGGGGGGGGGGGGGGK',
-  'KG............GK',
-  'KG.GGGGGGGGGG.GK',
-  'KG.G........G.GK',
-  'KG.G..GGGG..G.GK',
-  'KG.G..GWWG..G.GK',
-  'KG.G..GWWG..G.GK',
-  'KG.G..GGGG..G.GK',
-  'KG.G........G.GK',
-  'KG.GGGGGGGGGG.GK',
-  'KG............GK',
-  'KGGGGGGGGGGGGGGK',
-  'KKKKKKKKKKKKKKKK',
-  '....KGGGGGGK....',
-  '....KKKKKKKK....',
-];
-const PAL_BLACKBOX = { K: '#091512', G: '#10b981', W: '#ecfdf5' };
-
-const ICON_KALPINDO = [
-  '..GGGGGGGGGGGG..',
-  '.GGssGGssGGssGG.',
-  'GGssssssssssssGG',
-  'GGssWWssssWWssGG',
-  'GGssssRRRRssssGG',
-  'GGssssRRRRssssGG',
-  'GGssssssssssssGG',
-  '.GGssssssssssGG.',
-  '..GGssssssssGG..',
-  '...GGssssssGG...',
-  '....GGssssGG....',
-  '.....GGssGG.....',
-  '......GGGG......',
-  '.......GG.......',
-  '................',
-  '................',
-];
-const PAL_KALPINDO = { G: '#c9a876', s: '#272016', W: '#ffffff', R: '#b91c1c' };
-
-const ICON_SMARTSTUDY = [
-  '....GGGGGGGG....',
-  '..GGWWWWWWWWGG..',
-  '.GGWKKWKKWKKWGG.',
-  'GGWKKWKKWKKWKWWG',
-  'GGWWWWWWWWWWWWWG',
-  'GGWKKWKKWKKWKWWG',
-  'GGWWWWWWWWWWWWWG',
-  'GGWKKWKKWKKWKWWG',
-  'GGWWWWWWWWWWWWWG',
-  'GGWKKWKKWKKWKWWG',
-  'GGWWWWWWWWWWWWWG',
-  '..GGWWWWWWWWGG..',
-  '...GGGGGGGGGG...',
-  '....GGssssGG....',
-  '.....GGGGGG.....',
-  '................',
-];
-const PAL_SMARTSTUDY = { G: '#a855f7', W: '#f3e8ff', K: '#3b0764', s: '#6b21a8' };
+  // Smart Study AI: Arcane Grimoire / Celestial Study Tome
+  smartstudy: `
+    <!-- Open Book Wings -->
+    <path d="M18 23 C14 20, 9 20, 7 21 L7 10 C9 9, 14 9, 18 12 C22 9, 27 9, 29 10 L29 21 C27 20, 22 20, 18 23 Z" fill="#19130c" stroke="#c9a876" stroke-width="1.3"/>
+    <line x1="18" y1="12" x2="18" y2="24" stroke="#f4a742" stroke-width="1.4"/>
+    <!-- Celestial star above spine -->
+    <polygon points="18,5 19.5,8 22.5,8 20,10 21,13 18,11 15,13 16,10 13.5,8 16.5,8" fill="#fff5cc"/>
+  `,
+};
 
 const projects = [
   {
     id: 'spectre',
     name: 'radityabhardana/spectre_terminal',
-    category: 'FINTECH · EV CALCULATOR',
-    title: 'SPECTRE TERMINAL',
+    title: 'Spectre Terminal',
+    category: 'Fintech · EV Calculus',
     lang: 'JavaScript',
     langColor: '#f1e05a',
-    iconMatrix: ICON_SPECTRE,
-    iconPal: PAL_SPECTRE,
+    sigilKey: 'spectre',
     descLine1: 'Polymarket intelligence terminal with mathematical',
-    descLine2: 'expected-value guardrails for market decisions.',
-    status: 'Active Project',
-    tag: 'Fintech / EV',
+    descLine2: 'expected-value guardrails for deterministic decisions.',
+    tags: 'Polymarket · EV Math · Terminal',
   },
   {
     id: 'icarus',
     name: 'radityabhardana/icarus-watermark-remover',
-    category: 'AI · COMPUTER VISION',
-    title: 'ICARUS WATERMARK REMOVER',
+    title: 'Icarus Watermark Remover',
+    category: 'AI · Computer Vision',
     lang: 'JavaScript',
     langColor: '#f1e05a',
-    iconMatrix: ICON_ICARUS,
-    iconPal: PAL_ICARUS,
-    descLine1: 'AI-assisted web canvas suite for intelligent',
-    descLine2: 'watermark cleaning and object inpainting.',
-    status: 'Open Source',
-    tag: 'AI / Image',
+    sigilKey: 'icarus',
+    descLine1: 'AI-assisted web canvas suite for intelligent watermark',
+    descLine2: 'extraction and seam-carving object inpainting.',
+    tags: 'AI Canvas · Inpainting · Browser Tool',
   },
   {
     id: 'blackbox',
     name: 'radityabhardana/blackbox_signal_lost',
-    category: 'SIMULATION · BROWSER OS',
-    title: 'BLACKBOX: SIGNAL LOST',
+    title: 'Blackbox: Signal Lost',
+    category: 'Simulation · Browser OS',
     lang: 'TypeScript',
     langColor: '#3178c6',
-    iconMatrix: ICON_BLACKBOX,
-    iconPal: PAL_BLACKBOX,
-    descLine1: 'Atmospheric detective simulator set within an',
+    sigilKey: 'blackbox',
+    descLine1: 'Atmospheric detective simulation game set within an',
     descLine2: 'enigmatic vintage civic operating system.',
-    status: 'Interactive Game',
-    tag: 'Web OS / Audio',
+    tags: 'Sim Game · Web Audio · Retro UI',
   },
   {
     id: 'kalpindo',
     name: 'radityabhardana/Kalpindo',
-    category: 'ENTERPRISE · WEB PLATFORM',
-    title: 'KALPINDO PROFILE',
+    title: 'Kalpindo Company Profile',
+    category: 'Enterprise · Web Platform',
     lang: 'PHP / Web',
-    langColor: '#4f5d95',
-    iconMatrix: ICON_KALPINDO,
-    iconPal: PAL_KALPINDO,
-    descLine1: 'Official corporate web platform & service portal',
+    langColor: '#8892bf',
+    sigilKey: 'kalpindo',
+    descLine1: 'Official corporate platform & testing service catalog',
     descLine2: 'for PT Kalibrasi Pengujian Indonesia.',
-    status: 'Production',
-    tag: 'Company Profile',
+    tags: 'B2B Enterprise · Portal · Calibration',
   },
   {
     id: 'smartstudy',
     name: 'radityabhardana/smart_study',
-    category: 'EDTECH · ADAPTIVE AI',
-    title: 'SMART STUDY AI',
+    title: 'Smart Study AI',
+    category: 'EdTech · Adaptive Learning',
     lang: 'TypeScript',
     langColor: '#3178c6',
-    iconMatrix: ICON_SMARTSTUDY,
-    iconPal: PAL_SMARTSTUDY,
-    descLine1: 'Intelligent learning companion designed with',
-    descLine2: 'automated study planning and adaptive revision.',
-    status: 'AI Platform',
-    tag: 'Education / AI',
+    sigilKey: 'smartstudy',
+    descLine1: 'Intelligent learning companion engineered with automated',
+    descLine2: 'study routines and adaptive spaced-revision tools.',
+    tags: 'AI Tutor · Study Planner · EdTech',
   },
 ];
 
@@ -214,82 +136,98 @@ function escXml(str) {
 }
 
 for (const p of projects) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="135" viewBox="0 0 450 135" shape-rendering="crispEdges">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="124" viewBox="0 0 450 124">
   <title>${escXml(p.title)} — ${escXml(p.category)}</title>
   <defs>
-    <linearGradient id="cardBg_${p.id}" x1="0" y1="0" x2="0" y2="100%">
+    <!-- Soft Obsidian Slate Gradient -->
+    <linearGradient id="cardSlate_${p.id}" x1="0" y1="0" x2="0" y2="100%">
       <stop offset="0%" stop-color="#14110d"/>
-      <stop offset="100%" stop-color="#090807"/>
+      <stop offset="100%" stop-color="#0a0807"/>
+    </linearGradient>
+    <!-- Whisper-thin Top Ember Edge Glow -->
+    <linearGradient id="topEmber_${p.id}" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#c9a876" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f4a742" stop-opacity="0.75"/>
+      <stop offset="70%" stop-color="#c9a876" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
-  <!-- Card Background -->
-  <rect x="2" y="2" width="446" height="131" rx="2" fill="url(#cardBg_${p.id})"/>
-  <!-- Outer Bronze Border -->
-  <rect x="2" y="2" width="446" height="131" rx="2" fill="none" stroke="#332719" stroke-width="1.5"/>
-  <!-- Inner Muted Inscription Line -->
-  <rect x="5" y="5" width="440" height="125" rx="1" fill="none" stroke="#1f1811" stroke-width="1"/>
+  <style>
+    .repo-card {
+      transition: all 0.3s ease;
+    }
+    .title-text {
+      font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Georgia, -apple-system, sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      fill: #edd7b4;
+    }
+    .desc-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      line-height: 1.45;
+      fill: #a39b8f;
+    }
+    .meta-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 9px;
+      letter-spacing: 0.5px;
+      fill: #736758;
+    }
+    .link-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.5px;
+      fill: #c9a876;
+    }
+  </style>
 
-  <!-- Antique Gold Corner Accents -->
-  <g fill="#c9a876">
-    <rect x="2" y="2" width="6" height="2"/>
-    <rect x="2" y="2" width="2" height="6"/>
-    <rect x="442" y="2" width="6" height="2"/>
-    <rect x="446" y="2" width="2" height="6"/>
-    <rect x="2" y="131" width="6" height="2"/>
-    <rect x="2" y="127" width="2" height="6"/>
-    <rect x="442" y="131" width="6" height="2"/>
-    <rect x="446" y="127" width="2" height="6"/>
+  <!-- Card Base Plate (No Chunky Brackets) -->
+  <rect x="1" y="1" width="448" height="122" rx="4" fill="url(#cardSlate_${p.id})"/>
+  <!-- Whisper-thin Dark Bronze Outer Outline -->
+  <rect x="1" y="1" width="448" height="122" rx="4" fill="none" stroke="#251d14" stroke-width="1"/>
+
+  <!-- Top Ember Accent Edge (Subtle Dark Souls Glow) -->
+  <line x1="20" y1="1.5" x2="430" y2="1.5" stroke="url(#topEmber_${p.id})" stroke-width="1.5"/>
+
+  <!-- Left Sigil Alcove -->
+  <g transform="translate(14, 16)">
+    <rect width="36" height="36" rx="3" fill="#0d0a07" stroke="#2a2015" stroke-width="1"/>
+    ${SIGILS[p.sigilKey]}
   </g>
 
-  <!-- Left Icon Frame (Antique Stone Alcove) -->
-  <rect x="14" y="18" width="56" height="56" rx="2" fill="#090807" stroke="#2b2014" stroke-width="1.5"/>
-  <rect x="16" y="20" width="52" height="52" fill="#14100b"/>
-  <!-- Pixel Art Relic Icon -->
-  ${renderMatrix(p.iconMatrix, p.iconPal, 18, 22)}
+  <!-- Title & Category Header -->
+  <text x="60" y="27" class="title-text">${escXml(p.title)}</text>
+  <text x="60" y="42" class="meta-text">${escXml(p.name)}</text>
 
-  <!-- Category Tag (Top Subtitle) -->
-  <text x="82" y="26" font-family="'Press Start 2P', ui-monospace, monospace" font-size="7" letter-spacing="1.5" fill="#8a7455">${escXml(p.category)}</text>
-
-  <!-- Project Title -->
-  <text x="82" y="44" font-family="'Press Start 2P', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#f4a742">${escXml(p.title)}</text>
-
-  <!-- Language Badge (Top Right) -->
-  <g transform="translate(330, 16)">
-    <rect x="0" y="0" width="106" height="20" rx="3" fill="#120e0a" stroke="#2e2215" stroke-width="1"/>
-    <!-- Language Circle -->
-    <circle cx="12" cy="10" r="4" fill="${p.langColor}"/>
-    <text x="22" y="13" font-family="ui-monospace, Consolas, monospace" font-size="9" font-weight="bold" fill="#cfcfcf">${escXml(p.lang)}</text>
+  <!-- Language Indicator (Top Right, Clean & Unboxed) -->
+  <g transform="translate(436, 27)">
+    <text text-anchor="end" class="meta-text" fill="#9e9383">
+      <tspan fill="${p.langColor}" font-size="12">● </tspan>${escXml(p.lang)}
+    </text>
   </g>
 
-  <!-- Description (2 Lines, Clean & Informative) -->
-  <text x="82" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#d4cec7">${escXml(p.descLine1)}</text>
-  <text x="82" y="79" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#d4cec7">${escXml(p.descLine2)}</text>
+  <!-- Description Lines -->
+  <text x="60" y="62" class="desc-text">${escXml(p.descLine1)}</text>
+  <text x="60" y="78" class="desc-text">${escXml(p.descLine2)}</text>
 
-  <!-- Subtle Inscription Divider Line -->
-  <line x1="14" y1="94" x2="436" y2="94" stroke="#21180f" stroke-width="1"/>
+  <!-- Fine Horizontal Inscription Divider -->
+  <line x1="14" y1="92" x2="436" y2="92" stroke="#1d160e" stroke-width="1"/>
 
-  <!-- Footer Elements -->
-  <!-- Status Pill (Soft Dark Souls touch: embered status) -->
-  <g transform="translate(14, 103)">
-    <rect x="0" y="0" width="112" height="20" rx="3" fill="#1a140d" stroke="#3d2c19" stroke-width="1"/>
-    <circle cx="10" cy="10" r="3" fill="#10b981"/>
-    <text x="20" y="13.5" font-family="ui-monospace, Consolas, monospace" font-size="9" fill="#c9a876">${escXml(p.status)}</text>
-  </g>
+  <!-- Footer Info -->
+  <!-- Left: Domain Tags -->
+  <text x="16" y="108" class="meta-text">${escXml(p.tags)}</text>
 
-  <!-- Tag Chip (Middle) -->
-  <g transform="translate(136, 103)">
-    <rect x="0" y="0" width="94" height="20" rx="3" fill="#120e0a" stroke="#261c11" stroke-width="1"/>
-    <text x="47" y="13.5" font-family="ui-monospace, Consolas, monospace" font-size="8.5" fill="#8a7455" text-anchor="middle">${escXml(p.tag)}</text>
-  </g>
-
-  <!-- Action Prompt (Right) -->
-  <text x="436" y="117" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold" letter-spacing="1" fill="#c9a876" text-anchor="end">VIEW ON GITHUB ↗</text>
+  <!-- Right: Explore Link -->
+  <text x="434" y="108" text-anchor="end" class="link-text">VIEW REPO ↗</text>
 </svg>
 `;
 
   writeFileSync(join(CARDS_DIR, `card-${p.id}.svg`), svg);
-  console.log(`Generated card-${p.id}.svg`);
+  console.log(`Generated elegant card-${p.id}.svg`);
 }
 
-console.log('✨ All Soft Dark Souls Repo Cards generated successfully!');
+console.log('✨ All Soft Dark Souls repo cards regenerated with supreme elegance!');
