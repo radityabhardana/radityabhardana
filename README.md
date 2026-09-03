@@ -88,6 +88,11 @@ Software developer and automation engineer focused on building resilient backend
 
 <div align="center">
 
+<!-- GitHub Daily Contribution Heatmap Calendar (53 Weeks x 7 Days) -->
+<img src="./assets/scenes/contribution-grid.svg" width="100%" alt="GitHub Daily Contribution Heatmap Grid — radityabhardana"/>
+
+<br/><br/>
+
 <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=radityabhardana&show_icons=true&bg_color=0d0d0d&border_color=3a2f1f&title_color=c9a876&text_color=cfcfcf&icon_color=f4a742" width="49%" alt="GitHub statistics"/>
 <img src="https://streak-stats.demolab.com/?user=radityabhardana&background=0d0d0d&border=3a2f1f&stroke=c9a876&ring=f4a742&fire=6e0d0d&currStreakLabel=c9a876&currStreakNum=f4a742&sideNums=f4a742&sideLabels=cfcfcf&dates=cfcfcf" width="49%" alt="GitHub streak"/>
 
