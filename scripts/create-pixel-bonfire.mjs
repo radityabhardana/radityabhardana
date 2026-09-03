@@ -1,8 +1,8 @@
 /**
  * scripts/create-pixel-bonfire.mjs
  * Generates an authentic 100% pure pixel-art Dark Souls Bonfire SVG.
- * Strictly orthogonal pixel rects (shape-rendering="crispEdges"),
- * pixel dithering, pixel skulls, coiled spiral sword, and 4-frame retro flame.
+ * The Coiled Sword is rendered in FRONT of the flames so its spiral blade,
+ * crossguard, and silhouette are 100% clear and never obscured!
  */
 
 import { writeFileSync } from 'node:fs';
@@ -43,9 +43,9 @@ const C = {
   emberGold: '#ffb703',
   emberWhite: '#fff8db',
 
-  swordDark: '#2b2723',
-  swordSteel: '#6b6359',
-  swordHi: '#a89e90',
+  swordDark: '#1f1a16',
+  swordSteel: '#544b42',
+  swordHi: '#9c9182',
   swordGold: '#c9a876',
 };
 
@@ -80,51 +80,55 @@ const SKULL_MAP = [
 ];
 const SKULL_PAL = { W: C.boneWhite, S: C.boneShadow, K: C.ashDark };
 
-// 2. Coiled Sword Matrix (18 cols x 42 rows)
-// Placed at center col 51, row 18
+// 2. Coiled Sword Matrix (16 cols x 46 rows)
+// Perfectly centered at Col 52 (center Col 60), starting at Row 16
 const SWORD_MAP = [
-  '........GG........',
-  '.......GssG.......',
-  '.......GssG.......',
-  '........GG........',
-  '........SS........',
-  '........SS........',
-  '........SS........',
-  '.....GGGGGGGG.....',
-  '...GGGHHssssHHGGG.',
-  '....GGGGGGGGGG....',
-  '........HH........',
-  '.......SSSS.......',
-  '......SSSSSH......',
-  '.....SSSSH........',
-  '.....SSSHH........',
-  '......SSSSH.......',
-  '.......SSSSH......',
-  '........SSSH......',
-  '.........SSSH.....',
-  '..........SSSH....',
-  '..........SSSS....',
-  '.........SSSSH....',
-  '........SSSH......',
-  '.......SSSSH......',
-  '......SSSSSH......',
-  '.....SSSSH........',
-  '.....SSSH.........',
-  '......SSSH........',
-  '.......SSSH.......',
-  '........SSSH......',
-  '.........SSSH.....',
-  '..........SSSH....',
-  '..........RRRR....',
-  '.........RRROO....',
-  '........RRROOO....',
-  '.......RRROOOO....',
-  '......RRROOOOO....',
-  '......RROOOYYO....',
-  '......RROOYYYY....',
-  '.......ROOYYWW....',
-  '........OOYYWW....',
-  '.........OYYWW....',
+  '.......GG.......', // Row 16: Pommel ring
+  '......GssG......',
+  '......GssG......',
+  '.......GG.......',
+  '.......SS.......', // Row 20: Hilt
+  '.......SS.......',
+  '.......SS.......',
+  '....GGGGGGGG....', // Row 23: Guard
+  '..GGssHHssHHssGG',
+  '...GGGGGGGGGG...',
+  '.......HH.......', // Row 26: Spiral blade begins
+  '......SSSS......',
+  '.....SSSSSH.....', // Twist left
+  '....SSSSH.......',
+  '....SSSHH.......',
+  '.....SSSSH......',
+  '......SSSSH.....',
+  '.......SSSH.....', // Center
+  '........SSSH....', // Twist right
+  '.........SSSH...',
+  '.........SSSS...',
+  '........SSSSH...',
+  '.......SSSH.....', // Center
+  '......SSSSH.....', // Twist left
+  '.....SSSSSH.....',
+  '....SSSSH.......',
+  '....SSSH........',
+  '.....SSSH.......',
+  '......SSSH......', // Center
+  '.......SSSH.....', // Twist right
+  '........SSSH....',
+  '.........SSSH...',
+  '.........RRRR...', // Heating up into molten blade
+  '........RRROO...',
+  '.......RRROOO...',
+  '......RRROOOO...', // Twist left
+  '.....RRROOOOO...',
+  '.....RROOOYYO...',
+  '.....RROOYYYY...',
+  '......ROOYYWW...', // White-hot molten core buried in ash
+  '.......OOYYWW...',
+  '........OYYWW...',
+  '.........YYWW...',
+  '..........YWW...',
+  '...........WW...',
+  '............W...',
 ];
 const SWORD_PAL = {
   G: C.swordGold,
@@ -137,8 +141,8 @@ const SWORD_PAL = {
   W: C.emberWhite,
 };
 
-// 3. Flame Frames (24 cols x 32 rows)
-// Placed at center col 48, row 28
+// 3. Flame Frames (32 cols x 36 rows)
+// Positioned at Col 44, Row 24 (Flaring behind & beside the sword)
 const FLAME_PAL = {
   R: C.emberRed,
   O: C.emberOrange,
@@ -147,149 +151,164 @@ const FLAME_PAL = {
 };
 
 const FLAME_1 = [
-  '...........RR...........',
-  '..........RROO..........',
-  '.........RROOOO.........',
-  '.........ROOYYOO........',
-  '........ROOYYYYOO.......',
-  '........ROOYYWWYYO......',
-  '.......ROOYYWWWWYYO.....',
-  '......RROYYWWWWWWYYO....',
-  '.....RROYYWWWWWWWWYYO...',
-  '....RROOYYWWWWWWWWYYOO..',
-  '...RROOYYYYWWWWWWYYYYOO.',
-  '...ROOYYYYYYWWWWYYYYYYO.',
-  '..ROOYYYYYYYWWWWYYYYYYO.',
-  '..ROYYYYYYYYWWWWYYYYYYO.',
-  '..ROYYYYYYYYWWWWYYYYYYO.',
-  '..ROYYYYYYWWWWWWYYYYYYO.',
-  '...ROYYYYWWWWWWWWYYYYO..',
-  '...RROYYWWWWWWWWWWYYO...',
-  '....ROYYWWWWWWWWWWYYO...',
-  '....ROOYYWWWWWWWWYYOO...',
-  '.....ROOYYWWWWWWYYOO....',
-  '.....RROOYYYYYYYYOO.....',
-  '......RROOYYYYYYOO......',
-  '.......RROOOOOOOO.......',
-  '........RROOOOOO........',
-  '.........RROOOO.........',
-  '..........RROO..........',
-  '...........RR...........',
-  '........................',
-  '........................',
-  '........................',
-  '........................',
+  '...............RR...............',
+  '.............RROORR.............',
+  '............RROOOOORR...........',
+  '...........ROOYYYYYOOR..........',
+  '..........ROOYYYYYYYOOR.........',
+  '.........ROOYYWWWWYYYOOR........',
+  '........ROOYYWWWWWWYYYOOR.......',
+  '.......RROYYWWWWWWWWYYOOR.......',
+  '......RROYYWWWWWWWWWWYYOOR......',
+  '.....RROOYYWWWWWWWWWWYYOOOR.....',
+  '....RROOYYYYWWWWWWWWYYYYOOOR....',
+  '...RROOYYYYYYWWWWWWYYYYYYOOOR...',
+  '..RROOYYYYYYYWWWWWWYYYYYYYOOOR..',
+  '..ROOYYYYYYYYWWWWWWYYYYYYYYOOR..',
+  '..ROYYYYYYYYYWWWWWWYYYYYYYYYOR..',
+  '..ROYYYYYYYYYWWWWWWYYYYYYYYYOR..',
+  '..ROOYYYYYYYYWWWWWWYYYYYYYYOOR..',
+  '...ROOYYYYYYYWWWWWWYYYYYYYOOOR..',
+  '...RROOYYYYYYWWWWWWYYYYYYOOOR...',
+  '....RROOYYYYYWWWWWWYYYYYOOOR....',
+  '.....RROOYYYYWWWWWWYYYYOOOR.....',
+  '......RROOYYYWWWWWWYYYOOOR......',
+  '.......RROOYYWWWWWWYYOOOR.......',
+  '........RROOYYYYYYYYOOOR........',
+  '.........RROOYYYYYYOOOR.........',
+  '..........RROOOOOOOOOR..........',
+  '...........RROOOOOOOR...........',
+  '............RROOOOOR............',
+  '.............RROOOR.............',
+  '..............RRR...............',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
 ];
 
 const FLAME_2 = [
-  '.........RR.............',
-  '........RROO............',
-  '.......RROOOO...........',
-  '.......ROOYYOO..........',
-  '......ROOYYYYOO.........',
-  '......ROOYYWWYYO........',
-  '.....ROOYYWWWWYYO.......',
-  '....RROYYWWWWWWYYO......',
-  '...RROYYWWWWWWWWYYO.....',
-  '..RROOYYWWWWWWWWYYOO....',
-  '..ROOYYYYWWWWWWYYYYOO...',
-  '.ROOYYYYYYWWWWYYYYYYO...',
-  '.ROOYYYYYYYWWWWYYYYYYO..',
-  '.ROYYYYYYYYWWWWYYYYYYO..',
-  '..ROYYYYYYYYWWWWYYYYYYO.',
-  '..ROYYYYYYWWWWWWYYYYYYO.',
-  '...ROYYYYWWWWWWWWYYYYO..',
-  '....ROYYWWWWWWWWWWYYO...',
-  '....ROYYWWWWWWWWWWYYO...',
-  '.....ROOYYWWWWWWWWYYOO..',
-  '.....ROOYYWWWWWWYYOO....',
-  '......RROOYYYYYYYYOO....',
-  '.......RROOYYYYYYOO.....',
-  '........RROOOOOOOO......',
-  '.........RROOOOOO.......',
-  '..........RROOOO........',
-  '...........RROO.........',
-  '............RR..........',
-  '........................',
-  '........................',
-  '........................',
-  '........................',
+  '.............RR.................',
+  '...........RROORR...............',
+  '..........RROOOOORR.............',
+  '.........ROOYYYYYOOR............',
+  '........ROOYYYYYYYOOR...........',
+  '.......ROOYYWWWWYYYOOR..........',
+  '......ROOYYWWWWWWYYYOOR.........',
+  '.....RROYYWWWWWWWWYYOOR.........',
+  '....RROYYWWWWWWWWWWYYOOR........',
+  '...RROOYYWWWWWWWWWWYYOOOR.......',
+  '..RROOYYYYWWWWWWWWYYYYOOOR......',
+  '..ROOYYYYYYWWWWWWYYYYYYOOOR.....',
+  '.ROOYYYYYYYWWWWWWYYYYYYYOOOR....',
+  '.ROYYYYYYYYWWWWWWYYYYYYYYOOR....',
+  '.ROYYYYYYYYYWWWWWWYYYYYYYYOR....',
+  '..ROYYYYYYYYWWWWWWYYYYYYYYOR....',
+  '..ROOYYYYYYYWWWWWWYYYYYYYOOR....',
+  '...ROOYYYYYYWWWWWWYYYYYYOOOR....',
+  '....RROOYYYYWWWWWWYYYYYOOOR.....',
+  '.....RROOYYYWWWWWWYYYYOOOR......',
+  '......RROOYYWWWWWWYYYOOOR.......',
+  '.......RROOYYWWWWWWYYOOOR.......',
+  '........RROOYYYYYYYYOOOR........',
+  '.........RROOYYYYYYOOOR.........',
+  '..........RROOOOOOOOOR..........',
+  '...........RROOOOOOOR...........',
+  '............RROOOOOR............',
+  '.............RROOOR.............',
+  '..............RRR...............',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
 ];
 
 const FLAME_3 = [
-  '............RR..........',
-  '...........RROO.........',
-  '..........RROOOO........',
-  '..........ROOYYOO.......',
-  '.........ROOYYYYOO......',
-  '.........ROOYYWWYYO.....',
-  '........ROOYYWWWWYYO....',
-  '.......RROYYWWWWWWYYO...',
-  '......RROYYWWWWWWWWYYO..',
-  '.....RROOYYWWWWWWWWYYOO.',
-  '....RROOYYYYWWWWWWYYYYOO',
-  '....ROOYYYYYYWWWWYYYYYYO',
-  '....ROOYYYYYYYWWWWYYYYYY',
-  '....ROYYYYYYYYWWWWYYYYYY',
-  '....ROYYYYYYYYWWWWYYYYYY',
-  '....ROYYYYYYWWWWWWYYYYYY',
-  '.....ROYYYYWWWWWWWWYYYYO',
-  '.....RROYYWWWWWWWWWWYYO.',
-  '......ROYYWWWWWWWWWWYYO.',
-  '......ROOYYWWWWWWWWYYOO.',
-  '.......ROOYYWWWWWWYYOO..',
-  '.......RROOYYYYYYYYOO...',
-  '........RROOYYYYYYOO....',
-  '.........RROOOOOOOO.....',
-  '..........RROOOOOO......',
-  '...........RROOOO.......',
-  '............RROO........',
-  '.............RR.........',
-  '........................',
-  '........................',
-  '........................',
-  '........................',
+  '................RR..............',
+  '...............RROORR...........',
+  '..............RROOOOORR.........',
+  '.............ROOYYYYYOOR........',
+  '............ROOYYYYYYYOOR.......',
+  '...........ROOYYWWWWYYYOOR......',
+  '..........ROOYYWWWWWWYYYOOR.....',
+  '.........RROYYWWWWWWWWYYOOR.....',
+  '........RROYYWWWWWWWWWWYYOOR....',
+  '.......RROOYYWWWWWWWWWWYYOOOR...',
+  '......RROOYYYYWWWWWWWWYYYYOOOR..',
+  '.....RROOYYYYYYWWWWWWYYYYYYOOOR.',
+  '....RROOYYYYYYYWWWWWWYYYYYYYOOOR',
+  '....ROOYYYYYYYYWWWWWWYYYYYYYYOOR',
+  '....ROYYYYYYYYYWWWWWWYYYYYYYYYOR',
+  '....ROYYYYYYYYYWWWWWWYYYYYYYYYOR',
+  '.....ROOYYYYYYYWWWWWWYYYYYYYOOOR',
+  '.....RROOYYYYYYWWWWWWYYYYYYOOOR.',
+  '......RROOYYYYYWWWWWWYYYYYOOOR..',
+  '.......RROOYYYYWWWWWWYYYYOOOR...',
+  '........RROOYYYWWWWWWYYYOOOR....',
+  '.........RROOYYWWWWWWYYOOOR.....',
+  '..........RROOYYYYYYYYOOOR......',
+  '...........RROOYYYYYYOOOR.......',
+  '............RROOOOOOOOOR........',
+  '.............RROOOOOOOR.........',
+  '..............RROOOOOR..........',
+  '...............RROOOR...........',
+  '................RRR.............',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
 ];
 
 const FLAME_4 = [
-  '...........RR...........',
-  '..........RROO..........',
-  '.........RROOOO.........',
-  '........RROOYYOO........',
-  '.......ROOYYYYYYOO......',
-  '......ROOYYWWWWYYOO.....',
-  '.....ROOYYWWWWWWYYOO....',
-  '....RROYYWWWWWWWWYYO....',
-  '....RROYYWWWWWWWWYYO....',
-  '...RROOYYWWWWWWWWYYOO...',
-  '..RROOYYYYWWWWWWYYYYOO..',
-  '..ROOYYYYYYWWWWYYYYYYO..',
-  '..ROOYYYYYYYWWWWYYYYYYO.',
-  '..ROYYYYYYYYWWWWYYYYYYO.',
-  '..ROYYYYYYYYWWWWYYYYYYO.',
-  '..ROYYYYYYWWWWWWYYYYYYO.',
-  '...ROYYYYWWWWWWWWYYYYO..',
-  '...RROYYWWWWWWWWWWYYO...',
-  '....ROYYWWWWWWWWWWYYO...',
-  '....ROOYYWWWWWWWWYYOO...',
-  '.....ROOYYWWWWWWYYOO....',
-  '.....RROOYYYYYYYYOO.....',
-  '......RROOYYYYYYOO......',
-  '.......RROOOOOOOO.......',
-  '........RROOOOOO........',
-  '.........RROOOO.........',
-  '..........RROO..........',
-  '...........RR...........',
-  '........................',
-  '........................',
-  '........................',
-  '........................',
+  '...............RR...............',
+  '.............RROORR.............',
+  '............RROOOOORR...........',
+  '...........RROYYYYYOORR.........',
+  '..........ROOYYYYYYYYOOR........',
+  '.........ROOYYWWWWWWYYOOR.......',
+  '........ROOYYWWWWWWWWYYOOR......',
+  '.......RROYYWWWWWWWWWWYYOOR.....',
+  '......RROYYWWWWWWWWWWWWYYOOR....',
+  '.....RROOYYWWWWWWWWWWWWYYOOOR...',
+  '....RROOYYYYWWWWWWWWWWYYYYOOOR..',
+  '...RROOYYYYYYWWWWWWWWYYYYYYOOOR.',
+  '..RROOYYYYYYYWWWWWWWWYYYYYYYOOOR',
+  '..ROOYYYYYYYYWWWWWWWWYYYYYYYYOOR',
+  '..ROYYYYYYYYYWWWWWWWWYYYYYYYYYOR',
+  '..ROYYYYYYYYYWWWWWWWWYYYYYYYYYOR',
+  '..ROOYYYYYYYYWWWWWWWWYYYYYYYYOOR',
+  '...ROOYYYYYYYWWWWWWWWYYYYYYYOOOR',
+  '...RROOYYYYYYWWWWWWWWYYYYYYOOOR.',
+  '....RROOYYYYYWWWWWWWWYYYYYOOOR..',
+  '.....RROOYYYYWWWWWWWWYYYYOOOR...',
+  '......RROOYYYWWWWWWWWYYYOOOR....',
+  '.......RROOYYWWWWWWWWYYOOOR.....',
+  '........RROOYYYYYYYYYYOOOR......',
+  '.........RROOYYYYYYYYOOOR.......',
+  '..........RROOOOOOOOOOOR........',
+  '...........RROOOOOOOOOR.........',
+  '............RROOOOOOOR..........',
+  '.............RROOOOOR...........',
+  '..............RROOOR............',
+  '...............RRR..............',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
+  '................................',
 ];
 
 // Build Ash Mound pixel blocks
 function generateAshMound() {
   const rects = [];
-  // Tiered layers centered around col 60, rows 58 to 68
   const tiers = [
     { r: 58, cStart: 50, width: 20, fill: C.ashLight },
     { r: 59, cStart: 46, width: 28, fill: C.ashHi },
@@ -332,11 +351,24 @@ function generateAshMound() {
   return rects.join('');
 }
 
+// Small foreground coal licks at the base of the sword
+function generateForegroundEmbers() {
+  const embers = [
+    [54, 59, 2, C.emberGold],
+    [63, 59, 2, C.emberGold],
+    [56, 60, 3, C.emberOrange],
+    [61, 60, 3, C.emberOrange],
+    [58, 61, 4, C.emberGold],
+  ];
+  return embers.map(([c, r, w, fill]) =>
+    `<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${fill}"/>`
+  ).join('');
+}
+
 // Generate Dither Pattern for Pixel Ambient Glow
 function generateDitherRings() {
   const rects = [];
   const cx = 60, cy = 52;
-  // Checkerboard dither pixels in concentric rings
   for (let r = 24; r < 76; r += 2) {
     for (let c = 20; c < 100; c += 2) {
       const dx = (c - cx);
@@ -358,11 +390,9 @@ function generateDitherRings() {
 // Generate Pavement
 function generatePavement() {
   const lines = [];
-  // Horizontal stone rows
   for (let r = 66; r < ROWS; r += 5) {
     lines.push(`<rect x="0" y="${r * S}" width="${W}" height="${S}" fill="${C.stoneSeam}"/>`);
   }
-  // Vertical stone offsets
   const vSeams = [
     [15, 66, 5], [45, 66, 5], [75, 66, 5], [105, 66, 5],
     [30, 71, 5], [60, 71, 5], [90, 71, 5],
@@ -377,14 +407,14 @@ function generatePavement() {
 // Generate Embers (Sparks)
 function generatePixelEmbers() {
   const embers = [
-    { cls: 'e1', col: 58, row: 44, dur: '2.8s', dly: '0s' },
-    { cls: 'e2', col: 62, row: 40, dur: '3.4s', dly: '0.4s' },
-    { cls: 'e3', col: 55, row: 36, dur: '2.5s', dly: '0.9s' },
-    { cls: 'e4', col: 64, row: 32, dur: '3.8s', dly: '1.3s' },
-    { cls: 'e1', col: 59, row: 28, dur: '3.1s', dly: '1.8s' },
-    { cls: 'e2', col: 57, row: 24, dur: '2.9s', dly: '2.2s' },
-    { cls: 'e3', col: 63, row: 22, dur: '3.6s', dly: '0.7s' },
-    { cls: 'e4', col: 60, row: 18, dur: '4.0s', dly: '1.5s' },
+    { cls: 'e1', col: 56, row: 44, dur: '2.8s', dly: '0s' },
+    { cls: 'e2', col: 64, row: 40, dur: '3.4s', dly: '0.4s' },
+    { cls: 'e3', col: 53, row: 36, dur: '2.5s', dly: '0.9s' },
+    { cls: 'e4', col: 67, row: 32, dur: '3.8s', dly: '1.3s' },
+    { cls: 'e1', col: 58, row: 28, dur: '3.1s', dly: '1.8s' },
+    { cls: 'e2', col: 55, row: 24, dur: '2.9s', dly: '2.2s' },
+    { cls: 'e3', col: 65, row: 22, dur: '3.6s', dly: '0.7s' },
+    { cls: 'e4', col: 62, row: 18, dur: '4.0s', dly: '1.5s' },
   ];
   return embers.map(e =>
     `<rect class="${e.cls}" x="${e.col * S}" y="${e.row * S}" width="${S}" height="${S}" fill="${C.emberGold}" style="animation-duration:${e.dur};animation-delay:${e.dly};"/>`
@@ -468,20 +498,23 @@ ${css}
   <!-- Ash Mound with Buried Logs and Skulls -->
   ${generateAshMound()}
 
-  <!-- Left Skull (Col 37, Row 61) -->
+  <!-- Left Skull (Col 36, Row 61) -->
   ${parseMatrix(SKULL_MAP, SKULL_PAL, 36, 61)}
 
   <!-- Right Skull (Col 74, Row 62) -->
   ${parseMatrix(SKULL_MAP, SKULL_PAL, 74, 62)}
 
-  <!-- Coiled Sword (Col 51, Row 18) -->
-  ${parseMatrix(SWORD_MAP, SWORD_PAL, 51, 18)}
+  <!-- 1. 4-Frame Dancing Pixel Flame (BEHIND THE SWORD!) -->
+  <g class="fA">${parseMatrix(FLAME_1, FLAME_PAL, 44, 24)}</g>
+  <g class="fB">${parseMatrix(FLAME_2, FLAME_PAL, 44, 24)}</g>
+  <g class="fC">${parseMatrix(FLAME_3, FLAME_PAL, 44, 24)}</g>
+  <g class="fD">${parseMatrix(FLAME_4, FLAME_PAL, 44, 24)}</g>
 
-  <!-- 4-Frame Dancing Pixel Flame (Col 48, Row 24) -->
-  <g class="fA">${parseMatrix(FLAME_1, FLAME_PAL, 48, 24)}</g>
-  <g class="fB">${parseMatrix(FLAME_2, FLAME_PAL, 48, 24)}</g>
-  <g class="fC">${parseMatrix(FLAME_3, FLAME_PAL, 48, 24)}</g>
-  <g class="fD">${parseMatrix(FLAME_4, FLAME_PAL, 48, 24)}</g>
+  <!-- 2. Coiled Sword (IN FRONT OF FLAMES - 100% CRISP & VISIBLE!) -->
+  ${parseMatrix(SWORD_MAP, SWORD_PAL, 52, 16)}
+
+  <!-- 3. Foreground Ash Embers & Licking Coals at Base -->
+  ${generateForegroundEmbers()}
 
   <!-- Stepped Pixel Embers Floating Skyward -->
   ${generatePixelEmbers()}
@@ -497,4 +530,4 @@ ${css}
 `;
 
 writeFileSync(OUT_FILE, svgContent, 'utf-8');
-console.log('✨ Generated authentic 100% pixel-art bonfire.svg successfully!');
+console.log('✨ Generated authentic 100% pixel-art bonfire.svg with sword in foreground!');
