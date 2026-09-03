@@ -1,96 +1,103 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="150" viewBox="0 0 900 150">
+<svg xmlns="http://www.w3.org/2000/svg" width="890" height="150" viewBox="0 0 890 150" shape-rendering="crispEdges">
   <title>Spectre Terminal — Flagship Repository</title>
-  <defs>
-    <linearGradient id="heroBg" x1="0" y1="0" x2="0" y2="100%">
-      <stop offset="0%" stop-color="#161b22"/>
-      <stop offset="100%" stop-color="#0d1117"/>
-    </linearGradient>
-    <linearGradient id="heroTopGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#c9a876" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#e3b341" stop-opacity="0.8"/>
-      <stop offset="75%" stop-color="#c9a876" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
 
   <style>
-    .h-title {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
+    .h-pixel-title {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 13.5px;
+      letter-spacing: 0.8px;
       fill: #f0f6fc;
     }
-    .h-flag {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 10px;
-      font-weight: 600;
+    .h-pixel-badge {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 8px;
       letter-spacing: 1px;
       fill: #e3b341;
     }
-    .h-repo {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11.5px;
-      fill: #8b949e;
-    }
-    .h-desc {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      line-height: 1.5;
-      fill: #c9d1d9;
-    }
-    .h-meta {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    .h-pixel-repo {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
       font-size: 11px;
       fill: #8b949e;
     }
-    .h-link {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    .h-pixel-desc {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
       font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
+      line-height: 1.5;
+      fill: #c9d1d9;
+    }
+    .h-pixel-meta {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 10.5px;
+      fill: #8b949e;
+    }
+    .h-pixel-link {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
       fill: #e3b341;
     }
   </style>
 
-  <rect x="1" y="1" width="898" height="148" rx="6" fill="url(#heroBg)"/>
-  <rect x="1" y="1" width="898" height="148" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
-  <line x1="30" y1="1.5" x2="870" y2="1.5" stroke="url(#heroTopGlow)" stroke-width="2"/>
-
-  <!-- Left Sigil (46x46) -->
-  <g transform="translate(24, 20)">
-    <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-    
-    <circle cx="23" cy="23" r="15" fill="none" stroke="#30363d" stroke-width="1.2"/>
-    <path d="M9 23 C14 14, 32 14, 37 23 C32 32, 14 32, 9 23 Z" fill="none" stroke="#c9a876" stroke-width="1.5"/>
-    <circle cx="23" cy="23" r="5.5" fill="#0d1117" stroke="#e3b341" stroke-width="1.3"/>
-    <circle cx="23" cy="23" r="2" fill="#ffffff"/>
-    <line x1="5" y1="23" x2="8" y2="23" stroke="#c9a876" stroke-width="1.5"/>
-    <line x1="38" y1="23" x2="41" y2="23" stroke="#c9a876" stroke-width="1.5"/>
+  <!-- Pixel Stone Frame -->
   
-  </g>
+    <!-- Stone Base -->
+    <rect x="0" y="0" width="890" height="150" fill="#111418"/>
+    <!-- Outer Charcoal Stepped Outline -->
+    <rect x="0" y="0" width="890" height="150" fill="none" stroke="#262c35" stroke-width="2"/>
+    <!-- Inner Dark Inset -->
+    <rect x="3" y="3" width="884" height="144" fill="none" stroke="#181c22" stroke-width="1"/>
+    <!-- Antique Gold Pixel Corner Rivets (4 Corners) -->
+    <!-- Top-Left -->
+    <rect x="2" y="2" width="3" height="3" fill="#c9a876"/>
+    <rect x="5" y="2" width="2" height="2" fill="#8a6833"/>
+    <rect x="2" y="5" width="2" height="2" fill="#8a6833"/>
+    <!-- Top-Right -->
+    <rect x="885" y="2" width="3" height="3" fill="#c9a876"/>
+    <rect x="883" y="2" width="2" height="2" fill="#8a6833"/>
+    <rect x="885" y="5" width="2" height="2" fill="#8a6833"/>
+    <!-- Bottom-Left -->
+    <rect x="2" y="145" width="3" height="3" fill="#c9a876"/>
+    <rect x="5" y="146" width="2" height="2" fill="#8a6833"/>
+    <rect x="2" y="143" width="2" height="2" fill="#8a6833"/>
+    <!-- Bottom-Right -->
+    <rect x="885" y="145" width="3" height="3" fill="#c9a876"/>
+    <rect x="883" y="146" width="2" height="2" fill="#8a6833"/>
+    <rect x="885" y="143" width="2" height="2" fill="#8a6833"/>
+    <!-- Top Pixel Shimmer Accent Line -->
+    <rect x="14" y="1" width="862" height="1" fill="#4d3a1f"/>
+    <rect x="405" y="1" width="80" height="1" fill="#c9a876"/>
+    <rect x="435" y="1" width="20" height="1" fill="#fff5cc"/>
+  
+
+  <!-- Left Pixel Relic Alcove (48x48) -->
+  <rect x="20" y="18" width="48" height="48" fill="#090c10"/>
+  <rect x="20" y="18" width="48" height="48" fill="none" stroke="#212730" stroke-width="1"/>
+  <rect x="21" y="19" width="46" height="46" fill="none" stroke="#161a20" stroke-width="1"/>
+  <!-- 16x16 Pixel Relic Sprite (scaled by 2 -> 32x32 centered at x=28, y=26) -->
+  <rect x="40" y="26" width="2" height="2" fill="#a67d32"/><rect x="42" y="26" width="2" height="2" fill="#a67d32"/><rect x="44" y="26" width="2" height="2" fill="#a67d32"/><rect x="46" y="26" width="2" height="2" fill="#a67d32"/><rect x="36" y="28" width="2" height="2" fill="#a67d32"/><rect x="38" y="28" width="2" height="2" fill="#a67d32"/><rect x="40" y="28" width="2" height="2" fill="#e5b642"/><rect x="42" y="28" width="2" height="2" fill="#e5b642"/><rect x="44" y="28" width="2" height="2" fill="#e5b642"/><rect x="46" y="28" width="2" height="2" fill="#e5b642"/><rect x="48" y="28" width="2" height="2" fill="#a67d32"/><rect x="50" y="28" width="2" height="2" fill="#a67d32"/><rect x="32" y="30" width="2" height="2" fill="#a67d32"/><rect x="34" y="30" width="2" height="2" fill="#a67d32"/><rect x="36" y="30" width="2" height="2" fill="#e5b642"/><rect x="38" y="30" width="2" height="2" fill="#e5b642"/><rect x="40" y="30" width="2" height="2" fill="#fff5cc"/><rect x="42" y="30" width="2" height="2" fill="#fff5cc"/><rect x="44" y="30" width="2" height="2" fill="#fff5cc"/><rect x="46" y="30" width="2" height="2" fill="#fff5cc"/><rect x="48" y="30" width="2" height="2" fill="#e5b642"/><rect x="50" y="30" width="2" height="2" fill="#e5b642"/><rect x="52" y="30" width="2" height="2" fill="#a67d32"/><rect x="54" y="30" width="2" height="2" fill="#a67d32"/><rect x="30" y="32" width="2" height="2" fill="#a67d32"/><rect x="32" y="32" width="2" height="2" fill="#e5b642"/><rect x="34" y="32" width="2" height="2" fill="#e5b642"/><rect x="36" y="32" width="2" height="2" fill="#fff5cc"/><rect x="38" y="32" width="2" height="2" fill="#fff5cc"/><rect x="40" y="32" width="2" height="2" fill="#0a0d12"/><rect x="42" y="32" width="2" height="2" fill="#0a0d12"/><rect x="44" y="32" width="2" height="2" fill="#0a0d12"/><rect x="46" y="32" width="2" height="2" fill="#0a0d12"/><rect x="48" y="32" width="2" height="2" fill="#fff5cc"/><rect x="50" y="32" width="2" height="2" fill="#fff5cc"/><rect x="52" y="32" width="2" height="2" fill="#e5b642"/><rect x="54" y="32" width="2" height="2" fill="#e5b642"/><rect x="56" y="32" width="2" height="2" fill="#a67d32"/><rect x="30" y="34" width="2" height="2" fill="#a67d32"/><rect x="32" y="34" width="2" height="2" fill="#e5b642"/><rect x="34" y="34" width="2" height="2" fill="#e5b642"/><rect x="36" y="34" width="2" height="2" fill="#fff5cc"/><rect x="38" y="34" width="2" height="2" fill="#0a0d12"/><rect x="40" y="34" width="2" height="2" fill="#22608a"/><rect x="42" y="34" width="2" height="2" fill="#22608a"/><rect x="44" y="34" width="2" height="2" fill="#22608a"/><rect x="46" y="34" width="2" height="2" fill="#22608a"/><rect x="48" y="34" width="2" height="2" fill="#0a0d12"/><rect x="50" y="34" width="2" height="2" fill="#fff5cc"/><rect x="52" y="34" width="2" height="2" fill="#fff5cc"/><rect x="54" y="34" width="2" height="2" fill="#e5b642"/><rect x="56" y="34" width="2" height="2" fill="#a67d32"/><rect x="28" y="36" width="2" height="2" fill="#a67d32"/><rect x="30" y="36" width="2" height="2" fill="#e5b642"/><rect x="32" y="36" width="2" height="2" fill="#e5b642"/><rect x="34" y="36" width="2" height="2" fill="#fff5cc"/><rect x="36" y="36" width="2" height="2" fill="#0a0d12"/><rect x="38" y="36" width="2" height="2" fill="#22608a"/><rect x="40" y="36" width="2" height="2" fill="#4ea4d9"/><rect x="42" y="36" width="2" height="2" fill="#4ea4d9"/><rect x="44" y="36" width="2" height="2" fill="#4ea4d9"/><rect x="46" y="36" width="2" height="2" fill="#4ea4d9"/><rect x="48" y="36" width="2" height="2" fill="#22608a"/><rect x="50" y="36" width="2" height="2" fill="#0a0d12"/><rect x="52" y="36" width="2" height="2" fill="#fff5cc"/><rect x="54" y="36" width="2" height="2" fill="#fff5cc"/><rect x="56" y="36" width="2" height="2" fill="#e5b642"/><rect x="58" y="36" width="2" height="2" fill="#a67d32"/><rect x="28" y="38" width="2" height="2" fill="#a67d32"/><rect x="30" y="38" width="2" height="2" fill="#e5b642"/><rect x="32" y="38" width="2" height="2" fill="#e5b642"/><rect x="34" y="38" width="2" height="2" fill="#fff5cc"/><rect x="36" y="38" width="2" height="2" fill="#0a0d12"/><rect x="38" y="38" width="2" height="2" fill="#22608a"/><rect x="40" y="38" width="2" height="2" fill="#4ea4d9"/><rect x="42" y="38" width="2" height="2" fill="#fff5cc"/><rect x="44" y="38" width="2" height="2" fill="#fff5cc"/><rect x="46" y="38" width="2" height="2" fill="#4ea4d9"/><rect x="48" y="38" width="2" height="2" fill="#22608a"/><rect x="50" y="38" width="2" height="2" fill="#0a0d12"/><rect x="52" y="38" width="2" height="2" fill="#fff5cc"/><rect x="54" y="38" width="2" height="2" fill="#fff5cc"/><rect x="56" y="38" width="2" height="2" fill="#e5b642"/><rect x="58" y="38" width="2" height="2" fill="#a67d32"/><rect x="28" y="40" width="2" height="2" fill="#a67d32"/><rect x="30" y="40" width="2" height="2" fill="#e5b642"/><rect x="32" y="40" width="2" height="2" fill="#e5b642"/><rect x="34" y="40" width="2" height="2" fill="#fff5cc"/><rect x="36" y="40" width="2" height="2" fill="#0a0d12"/><rect x="38" y="40" width="2" height="2" fill="#22608a"/><rect x="40" y="40" width="2" height="2" fill="#4ea4d9"/><rect x="42" y="40" width="2" height="2" fill="#fff5cc"/><rect x="44" y="40" width="2" height="2" fill="#fff5cc"/><rect x="46" y="40" width="2" height="2" fill="#4ea4d9"/><rect x="48" y="40" width="2" height="2" fill="#22608a"/><rect x="50" y="40" width="2" height="2" fill="#0a0d12"/><rect x="52" y="40" width="2" height="2" fill="#fff5cc"/><rect x="54" y="40" width="2" height="2" fill="#fff5cc"/><rect x="56" y="40" width="2" height="2" fill="#e5b642"/><rect x="58" y="40" width="2" height="2" fill="#a67d32"/><rect x="28" y="42" width="2" height="2" fill="#a67d32"/><rect x="30" y="42" width="2" height="2" fill="#e5b642"/><rect x="32" y="42" width="2" height="2" fill="#e5b642"/><rect x="34" y="42" width="2" height="2" fill="#fff5cc"/><rect x="36" y="42" width="2" height="2" fill="#0a0d12"/><rect x="38" y="42" width="2" height="2" fill="#22608a"/><rect x="40" y="42" width="2" height="2" fill="#4ea4d9"/><rect x="42" y="42" width="2" height="2" fill="#4ea4d9"/><rect x="44" y="42" width="2" height="2" fill="#4ea4d9"/><rect x="46" y="42" width="2" height="2" fill="#4ea4d9"/><rect x="48" y="42" width="2" height="2" fill="#22608a"/><rect x="50" y="42" width="2" height="2" fill="#0a0d12"/><rect x="52" y="42" width="2" height="2" fill="#fff5cc"/><rect x="54" y="42" width="2" height="2" fill="#fff5cc"/><rect x="56" y="42" width="2" height="2" fill="#e5b642"/><rect x="58" y="42" width="2" height="2" fill="#a67d32"/><rect x="30" y="44" width="2" height="2" fill="#a67d32"/><rect x="32" y="44" width="2" height="2" fill="#e5b642"/><rect x="34" y="44" width="2" height="2" fill="#e5b642"/><rect x="36" y="44" width="2" height="2" fill="#fff5cc"/><rect x="38" y="44" width="2" height="2" fill="#0a0d12"/><rect x="40" y="44" width="2" height="2" fill="#22608a"/><rect x="42" y="44" width="2" height="2" fill="#22608a"/><rect x="44" y="44" width="2" height="2" fill="#22608a"/><rect x="46" y="44" width="2" height="2" fill="#22608a"/><rect x="48" y="44" width="2" height="2" fill="#0a0d12"/><rect x="50" y="44" width="2" height="2" fill="#fff5cc"/><rect x="52" y="44" width="2" height="2" fill="#fff5cc"/><rect x="54" y="44" width="2" height="2" fill="#e5b642"/><rect x="56" y="44" width="2" height="2" fill="#a67d32"/><rect x="30" y="46" width="2" height="2" fill="#a67d32"/><rect x="32" y="46" width="2" height="2" fill="#e5b642"/><rect x="34" y="46" width="2" height="2" fill="#e5b642"/><rect x="36" y="46" width="2" height="2" fill="#fff5cc"/><rect x="38" y="46" width="2" height="2" fill="#fff5cc"/><rect x="40" y="46" width="2" height="2" fill="#0a0d12"/><rect x="42" y="46" width="2" height="2" fill="#0a0d12"/><rect x="44" y="46" width="2" height="2" fill="#0a0d12"/><rect x="46" y="46" width="2" height="2" fill="#0a0d12"/><rect x="48" y="46" width="2" height="2" fill="#fff5cc"/><rect x="50" y="46" width="2" height="2" fill="#fff5cc"/><rect x="52" y="46" width="2" height="2" fill="#e5b642"/><rect x="54" y="46" width="2" height="2" fill="#e5b642"/><rect x="56" y="46" width="2" height="2" fill="#a67d32"/><rect x="32" y="48" width="2" height="2" fill="#a67d32"/><rect x="34" y="48" width="2" height="2" fill="#a67d32"/><rect x="36" y="48" width="2" height="2" fill="#e5b642"/><rect x="38" y="48" width="2" height="2" fill="#e5b642"/><rect x="40" y="48" width="2" height="2" fill="#fff5cc"/><rect x="42" y="48" width="2" height="2" fill="#fff5cc"/><rect x="44" y="48" width="2" height="2" fill="#fff5cc"/><rect x="46" y="48" width="2" height="2" fill="#fff5cc"/><rect x="48" y="48" width="2" height="2" fill="#e5b642"/><rect x="50" y="48" width="2" height="2" fill="#e5b642"/><rect x="52" y="48" width="2" height="2" fill="#a67d32"/><rect x="54" y="48" width="2" height="2" fill="#a67d32"/><rect x="36" y="50" width="2" height="2" fill="#a67d32"/><rect x="38" y="50" width="2" height="2" fill="#a67d32"/><rect x="40" y="50" width="2" height="2" fill="#e5b642"/><rect x="42" y="50" width="2" height="2" fill="#e5b642"/><rect x="44" y="50" width="2" height="2" fill="#e5b642"/><rect x="46" y="50" width="2" height="2" fill="#e5b642"/><rect x="48" y="50" width="2" height="2" fill="#a67d32"/><rect x="50" y="50" width="2" height="2" fill="#a67d32"/><rect x="40" y="52" width="2" height="2" fill="#a67d32"/><rect x="42" y="52" width="2" height="2" fill="#a67d32"/><rect x="44" y="52" width="2" height="2" fill="#a67d32"/><rect x="46" y="52" width="2" height="2" fill="#a67d32"/><rect x="42" y="54" width="2" height="2" fill="#e5b642"/><rect x="44" y="54" width="2" height="2" fill="#e5b642"/><rect x="40" y="56" width="2" height="2" fill="#fff5cc"/><rect x="42" y="56" width="2" height="2" fill="#fff5cc"/><rect x="44" y="56" width="2" height="2" fill="#fff5cc"/><rect x="46" y="56" width="2" height="2" fill="#fff5cc"/>
 
   <!-- Title & Flagship Pill -->
-  <text x="86" y="35" class="h-title">Spectre Terminal</text>
-  <rect x="250" y="22" width="145" height="18" rx="3" fill="#211d15" stroke="#4d3b1e" stroke-width="1"/>
-  <text x="322" y="34" class="h-flag" text-anchor="middle">★ FEATURED SYSTEM</text>
-  <text x="86" y="53" class="h-repo">radityabhardana/spectre_terminal</text>
+  <text x="82" y="34" class="h-pixel-title">Spectre Terminal</text>
+  <rect x="300" y="21" width="168" height="16" fill="#1c160e" stroke="#4d3b1e" stroke-width="1"/>
+  <text x="384" y="32" class="h-pixel-badge" text-anchor="middle">[★ FLAGSHIP RELIC]</text>
+  <text x="82" y="52" class="h-pixel-repo">radityabhardana/spectre_terminal</text>
 
   <!-- Language (Top Right) -->
-  <g transform="translate(876, 35)">
-    <text text-anchor="end" class="h-meta">
-      <tspan fill="#f1e05a" font-size="14">● </tspan>JavaScript
+  <g transform="translate(868, 34)">
+    <text text-anchor="end" class="h-pixel-meta">
+      <tspan fill="#f1e05a" font-size="13">■ </tspan>JavaScript
     </text>
   </g>
 
   <!-- Description -->
-  <text x="86" y="78" class="h-desc">Polymarket intelligence terminal with mathematical expected-value</text>
-  <text x="86" y="96" class="h-desc">guardrails designed for disciplined and deterministic trading decisions.</text>
+  <text x="82" y="78" class="h-pixel-desc">Polymarket intelligence terminal with mathematical expected-value</text>
+  <text x="82" y="96" class="h-pixel-desc">guardrails designed for disciplined and deterministic trading decisions.</text>
 
-  <line x1="24" y1="114" x2="876" y2="114" stroke="#21262d" stroke-width="1"/>
+  <!-- Pixel Divider Line with Diamond -->
+  <rect x="20" y="112" width="850" height="1" fill="#1e242d"/>
+  <rect x="443" y="111" width="4" height="3" fill="#c9a876"/>
 
   <!-- Footer -->
-  <text x="24" y="133" class="h-meta">Polymarket · EV Math · Trading Terminal</text>
-  <text x="876" y="133" text-anchor="end" class="h-link">EXPLORE FLAGSHIP REPOSITORY ↗</text>
+  <text x="20" y="134" class="h-pixel-meta">&gt; Polymarket · EV Math · Trading Terminal</text>
+  <text x="868" y="134" text-anchor="end" class="h-pixel-link">[ EXPLORE FLAGSHIP REPOSITORY ↗ ]</text>
 </svg>

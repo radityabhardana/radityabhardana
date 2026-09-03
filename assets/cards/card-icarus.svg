@@ -1,80 +1,98 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165" shape-rendering="crispEdges">
   <title>Icarus Watermark Remover — AI · Computer Vision</title>
-  <defs>
-    <linearGradient id="cardBg_icarus" x1="0" y1="0" x2="0" y2="100%">
-      <stop offset="0%" stop-color="#161b22"/>
-      <stop offset="100%" stop-color="#0d1117"/>
-    </linearGradient>
-    <linearGradient id="topGlow_icarus" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
-      <stop offset="35%" stop-color="#c9a876" stop-opacity="0.35"/>
-      <stop offset="50%" stop-color="#e3b341" stop-opacity="0.7"/>
-      <stop offset="65%" stop-color="#c9a876" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
 
   <style>
-    .title-text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 15.5px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
+    .pixel-title {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
       fill: #f0f6fc;
     }
-    .repo-name {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 11px;
+    .pixel-repo {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 10px;
       fill: #8b949e;
     }
-    .desc-text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 12.5px;
+    .pixel-desc {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 11px;
       line-height: 1.5;
       fill: #c9d1d9;
     }
-    .meta-text {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 10.5px;
-      letter-spacing: 0.3px;
+    .pixel-meta {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 10px;
       fill: #8b949e;
     }
-    .link-text {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+    .pixel-link {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 8.5px;
+      letter-spacing: 1px;
       fill: #e3b341;
     }
   </style>
 
-  <rect x="1" y="1" width="478" height="163" rx="6" fill="url(#cardBg_icarus)"/>
-  <rect x="1" y="1" width="478" height="163" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
-  <line x1="24" y1="1.5" x2="456" y2="1.5" stroke="url(#topGlow_icarus)" stroke-width="1.5"/>
-
-  <g transform="translate(18, 20)">
-    <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-    
-    <path d="M13 35 C14 26, 20 16, 33 9 C29 18, 27 27, 20 32 C18 34, 15 35, 13 35 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
-    <line x1="13" y1="35" x2="29" y2="15" stroke="#e3b341" stroke-width="1.4"/>
-    <path d="M33 17 L35 21.5 L39.5 23.5 L35 25.5 L33 30 L31 25.5 L26.5 23.5 L31 21.5 Z" fill="#ffffff"/>
+  <!-- Pixel Stone Frame -->
   
-  </g>
+    <!-- Stone Base -->
+    <rect x="0" y="0" width="480" height="165" fill="#111418"/>
+    <!-- Outer Charcoal Stepped Outline -->
+    <rect x="0" y="0" width="480" height="165" fill="none" stroke="#262c35" stroke-width="2"/>
+    <!-- Inner Dark Inset -->
+    <rect x="3" y="3" width="474" height="159" fill="none" stroke="#181c22" stroke-width="1"/>
+    <!-- Antique Gold Pixel Corner Rivets (4 Corners) -->
+    <!-- Top-Left -->
+    <rect x="2" y="2" width="3" height="3" fill="#c9a876"/>
+    <rect x="5" y="2" width="2" height="2" fill="#8a6833"/>
+    <rect x="2" y="5" width="2" height="2" fill="#8a6833"/>
+    <!-- Top-Right -->
+    <rect x="475" y="2" width="3" height="3" fill="#c9a876"/>
+    <rect x="473" y="2" width="2" height="2" fill="#8a6833"/>
+    <rect x="475" y="5" width="2" height="2" fill="#8a6833"/>
+    <!-- Bottom-Left -->
+    <rect x="2" y="160" width="3" height="3" fill="#c9a876"/>
+    <rect x="5" y="161" width="2" height="2" fill="#8a6833"/>
+    <rect x="2" y="158" width="2" height="2" fill="#8a6833"/>
+    <!-- Bottom-Right -->
+    <rect x="475" y="160" width="3" height="3" fill="#c9a876"/>
+    <rect x="473" y="161" width="2" height="2" fill="#8a6833"/>
+    <rect x="475" y="158" width="2" height="2" fill="#8a6833"/>
+    <!-- Top Pixel Shimmer Accent Line -->
+    <rect x="14" y="1" width="452" height="1" fill="#4d3a1f"/>
+    <rect x="200" y="1" width="80" height="1" fill="#c9a876"/>
+    <rect x="230" y="1" width="20" height="1" fill="#fff5cc"/>
+  
 
-  <text x="76" y="36" class="title-text">Icarus Watermark Remover</text>
-  <text x="76" y="54" class="repo-name">radityabhardana/icarus-watermark-remover</text>
+  <!-- Left Pixel Relic Alcove (44x44) -->
+  <rect x="16" y="18" width="44" height="44" fill="#090c10"/>
+  <rect x="16" y="18" width="44" height="44" fill="none" stroke="#212730" stroke-width="1"/>
+  <rect x="17" y="19" width="42" height="42" fill="none" stroke="#161a20" stroke-width="1"/>
+  <!-- 16x16 Pixel Relic Sprite (scaled by 2 -> 32x32 centered at x=22, y=24) -->
+  <rect x="50" y="24" width="2" height="2" fill="#fff5cc"/><rect x="52" y="24" width="2" height="2" fill="#fff5cc"/><rect x="48" y="26" width="2" height="2" fill="#fff5cc"/><rect x="50" y="26" width="2" height="2" fill="#e5b642"/><rect x="52" y="26" width="2" height="2" fill="#e5b642"/><rect x="46" y="28" width="2" height="2" fill="#fff5cc"/><rect x="48" y="28" width="2" height="2" fill="#e5b642"/><rect x="50" y="28" width="2" height="2" fill="#e5b642"/><rect x="52" y="28" width="2" height="2" fill="#0a0d12"/><rect x="44" y="30" width="2" height="2" fill="#fff5cc"/><rect x="46" y="30" width="2" height="2" fill="#e5b642"/><rect x="48" y="30" width="2" height="2" fill="#e5b642"/><rect x="50" y="30" width="2" height="2" fill="#0a0d12"/><rect x="42" y="32" width="2" height="2" fill="#fff5cc"/><rect x="44" y="32" width="2" height="2" fill="#e5b642"/><rect x="46" y="32" width="2" height="2" fill="#e5b642"/><rect x="48" y="32" width="2" height="2" fill="#a67d32"/><rect x="50" y="32" width="2" height="2" fill="#0a0d12"/><rect x="40" y="34" width="2" height="2" fill="#fff5cc"/><rect x="42" y="34" width="2" height="2" fill="#e5b642"/><rect x="44" y="34" width="2" height="2" fill="#e5b642"/><rect x="46" y="34" width="2" height="2" fill="#a67d32"/><rect x="48" y="34" width="2" height="2" fill="#0a0d12"/><rect x="26" y="36" width="2" height="2" fill="#fff5cc"/><rect x="28" y="36" width="2" height="2" fill="#fff5cc"/><rect x="38" y="36" width="2" height="2" fill="#fff5cc"/><rect x="40" y="36" width="2" height="2" fill="#e5b642"/><rect x="42" y="36" width="2" height="2" fill="#e5b642"/><rect x="44" y="36" width="2" height="2" fill="#a67d32"/><rect x="46" y="36" width="2" height="2" fill="#0a0d12"/><rect x="24" y="38" width="2" height="2" fill="#fff5cc"/><rect x="26" y="38" width="2" height="2" fill="#e5b642"/><rect x="28" y="38" width="2" height="2" fill="#e5b642"/><rect x="30" y="38" width="2" height="2" fill="#fff5cc"/><rect x="36" y="38" width="2" height="2" fill="#fff5cc"/><rect x="38" y="38" width="2" height="2" fill="#e5b642"/><rect x="40" y="38" width="2" height="2" fill="#e5b642"/><rect x="42" y="38" width="2" height="2" fill="#a67d32"/><rect x="44" y="38" width="2" height="2" fill="#0a0d12"/><rect x="26" y="40" width="2" height="2" fill="#fff5cc"/><rect x="28" y="40" width="2" height="2" fill="#e5b642"/><rect x="30" y="40" width="2" height="2" fill="#e5b642"/><rect x="32" y="40" width="2" height="2" fill="#0a0d12"/><rect x="34" y="40" width="2" height="2" fill="#fff5cc"/><rect x="36" y="40" width="2" height="2" fill="#e5b642"/><rect x="38" y="40" width="2" height="2" fill="#e5b642"/><rect x="40" y="40" width="2" height="2" fill="#a67d32"/><rect x="42" y="40" width="2" height="2" fill="#0a0d12"/><rect x="28" y="42" width="2" height="2" fill="#0a0d12"/><rect x="30" y="42" width="2" height="2" fill="#e5b642"/><rect x="32" y="42" width="2" height="2" fill="#e5b642"/><rect x="34" y="42" width="2" height="2" fill="#a67d32"/><rect x="36" y="42" width="2" height="2" fill="#a67d32"/><rect x="38" y="42" width="2" height="2" fill="#0a0d12"/><rect x="30" y="44" width="2" height="2" fill="#0a0d12"/><rect x="32" y="44" width="2" height="2" fill="#e5b642"/><rect x="34" y="44" width="2" height="2" fill="#e5b642"/><rect x="36" y="44" width="2" height="2" fill="#a67d32"/><rect x="38" y="44" width="2" height="2" fill="#0a0d12"/><rect x="32" y="46" width="2" height="2" fill="#0a0d12"/><rect x="34" y="46" width="2" height="2" fill="#e5b642"/><rect x="36" y="46" width="2" height="2" fill="#e5b642"/><rect x="38" y="46" width="2" height="2" fill="#a67d32"/><rect x="40" y="46" width="2" height="2" fill="#0a0d12"/><rect x="34" y="48" width="2" height="2" fill="#0a0d12"/><rect x="36" y="48" width="2" height="2" fill="#e5b642"/><rect x="38" y="48" width="2" height="2" fill="#e5b642"/><rect x="40" y="48" width="2" height="2" fill="#a67d32"/><rect x="42" y="48" width="2" height="2" fill="#0a0d12"/><rect x="36" y="50" width="2" height="2" fill="#0a0d12"/><rect x="38" y="50" width="2" height="2" fill="#e5b642"/><rect x="40" y="50" width="2" height="2" fill="#e5b642"/><rect x="42" y="50" width="2" height="2" fill="#a67d32"/><rect x="44" y="50" width="2" height="2" fill="#0a0d12"/><rect x="38" y="52" width="2" height="2" fill="#0a0d12"/><rect x="40" y="52" width="2" height="2" fill="#e5b642"/><rect x="42" y="52" width="2" height="2" fill="#a67d32"/><rect x="44" y="52" width="2" height="2" fill="#0a0d12"/><rect x="40" y="54" width="2" height="2" fill="#0a0d12"/><rect x="42" y="54" width="2" height="2" fill="#0a0d12"/>
 
-  <g transform="translate(460, 36)">
-    <text text-anchor="end" class="meta-text">
-      <tspan fill="#f1e05a" font-size="13">● </tspan>JavaScript
+  <!-- Title & Repo Header -->
+  <text x="72" y="34" class="pixel-title">Icarus Watermark Remover</text>
+  <text x="72" y="52" class="pixel-repo">radityabhardana/icarus-watermark-remover</text>
+
+  <!-- Language Badge (Top Right) -->
+  <g transform="translate(464, 34)">
+    <text text-anchor="end" class="pixel-meta">
+      <tspan fill="#f1e05a" font-size="12">■ </tspan>JavaScript
     </text>
   </g>
 
-  <text x="76" y="82" class="desc-text">AI-assisted web canvas suite for intelligent watermark extraction,</text>
-  <text x="76" y="102" class="desc-text">seam-carving object erasure, and high-fidelity image reconstruction.</text>
+  <!-- Description (Clean Monospace Rhythm) -->
+  <text x="72" y="80" class="pixel-desc">AI-assisted web canvas suite for intelligent watermark extraction,</text>
+  <text x="72" y="98" class="pixel-desc">seam-carving object erasure, and high-fidelity image reconstruction.</text>
 
-  <line x1="18" y1="126" x2="462" y2="126" stroke="#21262d" stroke-width="1"/>
+  <!-- Pixel Divider Line with Diamond -->
+  <rect x="16" y="122" width="448" height="1" fill="#1e242d"/>
+  <rect x="238" y="121" width="4" height="3" fill="#c9a876"/>
 
-  <text x="18" y="146" class="meta-text">AI Canvas · Inpainting · Browser Tool</text>
-  <text x="462" y="146" text-anchor="end" class="link-text">VIEW REPO ↗</text>
+  <!-- Footer -->
+  <!-- Left: Domain Tags with Pixel Prompt -->
+  <text x="16" y="145" class="pixel-meta">&gt; AI Canvas · Inpainting · Browser Tool</text>
+
+  <!-- Right: Retro Action Prompt -->
+  <text x="464" y="145" text-anchor="end" class="pixel-link">[ VIEW REPO ↗ ]</text>
 </svg>

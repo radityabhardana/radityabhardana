@@ -1,11 +1,11 @@
 /**
  * scripts/generate-repo-cards.mjs
- * Generates neutral-dark Soft Dark Souls Pinned Repo Cards:
- * 1. Flagship Hero Card: card-spectre-hero.svg (900x140px, full-width)
- * 2. Grid Cards: card-icarus.svg, card-blackbox.svg, card-kalpindo.svg, card-smartstudy.svg, card-spectre.svg (480x165px)
- * - Neutral GitHub Dark palette (#161b22, #0d1117, #30363d)
- * - Clean white titles (#f0f6fc), readable gray descriptions (#c9d1d9)
- * - Symmetrical 1 Hero + 2x2 Grid layout (eliminates lonely 5th orphan card!)
+ * Generates authentic Pixel Art Dark Souls Equipment & Relic Cards:
+ * - shape-rendering="crispEdges"
+ * - Stepped pixel stone frames with gold pixel corner rivets
+ * - Authentic 16x16 pixel art equipment relics (drawn pixel by pixel)
+ * - Retro pixel typography ('Press Start 2P') for titles and prompt markers
+ * - Widescreen Flagship Card (card-spectre-hero.svg) + 4 Symmetrical Grid Cards
  */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -16,46 +16,174 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARDS_DIR = join(__dirname, '..', 'assets', 'cards');
 mkdirSync(CARDS_DIR, { recursive: true });
 
-// 5 Refined Sigils for 46x46 icon box (Center is at 23, 23)
-const SIGILS = {
-  spectre: `
-    <circle cx="23" cy="23" r="15" fill="none" stroke="#30363d" stroke-width="1.2"/>
-    <path d="M9 23 C14 14, 32 14, 37 23 C32 32, 14 32, 9 23 Z" fill="none" stroke="#c9a876" stroke-width="1.5"/>
-    <circle cx="23" cy="23" r="5.5" fill="#0d1117" stroke="#e3b341" stroke-width="1.3"/>
-    <circle cx="23" cy="23" r="2" fill="#ffffff"/>
-    <line x1="5" y1="23" x2="8" y2="23" stroke="#c9a876" stroke-width="1.5"/>
-    <line x1="38" y1="23" x2="41" y2="23" stroke="#c9a876" stroke-width="1.5"/>
-  `,
-
-  icarus: `
-    <path d="M13 35 C14 26, 20 16, 33 9 C29 18, 27 27, 20 32 C18 34, 15 35, 13 35 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
-    <line x1="13" y1="35" x2="29" y2="15" stroke="#e3b341" stroke-width="1.4"/>
-    <path d="M33 17 L35 21.5 L39.5 23.5 L35 25.5 L33 30 L31 25.5 L26.5 23.5 L31 21.5 Z" fill="#ffffff"/>
-  `,
-
-  blackbox: `
-    <rect x="13" y="10" width="20" height="26" rx="2" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
-    <rect x="16" y="14" width="14" height="10" rx="1.5" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-    <path d="M18 19 L20.5 17 L23 21 L25.5 18.5 L28 19" fill="none" stroke="#e3b341" stroke-width="1.4"/>
-    <circle cx="23" cy="30" r="2.5" fill="#c9a876"/>
-    <path d="M8 18 C5 21, 5 25, 8 28" fill="none" stroke="#8b949e" stroke-width="1.4"/>
-    <path d="M38 18 C41 21, 41 25, 38 28" fill="none" stroke="#8b949e" stroke-width="1.4"/>
-  `,
-
-  kalpindo: `
-    <path d="M12 13 L34 13 L31.5 27 C30 32, 23 35, 23 35 C23 35, 16 32, 14.5 27 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
-    <line x1="23" y1="15" x2="23" y2="30" stroke="#e3b341" stroke-width="1.4"/>
-    <line x1="17" y1="19" x2="29" y2="19" stroke="#e3b341" stroke-width="1.4"/>
-    <circle cx="17" cy="23" r="2" fill="#ffffff"/>
-    <circle cx="29" cy="23" r="2" fill="#ffffff"/>
-  `,
-
-  smartstudy: `
-    <path d="M23 29 C18 25, 12 25, 9 26 L9 13 C12 12, 18 12, 23 16 C28 12, 34 12, 37 13 L37 26 C34 25, 28 25, 23 29 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
-    <line x1="23" y1="16" x2="23" y2="30" stroke="#e3b341" stroke-width="1.5"/>
-    <polygon points="23,7 25,11 29,11 26,13.5 27,17.5 23,15 19,17.5 20,13.5 17,11 21,11" fill="#ffffff"/>
-  `,
+// Pixel Palette for Relic Sprites
+const P = {
+  '.': null,              // transparent
+  'k': '#0a0d12',         // deep void outline
+  'd': '#1b222c',         // dark stone slate
+  'm': '#303946',         // mid stone
+  'l': '#566579',         // light stone
+  'B': '#5c4118',         // bronze shadow
+  'G': '#a67d32',         // antique gold
+  'Y': '#e5b642',         // bright gold
+  'W': '#fff5cc',         // starlight white
+  'C': '#22608a',         // soul cyan dark
+  'S': '#4ea4d9',         // soul cyan bright
+  'F': '#e65c00',         // ember fire
+  'R': '#ff9933',         // fire orange
 };
+
+// 16x16 Pixel Art Matrices
+const SPRITES = {
+  // 1. Spectre Terminal: Scrying Eye & Void Crystal
+  spectre: [
+    '......GGGG......',
+    '....GGYYYYGG....',
+    '..GGYYWWWWYYGG..',
+    '.GYYWWkkkkWWYYG.',
+    '.GYYWkCCCCkWWYG.',
+    'GYYWkCSSSSCkWWYG',
+    'GYYWkCSWWSCkWWYG',
+    'GYYWkCSWWSCkWWYG',
+    'GYYWkCSSSSCkWWYG',
+    '.GYYWkCCCCkWWYG.',
+    '.GYYWWkkkkWWYYG.',
+    '..GGYYWWWWYYGG..',
+    '....GGYYYYGG....',
+    '......GGGG......',
+    '.......YY.......',
+    '......WWWW......',
+  ],
+
+  // 2. Icarus Watermark: Phoenix Quill & Inpainting Feather
+  icarus: [
+    '..............WW',
+    '.............WYY',
+    '............WYYk',
+    '...........WYYk.',
+    '..........WYYGk.',
+    '.........WYYGk..',
+    '..WW....WYYGk...',
+    '.WYYW..WYYGk....',
+    '..WYYkWYYGk.....',
+    '...kYYGGk.......',
+    '....kYYGk.......',
+    '.....kYYGk......',
+    '......kYYGk.....',
+    '.......kYYGk....',
+    '........kYGk....',
+    '.........kk.....',
+  ],
+
+  // 3. Blackbox Signal Lost: Radio Monolith & Frequency Waves
+  blackbox: [
+    '.......YY.......',
+    '..WW...YY...WW..',
+    '.W..W..YY..W..W.',
+    'W....WkYYkW....W',
+    '......kYYk......',
+    '.....kkYYkk.....',
+    '....kddddddk....',
+    '...kddmFFmddk...',
+    '...kddFRRFddk...',
+    '...kddmFFmddk...',
+    '...kddddddddk...',
+    '...kddddddddk...',
+    '...kddkYYkddk...',
+    '...kddkYYkddk...',
+    '....kddddddk....',
+    '....kkkkkkkk....',
+  ],
+
+  // 4. Kalpindo: Knight Crest & Calibration Scale
+  kalpindo: [
+    '...kkkkkkkkkk...',
+    '..kGGYYYYYYGGk..',
+    '..kGYYkkkkYYGk..',
+    '..kGkYYYYYYkGk..',
+    '..kGk.kYYk.kGk..',
+    '..kGk.kYYk.kGk..',
+    '..kYkkkkkkkkYk..',
+    '..kYk.kYYk.kYk..',
+    '..kYk.kYYk.kYk..',
+    '..kYk.kYYk.kYk..',
+    '...kYkYYYYkYk...',
+    '...kGkYYYYkGk...',
+    '....kGYYYYGk....',
+    '.....kGYYGk.....',
+    '......kGGk......',
+    '.......kk.......',
+  ],
+
+  // 5. Smart Study AI: Arcane Tome & Star Glyph
+  smartstudy: [
+    '.......WW.......',
+    '......WYYW......',
+    '.....WYYYYW.....',
+    '......WYYW......',
+    '..kk...WW...kk..',
+    '.kYYk.kkkk.kYYk.',
+    'kYYYYkddddkYYYYk',
+    'kYWWYkddddkYWWYk',
+    'kYWWYkddddkYWWYk',
+    'kYWWYkddddkYWWYk',
+    'kYWWYkddddkYWWYk',
+    'kYWWYkddddkYWWYk',
+    'kYYYYkddddkYYYYk',
+    '.kYYk.kddk.kYYk.',
+    '..kk...kk...kk..',
+    '................',
+  ],
+};
+
+// Render 16x16 pixel matrix to SVG string scaled by `scale`
+function renderPixelMatrix(matrix, startX, startY, scale = 2) {
+  const rects = [];
+  for (let r = 0; r < matrix.length; r++) {
+    const row = matrix[r];
+    for (let c = 0; c < row.length; c++) {
+      const char = row[c];
+      const color = P[char];
+      if (color) {
+        rects.push(`<rect x="${startX + c * scale}" y="${startY + r * scale}" width="${scale}" height="${scale}" fill="${color}"/>`);
+      }
+    }
+  }
+  return rects.join('');
+}
+
+// Generate stepped pixel stone border with gold corner accents
+function generatePixelFrame(x, y, w, h) {
+  return `
+    <!-- Stone Base -->
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#111418"/>
+    <!-- Outer Charcoal Stepped Outline -->
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="none" stroke="#262c35" stroke-width="2"/>
+    <!-- Inner Dark Inset -->
+    <rect x="${x + 3}" y="${y + 3}" width="${w - 6}" height="${h - 6}" fill="none" stroke="#181c22" stroke-width="1"/>
+    <!-- Antique Gold Pixel Corner Rivets (4 Corners) -->
+    <!-- Top-Left -->
+    <rect x="${x + 2}" y="${y + 2}" width="3" height="3" fill="#c9a876"/>
+    <rect x="${x + 5}" y="${y + 2}" width="2" height="2" fill="#8a6833"/>
+    <rect x="${x + 2}" y="${y + 5}" width="2" height="2" fill="#8a6833"/>
+    <!-- Top-Right -->
+    <rect x="${x + w - 5}" y="${y + 2}" width="3" height="3" fill="#c9a876"/>
+    <rect x="${x + w - 7}" y="${y + 2}" width="2" height="2" fill="#8a6833"/>
+    <rect x="${x + w - 5}" y="${y + 5}" width="2" height="2" fill="#8a6833"/>
+    <!-- Bottom-Left -->
+    <rect x="${x + 2}" y="${y + h - 5}" width="3" height="3" fill="#c9a876"/>
+    <rect x="${x + 5}" y="${y + h - 4}" width="2" height="2" fill="#8a6833"/>
+    <rect x="${x + 2}" y="${y + h - 7}" width="2" height="2" fill="#8a6833"/>
+    <!-- Bottom-Right -->
+    <rect x="${x + w - 5}" y="${y + h - 5}" width="3" height="3" fill="#c9a876"/>
+    <rect x="${x + w - 7}" y="${y + h - 4}" width="2" height="2" fill="#8a6833"/>
+    <rect x="${x + w - 5}" y="${y + h - 7}" width="2" height="2" fill="#8a6833"/>
+    <!-- Top Pixel Shimmer Accent Line -->
+    <rect x="${x + 14}" y="${y + 1}" width="${w - 28}" height="1" fill="#4d3a1f"/>
+    <rect x="${x + w / 2 - 40}" y="${y + 1}" width="80" height="1" fill="#c9a876"/>
+    <rect x="${x + w / 2 - 10}" y="${y + 1}" width="20" height="1" fill="#fff5cc"/>
+  `;
+}
 
 const projects = [
   {
@@ -65,7 +193,6 @@ const projects = [
     category: 'Fintech · EV Calculus',
     lang: 'JavaScript',
     langColor: '#f1e05a',
-    sigilKey: 'spectre',
     descLine1: 'Polymarket intelligence terminal with mathematical expected-value',
     descLine2: 'guardrails designed for disciplined and deterministic trading decisions.',
     tags: 'Polymarket · EV Math · Trading Terminal',
@@ -77,7 +204,6 @@ const projects = [
     category: 'AI · Computer Vision',
     lang: 'JavaScript',
     langColor: '#f1e05a',
-    sigilKey: 'icarus',
     descLine1: 'AI-assisted web canvas suite for intelligent watermark extraction,',
     descLine2: 'seam-carving object erasure, and high-fidelity image reconstruction.',
     tags: 'AI Canvas · Inpainting · Browser Tool',
@@ -89,7 +215,6 @@ const projects = [
     category: 'Simulation · Browser OS',
     lang: 'TypeScript',
     langColor: '#3178c6',
-    sigilKey: 'blackbox',
     descLine1: 'Atmospheric detective simulation game set within an enigmatic,',
     descLine2: 'vintage civic operating system with rich terminal mechanics and audio.',
     tags: 'Sim Game · Web Audio · Retro UI',
@@ -101,7 +226,6 @@ const projects = [
     category: 'Enterprise · Web Platform',
     lang: 'PHP / Web',
     langColor: '#777bb4',
-    sigilKey: 'kalpindo',
     descLine1: 'Official corporate platform & laboratory testing service catalog',
     descLine2: 'engineered for PT Kalibrasi Pengujian Indonesia.',
     tags: 'B2B Enterprise · Web Portal · Calibration',
@@ -113,7 +237,6 @@ const projects = [
     category: 'EdTech · Adaptive Learning',
     lang: 'TypeScript',
     langColor: '#3178c6',
-    sigilKey: 'smartstudy',
     descLine1: 'Intelligent learning companion engineered with automated study planning,',
     descLine2: 'adaptive spaced-revision routines, and context-aware study tools.',
     tags: 'AI Tutor · Study Planner · EdTech',
@@ -124,181 +247,162 @@ function escXml(str) {
   return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-// 1. Generate Standard Grid Cards (480x165px)
+// 1. Generate 4 Symmetrical Grid Cards (480x165px)
 for (const p of projects) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165" shape-rendering="crispEdges">
   <title>${escXml(p.title)} — ${escXml(p.category)}</title>
-  <defs>
-    <linearGradient id="cardBg_${p.id}" x1="0" y1="0" x2="0" y2="100%">
-      <stop offset="0%" stop-color="#161b22"/>
-      <stop offset="100%" stop-color="#0d1117"/>
-    </linearGradient>
-    <linearGradient id="topGlow_${p.id}" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
-      <stop offset="35%" stop-color="#c9a876" stop-opacity="0.35"/>
-      <stop offset="50%" stop-color="#e3b341" stop-opacity="0.7"/>
-      <stop offset="65%" stop-color="#c9a876" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
 
   <style>
-    .title-text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 15.5px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
+    .pixel-title {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
       fill: #f0f6fc;
     }
-    .repo-name {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 11px;
+    .pixel-repo {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 10px;
       fill: #8b949e;
     }
-    .desc-text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 12.5px;
+    .pixel-desc {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 11px;
       line-height: 1.5;
       fill: #c9d1d9;
     }
-    .meta-text {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 10.5px;
-      letter-spacing: 0.3px;
+    .pixel-meta {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 10px;
       fill: #8b949e;
     }
-    .link-text {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+    .pixel-link {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 8.5px;
+      letter-spacing: 1px;
       fill: #e3b341;
     }
   </style>
 
-  <rect x="1" y="1" width="478" height="163" rx="6" fill="url(#cardBg_${p.id})"/>
-  <rect x="1" y="1" width="478" height="163" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
-  <line x1="24" y1="1.5" x2="456" y2="1.5" stroke="url(#topGlow_${p.id})" stroke-width="1.5"/>
+  <!-- Pixel Stone Frame -->
+  ${generatePixelFrame(0, 0, 480, 165)}
 
-  <g transform="translate(18, 20)">
-    <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-    ${SIGILS[p.sigilKey]}
-  </g>
+  <!-- Left Pixel Relic Alcove (44x44) -->
+  <rect x="16" y="18" width="44" height="44" fill="#090c10"/>
+  <rect x="16" y="18" width="44" height="44" fill="none" stroke="#212730" stroke-width="1"/>
+  <rect x="17" y="19" width="42" height="42" fill="none" stroke="#161a20" stroke-width="1"/>
+  <!-- 16x16 Pixel Relic Sprite (scaled by 2 -> 32x32 centered at x=22, y=24) -->
+  ${renderPixelMatrix(SPRITES[p.id], 22, 24, 2)}
 
-  <text x="76" y="36" class="title-text">${escXml(p.title)}</text>
-  <text x="76" y="54" class="repo-name">${escXml(p.name)}</text>
+  <!-- Title & Repo Header -->
+  <text x="72" y="34" class="pixel-title">${escXml(p.title)}</text>
+  <text x="72" y="52" class="pixel-repo">${escXml(p.name)}</text>
 
-  <g transform="translate(460, 36)">
-    <text text-anchor="end" class="meta-text">
-      <tspan fill="${p.langColor}" font-size="13">● </tspan>${escXml(p.lang)}
+  <!-- Language Badge (Top Right) -->
+  <g transform="translate(464, 34)">
+    <text text-anchor="end" class="pixel-meta">
+      <tspan fill="${p.langColor}" font-size="12">■ </tspan>${escXml(p.lang)}
     </text>
   </g>
 
-  <text x="76" y="82" class="desc-text">${escXml(p.descLine1)}</text>
-  <text x="76" y="102" class="desc-text">${escXml(p.descLine2)}</text>
+  <!-- Description (Clean Monospace Rhythm) -->
+  <text x="72" y="80" class="pixel-desc">${escXml(p.descLine1)}</text>
+  <text x="72" y="98" class="pixel-desc">${escXml(p.descLine2)}</text>
 
-  <line x1="18" y1="126" x2="462" y2="126" stroke="#21262d" stroke-width="1"/>
+  <!-- Pixel Divider Line with Diamond -->
+  <rect x="16" y="122" width="448" height="1" fill="#1e242d"/>
+  <rect x="238" y="121" width="4" height="3" fill="#c9a876"/>
 
-  <text x="18" y="146" class="meta-text">${escXml(p.tags)}</text>
-  <text x="462" y="146" text-anchor="end" class="link-text">VIEW REPO ↗</text>
+  <!-- Footer -->
+  <!-- Left: Domain Tags with Pixel Prompt -->
+  <text x="16" y="145" class="pixel-meta">&gt; ${escXml(p.tags)}</text>
+
+  <!-- Right: Retro Action Prompt -->
+  <text x="464" y="145" text-anchor="end" class="pixel-link">[ VIEW REPO ↗ ]</text>
 </svg>
 `;
 
   writeFileSync(join(CARDS_DIR, `card-${p.id}.svg`), svg);
+  console.log(`Generated pixel art card-${p.id}.svg`);
 }
 
-// 2. Generate Flagship Full-Width Hero Card: card-spectre-hero.svg (900x150px)
+// 2. Generate Flagship Full-Width Hero Card: card-spectre-hero.svg (890x150px)
 const heroProject = projects[0];
-const heroSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="150" viewBox="0 0 900 150">
+const heroSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="890" height="150" viewBox="0 0 890 150" shape-rendering="crispEdges">
   <title>${escXml(heroProject.title)} — Flagship Repository</title>
-  <defs>
-    <linearGradient id="heroBg" x1="0" y1="0" x2="0" y2="100%">
-      <stop offset="0%" stop-color="#161b22"/>
-      <stop offset="100%" stop-color="#0d1117"/>
-    </linearGradient>
-    <linearGradient id="heroTopGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#c9a876" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#e3b341" stop-opacity="0.8"/>
-      <stop offset="75%" stop-color="#c9a876" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
 
   <style>
-    .h-title {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
+    .h-pixel-title {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 13.5px;
+      letter-spacing: 0.8px;
       fill: #f0f6fc;
     }
-    .h-flag {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 10px;
-      font-weight: 600;
+    .h-pixel-badge {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 8px;
       letter-spacing: 1px;
       fill: #e3b341;
     }
-    .h-repo {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11.5px;
-      fill: #8b949e;
-    }
-    .h-desc {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      line-height: 1.5;
-      fill: #c9d1d9;
-    }
-    .h-meta {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    .h-pixel-repo {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
       font-size: 11px;
       fill: #8b949e;
     }
-    .h-link {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    .h-pixel-desc {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
       font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
+      line-height: 1.5;
+      fill: #c9d1d9;
+    }
+    .h-pixel-meta {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 10.5px;
+      fill: #8b949e;
+    }
+    .h-pixel-link {
+      font-family: 'Press Start 2P', ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
       fill: #e3b341;
     }
   </style>
 
-  <rect x="1" y="1" width="898" height="148" rx="6" fill="url(#heroBg)"/>
-  <rect x="1" y="1" width="898" height="148" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
-  <line x1="30" y1="1.5" x2="870" y2="1.5" stroke="url(#heroTopGlow)" stroke-width="2"/>
+  <!-- Pixel Stone Frame -->
+  ${generatePixelFrame(0, 0, 890, 150)}
 
-  <!-- Left Sigil (46x46) -->
-  <g transform="translate(24, 20)">
-    <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-    ${SIGILS.spectre}
-  </g>
+  <!-- Left Pixel Relic Alcove (48x48) -->
+  <rect x="20" y="18" width="48" height="48" fill="#090c10"/>
+  <rect x="20" y="18" width="48" height="48" fill="none" stroke="#212730" stroke-width="1"/>
+  <rect x="21" y="19" width="46" height="46" fill="none" stroke="#161a20" stroke-width="1"/>
+  <!-- 16x16 Pixel Relic Sprite (scaled by 2 -> 32x32 centered at x=28, y=26) -->
+  ${renderPixelMatrix(SPRITES.spectre, 28, 26, 2)}
 
   <!-- Title & Flagship Pill -->
-  <text x="86" y="35" class="h-title">${escXml(heroProject.title)}</text>
-  <rect x="250" y="22" width="145" height="18" rx="3" fill="#211d15" stroke="#4d3b1e" stroke-width="1"/>
-  <text x="322" y="34" class="h-flag" text-anchor="middle">★ FEATURED SYSTEM</text>
-  <text x="86" y="53" class="h-repo">${escXml(heroProject.name)}</text>
+  <text x="82" y="34" class="h-pixel-title">${escXml(heroProject.title)}</text>
+  <rect x="300" y="21" width="168" height="16" fill="#1c160e" stroke="#4d3b1e" stroke-width="1"/>
+  <text x="384" y="32" class="h-pixel-badge" text-anchor="middle">[★ FLAGSHIP RELIC]</text>
+  <text x="82" y="52" class="h-pixel-repo">${escXml(heroProject.name)}</text>
 
   <!-- Language (Top Right) -->
-  <g transform="translate(876, 35)">
-    <text text-anchor="end" class="h-meta">
-      <tspan fill="${heroProject.langColor}" font-size="14">● </tspan>${escXml(heroProject.lang)}
+  <g transform="translate(868, 34)">
+    <text text-anchor="end" class="h-pixel-meta">
+      <tspan fill="${heroProject.langColor}" font-size="13">■ </tspan>${escXml(heroProject.lang)}
     </text>
   </g>
 
   <!-- Description -->
-  <text x="86" y="78" class="h-desc">${escXml(heroProject.descLine1)}</text>
-  <text x="86" y="96" class="h-desc">${escXml(heroProject.descLine2)}</text>
+  <text x="82" y="78" class="h-pixel-desc">${escXml(heroProject.descLine1)}</text>
+  <text x="82" y="96" class="h-pixel-desc">${escXml(heroProject.descLine2)}</text>
 
-  <line x1="24" y1="114" x2="876" y2="114" stroke="#21262d" stroke-width="1"/>
+  <!-- Pixel Divider Line with Diamond -->
+  <rect x="20" y="112" width="850" height="1" fill="#1e242d"/>
+  <rect x="443" y="111" width="4" height="3" fill="#c9a876"/>
 
   <!-- Footer -->
-  <text x="24" y="133" class="h-meta">${escXml(heroProject.tags)}</text>
-  <text x="876" y="133" text-anchor="end" class="h-link">EXPLORE FLAGSHIP REPOSITORY ↗</text>
+  <text x="20" y="134" class="h-pixel-meta">&gt; ${escXml(heroProject.tags)}</text>
+  <text x="868" y="134" text-anchor="end" class="h-pixel-link">[ EXPLORE FLAGSHIP REPOSITORY ↗ ]</text>
 </svg>
 `;
 
 writeFileSync(join(CARDS_DIR, 'card-spectre-hero.svg'), heroSvg);
-console.log('✨ Regenerated all cards + card-spectre-hero.svg successfully!');
+console.log('✨ Regenerated all authentic Pixel Art Dark Souls cards successfully!');
