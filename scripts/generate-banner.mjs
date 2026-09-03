@@ -1,4 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="96" viewBox="0 0 900 96" shape-rendering="crispEdges">
+/**
+ * scripts/generate-banner.mjs
+ * Generates a sleek, cinematic Dark Souls title banner:
+ * - Replaces the huge clunky 220px box with a refined, widescreen aesthetic
+ * - Transparent background, delicate tapering gold wings
+ * - Majestic golden title & crisp subtitle
+ */
+
+import { writeFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUT_FILE = join(__dirname, '..', 'assets', 'scenes', 'banner.svg');
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="96" viewBox="0 0 900 96" shape-rendering="crispEdges">
   <title>Raditya Bagus Hardana — Dark Souls Header</title>
   <defs>
     <!-- Left Tapering Wing -->
@@ -59,3 +74,7 @@
   <!-- Subtitle (Clean & Professional) -->
   <text x="450" y="78" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold" letter-spacing="4" fill="#8a7455" text-anchor="middle">FULL-STACK DEVELOPER · AUTOMATION SPECIALIST</text>
 </svg>
+`;
+
+writeFileSync(OUT_FILE, svg);
+console.log('✨ Sleek Dark Souls banner.svg generated successfully!');

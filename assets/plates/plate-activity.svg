@@ -1,47 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="110" viewBox="0 0 900 110" shape-rendering="crispEdges">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="56" viewBox="0 0 800 56" shape-rendering="crispEdges">
   <title>CONTRIBUTIONS</title>
+  <defs>
+    <!-- Tapering Left Wing Gradient -->
+    <linearGradient id="fadeL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
+      <stop offset="60%" stop-color="#8a7455" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f4a742" stop-opacity="1"/>
+    </linearGradient>
+    <!-- Tapering Right Wing Gradient -->
+    <linearGradient id="fadeR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f4a742" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#8a7455" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Gold Text Shimmer -->
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff5cc"/>
+      <stop offset="45%" stop-color="#f4a742"/>
+      <stop offset="100%" stop-color="#c9a876"/>
+    </linearGradient>
+  </defs>
+
   <style>
-    .blink-diamond { animation: bk 1.6s step-end infinite; }
-    @keyframes bk { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.45; } }
+    .crest-glow { animation: cPulse 2.4s ease-in-out infinite; }
+    @keyframes cPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
   </style>
 
-  <!-- Dark Cathedral Stone Base -->
-  <rect width="900" height="110" fill="#0d0d0d"/>
+  <!-- Left Horizontal Tapering Wing -->
+  <line x1="80" y1="28" x2="260" y2="28" stroke="url(#fadeL)" stroke-width="1.5"/>
+  <rect x="264" y="27" width="3" height="3" fill="#f4a742"/>
+  <rect x="270" y="26" width="5" height="5" fill="#c9a876"/>
+  <line x1="278" y1="28" x2="294" y2="28" stroke="#f4a742" stroke-width="1.5"/>
 
-  <!-- Outer Bronze Border -->
-  <rect x="10" y="10" width="880" height="90" fill="none" stroke="#3a2f1f" stroke-width="3"/>
+  <!-- Right Horizontal Tapering Wing -->
+  <line x1="506" y1="28" x2="522" y2="28" stroke="#f4a742" stroke-width="1.5"/>
+  <rect x="525" y="26" width="5" height="5" fill="#c9a876"/>
+  <rect x="533" y="27" width="3" height="3" fill="#f4a742"/>
+  <line x1="540" y1="28" x2="720" y2="28" stroke="url(#fadeR)" stroke-width="1.5"/>
 
-  <!-- Inner Gold Inscription Border -->
-  <rect x="18" y="18" width="864" height="74" fill="none" stroke="#c9a876" stroke-width="1" opacity="0.7"/>
-
-  <!-- Stepped Golden Corner Rivets -->
-  <rect x="10" y="10" width="8" height="8" fill="#c9a876"/>
-  <rect x="882" y="10" width="8" height="8" fill="#c9a876"/>
-  <rect x="10" y="92" width="8" height="8" fill="#c9a876"/>
-  <rect x="882" y="92" width="8" height="8" fill="#c9a876"/>
-
-  <!-- Top Center Crest / Roman Numeral Badge -->
-  <rect x="430" y="4" width="40" height="20" fill="#0d0d0d"/>
-  <polygon class="blink-diamond" points="450,8 456,14 450,20 444,14" fill="#f4a742"/>
-  <text x="450" y="32" font-family="'Press Start 2P', ui-monospace, monospace" font-size="9" fill="#c9a876" text-anchor="middle">IV</text>
-
-  <!-- Left Flanking Pixel Diamond -->
-  <g transform="translate(260, 56)">
-    <polygon points="0,-8 8,0 0,8 -8,0" fill="#c9a876"/>
-    <polygon points="0,-4 4,0 0,4 -4,0" fill="#fff5cc"/>
-    <line x1="-30" y1="0" x2="-14" y2="0" stroke="#8a7455" stroke-width="1.5"/>
+  <!-- Top Center Roman Crest -->
+  <g class="crest-glow">
+    <polygon points="400,2 404,7 400,12 396,7" fill="#f4a742"/>
+    <text x="400" y="19" font-family="'Press Start 2P', ui-monospace, monospace" font-size="7.5" fill="#c9a876" text-anchor="middle">IV</text>
   </g>
 
-  <!-- Main Section Title -->
-  <text x="450" y="62" font-family="'Press Start 2P', ui-monospace, monospace" font-size="16" letter-spacing="4" fill="#f4a742" text-anchor="middle">CONTRIBUTIONS</text>
-
-  <!-- Right Flanking Pixel Diamond -->
-  <g transform="translate(640, 56)">
-    <polygon points="0,-8 8,0 0,8 -8,0" fill="#c9a876"/>
-    <polygon points="0,-4 4,0 0,4 -4,0" fill="#fff5cc"/>
-    <line x1="14" y1="0" x2="30" y2="0" stroke="#8a7455" stroke-width="1.5"/>
-  </g>
+  <!-- Main Section Title (Cinematic Dark Souls Typography) -->
+  <text x="400" y="36" font-family="'Press Start 2P', ui-monospace, monospace" font-size="13" letter-spacing="4" fill="url(#goldText)" text-anchor="middle">CONTRIBUTIONS</text>
 
   <!-- Subtitle Caption -->
-  <text x="450" y="82" font-family="'Press Start 2P', ui-monospace, monospace" font-size="8" letter-spacing="3" fill="#8a7455" text-anchor="middle">GITHUB ACTIVITY &amp; EXPEDITIONS</text>
+  <text x="400" y="49" font-family="ui-monospace, Consolas, monospace" font-size="8" letter-spacing="3" fill="#8a7455" text-anchor="middle">GITHUB ACTIVITY &amp; EXPEDITIONS</text>
 </svg>

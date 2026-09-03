@@ -2,6 +2,8 @@
 
 <img src="./assets/scenes/bonfire.svg" width="480" alt="Animated Dark Souls pixel bonfire"/>
 
+<br/>
+
 <img src="./assets/scenes/banner.svg" width="100%" alt="Raditya Bagus Hardana pixel banner"/>
 
 <br/>
@@ -16,10 +18,10 @@
 
 </div>
 
-<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
+<br/>
 
 <!-- SECTION I: ABOUT ME -->
-<p align="center"><img src="./assets/plates/plate-about.svg" width="480" alt="Section I — About Me"/></p>
+<p align="center"><img src="./assets/plates/plate-about.svg" width="100%" alt="Section I — About Me"/></p>
 
 <table width="100%">
 <tr>
@@ -44,34 +46,34 @@ Software developer and automation engineer focused on building resilient backend
 </tr>
 </table>
 
-<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
+<br/>
 
 <!-- SECTION II: TECH STACK -->
-<p align="center"><img src="./assets/plates/plate-stack.svg" width="480" alt="Section II — Tech Stack"/></p>
+<p align="center"><img src="./assets/plates/plate-stack.svg" width="100%" alt="Section II — Tech Stack"/></p>
 
 <p align="center"><img src="https://skillicons.dev/icons?i=php,nodejs,js,mysql,docker,git&theme=dark&perline=6" alt="Arsenal icons: PHP, Node.js, JavaScript, MySQL, Docker, Git"/></p>
 
-<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
+<br/>
 
 <!-- SECTION III: FEATURED PROJECTS -->
-<p align="center"><img src="./assets/plates/plate-projects.svg" width="480" alt="Section III — Featured Projects"/></p>
+<p align="center"><img src="./assets/plates/plate-projects.svg" width="100%" alt="Section III — Featured Projects"/></p>
 
 <div align="center">
 
-<a href="https://github.com/radityabhardana/spectre_terminal"><img src="./assets/cards/card-spectre.svg" width="49%" alt="Spectre Terminal boss card"/></a>
-<a href="https://github.com/radityabhardana/icarus-watermark-remover"><img src="./assets/cards/card-icarus.svg" width="49%" alt="Icarus Watermark Remover boss card"/></a>
+<a href="https://github.com/radityabhardana/spectre_terminal"><img src="./assets/cards/card-spectre.svg" width="49%" alt="Spectre Terminal"/></a>
+<a href="https://github.com/radityabhardana/icarus-watermark-remover"><img src="./assets/cards/card-icarus.svg" width="49%" alt="Icarus Watermark Remover"/></a>
 
-<a href="https://github.com/radityabhardana/blackbox_signal_lost"><img src="./assets/cards/card-blackbox.svg" width="49%" alt="Blackbox Signal Lost boss card"/></a>
-<a href="https://github.com/radityabhardana/Kalpindo"><img src="./assets/cards/card-kalpindo.svg" width="49%" alt="Kalpindo Company Profile boss card"/></a>
+<a href="https://github.com/radityabhardana/blackbox_signal_lost"><img src="./assets/cards/card-blackbox.svg" width="49%" alt="Blackbox Signal Lost"/></a>
+<a href="https://github.com/radityabhardana/Kalpindo"><img src="./assets/cards/card-kalpindo.svg" width="49%" alt="Kalpindo Company Profile"/></a>
 
-<a href="https://github.com/radityabhardana/smart_study"><img src="./assets/cards/card-smartstudy.svg" width="49%" alt="Smart Study AI boss card"/></a>
+<a href="https://github.com/radityabhardana/smart_study"><img src="./assets/cards/card-smartstudy.svg" width="49%" alt="Smart Study AI"/></a>
 
 </div>
 
-<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
+<br/>
 
 <!-- SECTION IV: CONTRIBUTIONS -->
-<p align="center"><img src="./assets/plates/plate-activity.svg" width="480" alt="Section IV — Contributions"/></p>
+<p align="center"><img src="./assets/plates/plate-activity.svg" width="100%" alt="Section IV — Contributions"/></p>
 
 <div align="center">
 
@@ -84,6 +86,8 @@ Software developer and automation engineer focused on building resilient backend
 
 </div>
 
+<br/>
+
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
 <p align="center">
@@ -94,8 +98,6 @@ Software developer and automation engineer focused on building resilient backend
 <a href="https://github.com/radityabhardana"><img src="https://img.shields.io/badge/GitHub-FOLLOW-0d0d0d?style=for-the-badge&logo=github&logoColor=c9a876&labelColor=0d0d0d" alt="GitHub"/></a>
 
 </p>
-
-<img src="./assets/dividers/divider.svg" width="100%" alt="Pixel section divider footer"/>
 
 <div align="center">
 
