@@ -27,7 +27,7 @@
 <tr>
 <td width="38%" align="center" valign="middle">
 
-<img src="./assets/scenes/knight-pixel.svg" width="200" alt="Animated pixel-art knight"/><br/><br/>
+<img src="./assets/scenes/claymore-pixel.svg" width="160" alt="Pixel art Dark Souls Claymore Greatsword"/><br/><br/>
 
 **RADITYA BAGUS HARDANA**<br/>
 <sub>Full-Stack Developer &amp; Automation Specialist</sub><br/>
