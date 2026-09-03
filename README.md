@@ -18,7 +18,8 @@
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plates/plate-character.svg" width="480" alt="Chapter plate I — Character Sheet"/></p>
+<!-- SECTION I: ABOUT ME -->
+<p align="center"><img src="./assets/plates/plate-about.svg" width="480" alt="Section I — About Me"/></p>
 
 <table width="100%">
 <tr>
@@ -27,8 +28,8 @@
 <img src="./assets/scenes/knight-pixel.svg" width="200" alt="Animated pixel-art knight"/><br/><br/>
 
 **RADITYA BAGUS HARDANA**<br/>
-<sub>Chosen Undead of Automation</sub><br/>
-<code>Sorcerer-Pyromancer of Automation</code>
+<sub>Web Developer &amp; Automation Sorcerer</sub><br/>
+<code>Full-Stack Engineer · Automation</code>
 
 </td>
 <td width="62%" valign="middle">
@@ -37,7 +38,7 @@
 
 <br/><br/>
 
-**Bonfire lit at:** `Indonesia`
+**Location:** `Indonesia`
 
 </td>
 </tr>
@@ -45,24 +46,15 @@
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plates/plate-stats.svg" width="480" alt="Chapter plate II — Stats"/></p>
-
-| Attribute | Meaning | Level | Progress |
-|:--|:--|:--:|:--|
-| **VIGOR** | Work and lembur resilience | **45/99** | `█████████░░░░░░░░░░░` |
-| **ENDURANCE** | Coding consistency | **52/99** | `██████████░░░░░░░░░░` |
-| **INTELLIGENCE** | Automation and AI craft | **61/99** | `████████████░░░░░░░░` |
-| **DEXTERITY** | Development speed | **48/99** | `██████████░░░░░░░░░░` |
-
-<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
-
-<p align="center"><img src="./assets/plates/plate-equipment.svg" width="480" alt="Chapter plate III — Equipment"/></p>
+<!-- SECTION II: TECH STACK -->
+<p align="center"><img src="./assets/plates/plate-stack.svg" width="480" alt="Section II — Tech Stack"/></p>
 
 <p align="center"><img src="https://skillicons.dev/icons?i=php,nodejs,js,mysql,docker,git&theme=dark&perline=6" alt="Arsenal icons: PHP, Node.js, JavaScript, MySQL, Docker, Git"/></p>
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plates/plate-bosses.svg" width="480" alt="Chapter plate IV — Bosses Defeated"/></p>
+<!-- SECTION III: FEATURED PROJECTS -->
+<p align="center"><img src="./assets/plates/plate-projects.svg" width="480" alt="Section III — Featured Projects"/></p>
 
 <div align="center">
 
@@ -78,13 +70,8 @@
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center"><img src="./assets/plates/plate-covenant.svg" width="480" alt="Chapter plate V — Covenant"/></p>
-
-> **Covenant of the Automatons** — AI-powered bots that toil while the host sleeps. The pact is unbroken; the ember is watched.
-
-<img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
-
-<p align="center"><img src="./assets/plates/plate-battle-log.svg" width="480" alt="Chapter plate VI — Battle Log"/></p>
+<!-- SECTION IV: CONTRIBUTIONS -->
+<p align="center"><img src="./assets/plates/plate-activity.svg" width="480" alt="Section IV — Contributions"/></p>
 
 <div align="center">
 
