@@ -106,6 +106,11 @@ Software developer and automation engineer focused on building resilient backend
 <!-- Bespoke Dark Souls Engineering Activity & Production Codex -->
 <img src="./assets/scenes/codex-stats.svg" width="100%" alt="Engineering Activity and Production Codex Summary — radityabhardana"/>
 
+<br/><br/>
+
+<!-- Lord Souls Harvested & System Milestones -->
+<img src="./assets/scenes/achievements.svg" width="100%" alt="Lord Souls Harvested and System Milestones — radityabhardana"/>
+
 </div>
 
 <br/>
