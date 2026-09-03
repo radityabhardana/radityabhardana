@@ -112,8 +112,16 @@ Software developer and automation engineer focused on building resilient backend
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<!-- FOOTER: TRANSMISSIONS & SOULS COUNTER -->
+<!-- FOOTER: TRANSMISSIONS & JOLLY COOPERATION -->
 <div align="center">
+
+<img src="./assets/scenes/solaire-sun.png" width="160" alt="Holy Sun of Astora — Solaire of Astora / Warrior of Sunlight"/>
+
+<br/>
+
+<p><i>“The sun is a wondrous body. Like a magnificent father! If only I could be so grossly incandescent!”</i></p>
+
+<br/>
 
 <img src="https://komarev.com/ghpvc/?username=radityabhardana&label=SOULS+RETRIEVED&color=c9a876&style=for-the-badge&labelColor=0d1117" alt="Souls Retrieved Visitor Counter"/>
 
