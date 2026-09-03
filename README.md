@@ -1,6 +1,6 @@
-﻿<div align="center">
+<div align="center">
 
-<img src="./assets/scenes/bonfire.svg" width="320" alt="Animated gothic bonfire"/>
+<img src="./assets/scenes/bonfire.svg" width="460" alt="Animated Dark Souls bonfire"/>
 
 <img src="./assets/scenes/banner.svg" width="100%" alt="Raditya Bagus Hardana pixel banner"/>
 
