@@ -88,12 +88,12 @@
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=radityabhardana&show_icons=true&bg_color=0d0d0d&border_color=3a2f1f&title_color=c9a876&text_color=cfcfcf&icon_color=f4a742" width="49%" alt="GitHub statistics"/>
+<img src="https://github-readme-stats-eight-theta.vercel.app/api?username=radityabhardana&show_icons=true&bg_color=0d0d0d&border_color=3a2f1f&title_color=c9a876&text_color=cfcfcf&icon_color=f4a742" width="49%" alt="GitHub statistics"/>
 <img src="https://streak-stats.demolab.com/?user=radityabhardana&background=0d0d0d&border=3a2f1f&stroke=c9a876&ring=f4a742&fire=6e0d0d&currStreakLabel=c9a876&currStreakNum=f4a742&sideNums=f4a742&sideLabels=cfcfcf&dates=cfcfcf" width="49%" alt="GitHub streak"/>
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=radityabhardana&layout=compact&bg_color=0d0d0d&border_color=3a2f1f&title_color=c9a876&text_color=cfcfcf" width="49%" alt="Top languages"/>
+<br/><br/>
 
-<img src="https://github-profile-trophy.vercel.app/?username=radityabhardana&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&title_color=c9a876&text_color=cfcfcf" width="100%" alt="GitHub profile trophies"/>
+<img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=radityabhardana&layout=compact&bg_color=0d0d0d&border_color=3a2f1f&title_color=c9a876&text_color=cfcfcf" width="49%" alt="Top languages"/>
 
 </div>
 
