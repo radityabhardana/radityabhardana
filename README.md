@@ -4,13 +4,17 @@
 
 <br/>
 
+<img src="./assets/scenes/bonfire.svg" width="380" alt="Animated Dark Souls pixel bonfire"/>
+
+<br/>
+
 <p><i>“In automation we trust, in bugs we despair.”</i></p>
 
 <br/>
 
 <img src="https://img.shields.io/badge/FOCUS-FULL--STACK%20%26%20AUTOMATION-c9a876?style=for-the-badge&labelColor=0d0d0d" alt="Focus: Full-Stack &amp; Automation"/>
 <img src="https://img.shields.io/badge/ORIGIN-INDONESIA-3a2f1f?style=for-the-badge&labelColor=0d0d0d" alt="Origin: Indonesia"/>
-<img src="https://img.shields.io/badge/STATUS-ACTIVE%20EMBER-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Status: Active Ember"/>
+<img src="https://img.shields.io/badge/STATUS-BONFIRE%20LIT-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Status: Bonfire Lit"/>
 
 </div>
 
@@ -107,16 +111,8 @@ Software developer and automation engineer focused on building resilient backend
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<!-- FOOTER: THE BONFIRE REST & TRANSMISSIONS -->
+<!-- FOOTER: TRANSMISSIONS & SOULS COUNTER -->
 <div align="center">
-
-<img src="./assets/scenes/bonfire.svg" width="240" alt="Animated Dark Souls pixel bonfire"/>
-
-<br/>
-
-<sub>Rest here, traveler. The journey through the codebase is complete.</sub>
-
-<br/><br/>
 
 <img src="https://komarev.com/ghpvc/?username=radityabhardana&label=SOULS+RETRIEVED&color=c9a876&style=for-the-badge&labelColor=0d1117" alt="Souls Retrieved Visitor Counter"/>
 
