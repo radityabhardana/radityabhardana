@@ -1,8 +1,8 @@
 /**
  * scripts/create-pixel-bonfire.mjs
  * Generates an authentic 100% pure pixel-art Dark Souls Bonfire SVG.
- * The sword is STRAIGHT (not wavy like a keris) and plunged into the ash mound
- * at a natural 14° diagonal tilt, clearly visible in front of the roaring flame!
+ * The sword is STRAIGHT and VERTICAL (tegak lurus ke atas), perfectly centered,
+ * with a symmetrical crossguard, plunged into the ash mound in front of the flame.
  */
 
 import { writeFileSync } from 'node:fs';
@@ -81,92 +81,82 @@ function parseMatrix(map, pal, startCol, startRow) {
   return rects.join('');
 }
 
-// 2. STRAIGHT TILTED PIXEL SWORD
-// Plunged into the ash at a clean 14° angle (1 col shift every 4 vertical rows)
-// Completely straight, double-edged, NO keris waves!
-function generateStraightTiltedSword() {
+// 2. STRAIGHT VERTICAL PIXEL SWORD
+// Perfectly centered at Col 58-61, pointing straight up (tegak lurus)!
+function generateStraightVerticalSword() {
   const rects = [];
 
-  // --- A. POMMEL (Rows 13-16, around Col 49) ---
+  // --- A. POMMEL (Rows 13-16, centered at Col 59-60) ---
   const pommel = [
-    [48, 13, 3, C.swordGold],
-    [47, 14, 2, C.swordGold], [49, 14, 1, C.swordDark], [50, 14, 2, C.swordGold],
-    [47, 15, 2, C.swordGold], [49, 15, 1, C.swordDark], [50, 15, 2, C.swordGold],
-    [48, 16, 3, C.swordGold],
-    [49, 14, 1, C.swordGoldHi]
+    [58, 13, 4, C.swordGold],
+    [57, 14, 2, C.swordGold], [59, 14, 2, C.swordDark], [61, 14, 2, C.swordGold],
+    [57, 15, 2, C.swordGold], [59, 15, 2, C.swordGoldHi], [61, 15, 2, C.swordGold],
+    [58, 16, 4, C.swordGold],
   ];
   for (const [c, r, w, fill] of pommel) {
     rects.push(`<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${fill}"/>`);
   }
 
-  // --- B. HILT / GRIP (Rows 17-21, 14° slope) ---
-  const grip = [
-    [49, 17, 2, C.swordSteel],
-    [49, 18, 2, C.swordDark],
-    [50, 19, 2, C.swordSteel],
-    [50, 20, 2, C.swordDark],
-    [50, 21, 2, C.swordSteel],
-  ];
-  for (const [c, r, w, fill] of grip) {
-    rects.push(`<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${fill}"/>`);
+  // --- B. HILT / GRIP (Rows 17-22, Cols 59-60) ---
+  for (let r = 17; r <= 22; r++) {
+    const fill = (r % 2 === 0) ? C.swordDark : C.swordSteel;
+    rects.push(`<rect x="${59 * S}" y="${r * S}" width="${2 * S}" height="${S}" fill="${fill}"/>`);
   }
 
-  // --- C. STRAIGHT ANGLED CROSSGUARD (Rows 21-25, perpendicular to blade) ---
-  // Left wing (angled up-left)
+  // --- C. STRAIGHT HORIZONTAL CROSSGUARD (Rows 23-25, Cols 50-69) ---
+  // Symmetric straight bar with ornate gold ends
   const guard = [
-    [43, 20, 3, C.swordGold],
-    [44, 21, 5, C.swordGold], [45, 21, 3, C.swordDark],
-    [47, 22, 5, C.swordGold], [48, 22, 3, C.swordSteel],
-    // Center block
-    [50, 22, 4, C.swordGold], [51, 23, 2, C.swordGoldHi],
-    // Right wing (angled down-right)
-    [52, 23, 5, C.swordGold], [53, 23, 3, C.swordSteel],
-    [55, 24, 5, C.swordGold], [56, 24, 3, C.swordDark],
-    [58, 25, 3, C.swordGold],
+    // Upper trim
+    [52, 23, 16, C.swordGold],
+    // Main solid crossbar
+    [49, 24, 3, C.swordGoldHi], [52, 24, 16, C.swordSteel], [68, 24, 3, C.swordGoldHi],
+    // Center medallion & lower bevel
+    [58, 24, 4, C.swordGold],
+    [50, 25, 3, C.swordGold], [53, 25, 14, C.swordDark], [67, 25, 3, C.swordGold],
+    [59, 25, 2, C.swordGold],
   ];
   for (const [c, r, w, fill] of guard) {
     rects.push(`<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${fill}"/>`);
   }
 
-  // --- D. STRAIGHT DOUBLE-EDGED BLADE (Rows 24 to 62) ---
-  // Pure straight 14° diagonal: cCenter advances 1 column every 4 rows.
-  // 3 pixels wide:
-  // - Left pixel: edge highlight
-  // - Center pixel: blade spine / fuller
-  // - Right pixel: shadow edge
-  for (let r = 24; r <= 62; r++) {
-    const cCenter = 51 + Math.floor((r - 24) / 4);
+  // --- D. STRAIGHT VERTICAL DOUBLE-EDGED BLADE (Rows 26 to 62) ---
+  // Perfectly straight vertical bar: 4 pixels wide (Cols 58, 59, 60, 61)
+  // - Col 58: Left edge highlight
+  // - Col 59: Left bevel
+  // - Col 60: Center ridge / fuller
+  // - Col 61: Right shadow edge
+  for (let r = 26; r <= 62; r++) {
+    let edgeL = C.swordBright;
+    let bevelL = C.swordHi;
+    let ridge = C.swordSteel;
+    let edgeR = C.swordDark;
 
-    let edgeColor = C.swordBright;
-    let spineColor = C.swordSteel;
-    let shadowColor = C.swordDark;
-
-    // Heating up near bottom into glowing molten steel
-    if (r >= 54) {
-      edgeColor = C.emberWhite;
-      spineColor = C.emberGold;
-      shadowColor = C.emberOrange;
-    } else if (r >= 44) {
-      edgeColor = C.swordBright;
-      spineColor = C.emberGold;
-      shadowColor = C.emberRed;
-    } else if (r >= 36) {
-      edgeColor = C.swordBright;
-      spineColor = C.swordHi;
-      shadowColor = C.swordDark;
+    // Transition to molten glowing steel near the base
+    if (r >= 55) {
+      edgeL = C.emberWhite;
+      bevelL = C.emberWhite;
+      ridge = C.emberGold;
+      edgeR = C.emberOrange;
+    } else if (r >= 46) {
+      edgeL = C.swordBright;
+      bevelL = C.emberGold;
+      ridge = C.emberOrange;
+      edgeR = C.emberRed;
+    } else if (r >= 38) {
+      edgeL = C.swordBright;
+      bevelL = C.swordHi;
+      ridge = C.swordSteel;
+      edgeR = C.swordDark;
     }
 
-    // Left edge (highlight)
-    rects.push(`<rect x="${(cCenter - 1) * S}" y="${r * S}" width="${S}" height="${S}" fill="${edgeColor}"/>`);
-    // Center spine (fuller)
-    rects.push(`<rect x="${cCenter * S}" y="${r * S}" width="${S}" height="${S}" fill="${spineColor}"/>`);
-    // Right edge (shadow)
-    rects.push(`<rect x="${(cCenter + 1) * S}" y="${r * S}" width="${S}" height="${S}" fill="${shadowColor}"/>`);
+    rects.push(`<rect x="${58 * S}" y="${r * S}" width="${S}" height="${S}" fill="${edgeL}"/>`);
+    rects.push(`<rect x="${59 * S}" y="${r * S}" width="${S}" height="${S}" fill="${bevelL}"/>`);
+    rects.push(`<rect x="${60 * S}" y="${r * S}" width="${S}" height="${S}" fill="${ridge}"/>`);
+    rects.push(`<rect x="${61 * S}" y="${r * S}" width="${S}" height="${S}" fill="${edgeR}"/>`);
   }
 
-  // Sharp plunged blade tip at row 63
-  const tipCol = 51 + Math.floor((63 - 24) / 4);
-  rects.push(`<rect x="${tipCol * S}" y="${63 * S}" width="${S}" height="${S}" fill="${C.emberWhite}"/>`);
+  // Blade Tip (Row 63, tapering to 2 pixels plunged in ash)
+  rects.push(`<rect x="${59 * S}" y="${63 * S}" width="${2 * S}" height="${S}" fill="${C.emberWhite}"/>`);
 
   return rects.join('');
 }
@@ -385,10 +375,9 @@ function generateAshMound() {
 function generateForegroundEmbers() {
   const embers = [
     [56, 61, 2, C.emberGold],
-    [64, 61, 2, C.emberGold],
-    [58, 62, 3, C.emberOrange],
-    [62, 62, 3, C.emberOrange],
-    [59, 63, 4, C.emberGold],
+    [62, 61, 2, C.emberGold],
+    [57, 62, 6, C.emberOrange],
+    [58, 63, 4, C.emberGold],
   ];
   return embers.map(([c, r, w, fill]) =>
     `<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${fill}"/>`
@@ -540,8 +529,8 @@ ${css}
   <g class="fC">${parseMatrix(FLAME_3, FLAME_PAL, 44, 24)}</g>
   <g class="fD">${parseMatrix(FLAME_4, FLAME_PAL, 44, 24)}</g>
 
-  <!-- 2. STRAIGHT TILTED SWORD (IN FRONT OF FLAMES, 100% VISIBLE & SHARP) -->
-  ${generateStraightTiltedSword()}
+  <!-- 2. STRAIGHT VERTICAL SWORD (TEGAK LURUS KE ATAS, 100% SHARP & VISIBLE) -->
+  ${generateStraightVerticalSword()}
 
   <!-- 3. Foreground Ash Embers at Base -->
   ${generateForegroundEmbers()}
@@ -560,4 +549,4 @@ ${css}
 `;
 
 writeFileSync(OUT_FILE, svgContent, 'utf-8');
-console.log('✨ Generated authentic pixel-art bonfire.svg with straight tilted sword!');
+console.log('✨ Generated authentic pixel-art bonfire.svg with straight vertical sword!');
