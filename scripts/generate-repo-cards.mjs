@@ -1,11 +1,10 @@
 /**
  * scripts/generate-repo-cards.mjs
- * Generates truly elegant, Soft Dark Souls Pinned Repo Cards:
- * - Eliminates chunky cartoonish corner brackets and colorful arcade sprites
- * - Subtle obsidian/bronze slate with whisper-thin glowing ember top edge
- * - Unified antique gold & steel sigils for each repository
- * - Clean, comfortable champagne typography with generous whitespace
- * - Minimalist meta information without cluttered pill boxes
+ * Generates larger, neutral-dark Soft Dark Souls Pinned Repo Cards:
+ * - "Warnanya biasa aja": Neutral GitHub Dark palette (#0d1117 / #161b22 / #30363d)
+ *   without heavy yellow/brown sepia tint
+ * - "Lebih besar": Expanded canvas (480x165px) with larger, comfortable typography
+ * - Crisp white titles (#f0f6fc), readable gray descriptions (#c9d1d9), subtle gold accent
  */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -16,55 +15,49 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARDS_DIR = join(__dirname, '..', 'assets', 'cards');
 mkdirSync(CARDS_DIR, { recursive: true });
 
-// 5 Unified Antique Gold Sigils (28x28 viewBox or drawn inside 36x36 alcove)
+// 5 Refined Sigils for 46x46 icon box (Center is at 23, 23)
 const SIGILS = {
-  // Spectre Terminal: Occult Eye of Determinism / Horizon Scanner
+  // Spectre Terminal: Occult Eye / Horizon Scanner
   spectre: `
-    <circle cx="18" cy="18" r="13" fill="none" stroke="#3a2e20" stroke-width="1.2"/>
-    <path d="M7 18 C11 11, 25 11, 29 18 C25 25, 11 25, 7 18 Z" fill="none" stroke="#c9a876" stroke-width="1.4"/>
-    <circle cx="18" cy="18" r="4.5" fill="#18130d" stroke="#f4a742" stroke-width="1.2"/>
-    <circle cx="18" cy="18" r="1.8" fill="#fff5cc"/>
-    <line x1="4" y1="18" x2="6" y2="18" stroke="#c9a876" stroke-width="1.5"/>
-    <line x1="30" y1="18" x2="32" y2="18" stroke="#c9a876" stroke-width="1.5"/>
+    <circle cx="23" cy="23" r="15" fill="none" stroke="#30363d" stroke-width="1.2"/>
+    <path d="M9 23 C14 14, 32 14, 37 23 C32 32, 14 32, 9 23 Z" fill="none" stroke="#c9a876" stroke-width="1.5"/>
+    <circle cx="23" cy="23" r="5.5" fill="#0d1117" stroke="#e3b341" stroke-width="1.3"/>
+    <circle cx="23" cy="23" r="2" fill="#ffffff"/>
+    <line x1="5" y1="23" x2="8" y2="23" stroke="#c9a876" stroke-width="1.5"/>
+    <line x1="38" y1="23" x2="41" y2="23" stroke="#c9a876" stroke-width="1.5"/>
   `,
 
-  // Icarus Watermark: Arcane Inpainting Feather & Sparkle
+  // Icarus Watermark: Inpainting Feather & Starlight
   icarus: `
-    <path d="M10 27 C11 20, 16 12, 26 7 C23 14, 21 21, 16 25 C14 26.5, 11.5 27, 10 27 Z" fill="#241b12" stroke="#c9a876" stroke-width="1.3"/>
-    <line x1="10" y1="27" x2="23" y2="11" stroke="#f4a742" stroke-width="1.2"/>
-    <!-- Sparkle -->
-    <path d="M26 13 L27.5 16.5 L31 18 L27.5 19.5 L26 23 L24.5 19.5 L21 18 L24.5 16.5 Z" fill="#fff5cc"/>
+    <path d="M13 35 C14 26, 20 16, 33 9 C29 18, 27 27, 20 32 C18 34, 15 35, 13 35 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
+    <line x1="13" y1="35" x2="29" y2="15" stroke="#e3b341" stroke-width="1.4"/>
+    <path d="M33 17 L35 21.5 L39.5 23.5 L35 25.5 L33 30 L31 25.5 L26.5 23.5 L31 21.5 Z" fill="#ffffff"/>
   `,
 
-  // Blackbox Signal Lost: Vintage Radio Wave & Sealed Monolith
+  // Blackbox Signal Lost: Radio Wave & Sealed Monolith
   blackbox: `
-    <rect x="10" y="8" width="16" height="20" rx="1.5" fill="#14100c" stroke="#c9a876" stroke-width="1.4"/>
-    <rect x="13" y="11" width="10" height="7" rx="1" fill="#090807" stroke="#3d2f1e" stroke-width="1"/>
-    <!-- Waveform inside -->
-    <path d="M14 14.5 L16 13 L18 16 L20 14 L22 14.5" fill="none" stroke="#f4a742" stroke-width="1.2"/>
-    <!-- Dial / Beacon -->
-    <circle cx="18" cy="23" r="2" fill="#c9a876"/>
-    <!-- Radiating pulse arcs -->
-    <path d="M6 14 C4 16, 4 20, 6 22" fill="none" stroke="#8a7455" stroke-width="1.2"/>
-    <path d="M30 14 C32 16, 32 20, 30 22" fill="none" stroke="#8a7455" stroke-width="1.2"/>
+    <rect x="13" y="10" width="20" height="26" rx="2" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
+    <rect x="16" y="14" width="14" height="10" rx="1.5" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    <path d="M18 19 L20.5 17 L23 21 L25.5 18.5 L28 19" fill="none" stroke="#e3b341" stroke-width="1.4"/>
+    <circle cx="23" cy="30" r="2.5" fill="#c9a876"/>
+    <path d="M8 18 C5 21, 5 25, 8 28" fill="none" stroke="#8b949e" stroke-width="1.4"/>
+    <path d="M38 18 C41 21, 41 25, 38 28" fill="none" stroke="#8b949e" stroke-width="1.4"/>
   `,
 
-  // Kalpindo: Precision Balance Scale & Heraldic Shield
+  // Kalpindo: Balance Scale & Heraldic Shield
   kalpindo: `
-    <path d="M9 10 L27 10 L25 21 C24 25, 18 28, 18 28 C18 28, 12 25, 11 21 Z" fill="#18130d" stroke="#c9a876" stroke-width="1.3"/>
-    <line x1="18" y1="12" x2="18" y2="24" stroke="#f4a742" stroke-width="1.2"/>
-    <line x1="13" y1="15" x2="23" y2="15" stroke="#f4a742" stroke-width="1.2"/>
-    <circle cx="13" cy="18" r="1.5" fill="#fff5cc"/>
-    <circle cx="23" cy="18" r="1.5" fill="#fff5cc"/>
+    <path d="M12 13 L34 13 L31.5 27 C30 32, 23 35, 23 35 C23 35, 16 32, 14.5 27 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
+    <line x1="23" y1="15" x2="23" y2="30" stroke="#e3b341" stroke-width="1.4"/>
+    <line x1="17" y1="19" x2="29" y2="19" stroke="#e3b341" stroke-width="1.4"/>
+    <circle cx="17" cy="23" r="2" fill="#ffffff"/>
+    <circle cx="29" cy="23" r="2" fill="#ffffff"/>
   `,
 
-  // Smart Study AI: Arcane Grimoire / Celestial Study Tome
+  // Smart Study AI: Celestial Tome & Starlight
   smartstudy: `
-    <!-- Open Book Wings -->
-    <path d="M18 23 C14 20, 9 20, 7 21 L7 10 C9 9, 14 9, 18 12 C22 9, 27 9, 29 10 L29 21 C27 20, 22 20, 18 23 Z" fill="#19130c" stroke="#c9a876" stroke-width="1.3"/>
-    <line x1="18" y1="12" x2="18" y2="24" stroke="#f4a742" stroke-width="1.4"/>
-    <!-- Celestial star above spine -->
-    <polygon points="18,5 19.5,8 22.5,8 20,10 21,13 18,11 15,13 16,10 13.5,8 16.5,8" fill="#fff5cc"/>
+    <path d="M23 29 C18 25, 12 25, 9 26 L9 13 C12 12, 18 12, 23 16 C28 12, 34 12, 37 13 L37 26 C34 25, 28 25, 23 29 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
+    <line x1="23" y1="16" x2="23" y2="30" stroke="#e3b341" stroke-width="1.5"/>
+    <polygon points="23,7 25,11 29,11 26,13.5 27,17.5 23,15 19,17.5 20,13.5 17,11 21,11" fill="#ffffff"/>
   `,
 };
 
@@ -77,9 +70,9 @@ const projects = [
     lang: 'JavaScript',
     langColor: '#f1e05a',
     sigilKey: 'spectre',
-    descLine1: 'Polymarket intelligence terminal with mathematical',
-    descLine2: 'expected-value guardrails for deterministic decisions.',
-    tags: 'Polymarket · EV Math · Terminal',
+    descLine1: 'Polymarket intelligence terminal with mathematical expected-value',
+    descLine2: 'guardrails designed for disciplined and deterministic trading decisions.',
+    tags: 'Polymarket · EV Math · Trading Terminal',
   },
   {
     id: 'icarus',
@@ -89,8 +82,8 @@ const projects = [
     lang: 'JavaScript',
     langColor: '#f1e05a',
     sigilKey: 'icarus',
-    descLine1: 'AI-assisted web canvas suite for intelligent watermark',
-    descLine2: 'extraction and seam-carving object inpainting.',
+    descLine1: 'AI-assisted web canvas suite for intelligent watermark extraction,',
+    descLine2: 'seam-carving object erasure, and high-fidelity image reconstruction.',
     tags: 'AI Canvas · Inpainting · Browser Tool',
   },
   {
@@ -101,8 +94,8 @@ const projects = [
     lang: 'TypeScript',
     langColor: '#3178c6',
     sigilKey: 'blackbox',
-    descLine1: 'Atmospheric detective simulation game set within an',
-    descLine2: 'enigmatic vintage civic operating system.',
+    descLine1: 'Atmospheric detective simulation game set within an enigmatic,',
+    descLine2: 'vintage civic operating system with rich terminal mechanics and audio.',
     tags: 'Sim Game · Web Audio · Retro UI',
   },
   {
@@ -111,11 +104,11 @@ const projects = [
     title: 'Kalpindo Company Profile',
     category: 'Enterprise · Web Platform',
     lang: 'PHP / Web',
-    langColor: '#8892bf',
+    langColor: '#777bb4',
     sigilKey: 'kalpindo',
-    descLine1: 'Official corporate platform & testing service catalog',
-    descLine2: 'for PT Kalibrasi Pengujian Indonesia.',
-    tags: 'B2B Enterprise · Portal · Calibration',
+    descLine1: 'Official corporate platform & laboratory testing service catalog',
+    descLine2: 'engineered for PT Kalibrasi Pengujian Indonesia.',
+    tags: 'B2B Enterprise · Web Portal · Calibration',
   },
   {
     id: 'smartstudy',
@@ -125,8 +118,8 @@ const projects = [
     lang: 'TypeScript',
     langColor: '#3178c6',
     sigilKey: 'smartstudy',
-    descLine1: 'Intelligent learning companion engineered with automated',
-    descLine2: 'study routines and adaptive spaced-revision tools.',
+    descLine1: 'Intelligent learning companion engineered with automated study planning,',
+    descLine2: 'adaptive spaced-revision routines, and context-aware study tools.',
     tags: 'AI Tutor · Study Planner · EdTech',
   },
 ];
@@ -136,98 +129,100 @@ function escXml(str) {
 }
 
 for (const p of projects) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="450" height="124" viewBox="0 0 450 124">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165">
   <title>${escXml(p.title)} — ${escXml(p.category)}</title>
   <defs>
-    <!-- Soft Obsidian Slate Gradient -->
-    <linearGradient id="cardSlate_${p.id}" x1="0" y1="0" x2="0" y2="100%">
-      <stop offset="0%" stop-color="#14110d"/>
-      <stop offset="100%" stop-color="#0a0807"/>
+    <!-- Neutral Dark Slate Background (Standard GitHub Dark) -->
+    <linearGradient id="cardBg_${p.id}" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
     </linearGradient>
-    <!-- Whisper-thin Top Ember Edge Glow -->
-    <linearGradient id="topEmber_${p.id}" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Subtle Gold Ember Top Edge Accent -->
+    <linearGradient id="topGlow_${p.id}" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#c9a876" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#f4a742" stop-opacity="0.75"/>
-      <stop offset="70%" stop-color="#c9a876" stop-opacity="0.4"/>
+      <stop offset="35%" stop-color="#c9a876" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#e3b341" stop-opacity="0.7"/>
+      <stop offset="65%" stop-color="#c9a876" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
   <style>
-    .repo-card {
-      transition: all 0.3s ease;
-    }
     .title-text {
-      font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Georgia, -apple-system, sans-serif;
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      fill: #edd7b4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      fill: #f0f6fc;
+    }
+    .repo-name {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      fill: #8b949e;
     }
     .desc-text {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 11px;
-      line-height: 1.45;
-      fill: #a39b8f;
+      font-size: 12.5px;
+      line-height: 1.5;
+      fill: #c9d1d9;
     }
     .meta-text {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 9px;
-      letter-spacing: 0.5px;
-      fill: #736758;
+      font-size: 10.5px;
+      letter-spacing: 0.3px;
+      fill: #8b949e;
     }
     .link-text {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 9.5px;
+      font-size: 11px;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      fill: #c9a876;
+      fill: #e3b341;
     }
   </style>
 
-  <!-- Card Base Plate (No Chunky Brackets) -->
-  <rect x="1" y="1" width="448" height="122" rx="4" fill="url(#cardSlate_${p.id})"/>
-  <!-- Whisper-thin Dark Bronze Outer Outline -->
-  <rect x="1" y="1" width="448" height="122" rx="4" fill="none" stroke="#251d14" stroke-width="1"/>
+  <!-- Card Base Plate: Neutral Dark Slate with Subtle Clean Outline -->
+  <rect x="1" y="1" width="478" height="163" rx="6" fill="url(#cardBg_${p.id})"/>
+  <rect x="1" y="1" width="478" height="163" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
 
-  <!-- Top Ember Accent Edge (Subtle Dark Souls Glow) -->
-  <line x1="20" y1="1.5" x2="430" y2="1.5" stroke="url(#topEmber_${p.id})" stroke-width="1.5"/>
+  <!-- Subtle Top Ember Accent -->
+  <line x1="24" y1="1.5" x2="456" y2="1.5" stroke="url(#topGlow_${p.id})" stroke-width="1.5"/>
 
-  <!-- Left Sigil Alcove -->
-  <g transform="translate(14, 16)">
-    <rect width="36" height="36" rx="3" fill="#0d0a07" stroke="#2a2015" stroke-width="1"/>
+  <!-- Left Sigil Alcove (46x46) -->
+  <g transform="translate(18, 20)">
+    <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
     ${SIGILS[p.sigilKey]}
   </g>
 
-  <!-- Title & Category Header -->
-  <text x="60" y="27" class="title-text">${escXml(p.title)}</text>
-  <text x="60" y="42" class="meta-text">${escXml(p.name)}</text>
+  <!-- Title & Repo Path Header -->
+  <text x="76" y="36" class="title-text">${escXml(p.title)}</text>
+  <text x="76" y="54" class="repo-name">${escXml(p.name)}</text>
 
-  <!-- Language Indicator (Top Right, Clean & Unboxed) -->
-  <g transform="translate(436, 27)">
-    <text text-anchor="end" class="meta-text" fill="#9e9383">
-      <tspan fill="${p.langColor}" font-size="12">● </tspan>${escXml(p.lang)}
+  <!-- Language Indicator (Top Right, Clean & Neutral) -->
+  <g transform="translate(460, 36)">
+    <text text-anchor="end" class="meta-text">
+      <tspan fill="${p.langColor}" font-size="13">● </tspan>${escXml(p.lang)}
     </text>
   </g>
 
-  <!-- Description Lines -->
-  <text x="60" y="62" class="desc-text">${escXml(p.descLine1)}</text>
-  <text x="60" y="78" class="desc-text">${escXml(p.descLine2)}</text>
+  <!-- Description (Generous Spacing, Clean Neutral White/Gray) -->
+  <text x="76" y="82" class="desc-text">${escXml(p.descLine1)}</text>
+  <text x="76" y="102" class="desc-text">${escXml(p.descLine2)}</text>
 
-  <!-- Fine Horizontal Inscription Divider -->
-  <line x1="14" y1="92" x2="436" y2="92" stroke="#1d160e" stroke-width="1"/>
+  <!-- Clean Subtle Divider -->
+  <line x1="18" y1="126" x2="462" y2="126" stroke="#21262d" stroke-width="1"/>
 
   <!-- Footer Info -->
   <!-- Left: Domain Tags -->
-  <text x="16" y="108" class="meta-text">${escXml(p.tags)}</text>
+  <text x="18" y="146" class="meta-text">${escXml(p.tags)}</text>
 
-  <!-- Right: Explore Link -->
-  <text x="434" y="108" text-anchor="end" class="link-text">VIEW REPO ↗</text>
+  <!-- Right: Clean Repo Link -->
+  <text x="462" y="146" text-anchor="end" class="link-text">VIEW REPO ↗</text>
 </svg>
 `;
 
   writeFileSync(join(CARDS_DIR, `card-${p.id}.svg`), svg);
-  console.log(`Generated elegant card-${p.id}.svg`);
+  console.log(`Generated large neutral card-${p.id}.svg`);
 }
 
-console.log('✨ All Soft Dark Souls repo cards regenerated with supreme elegance!');
+console.log('✨ All large neutral Dark Souls repo cards regenerated successfully!');

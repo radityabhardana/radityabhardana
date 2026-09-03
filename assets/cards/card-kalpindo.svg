@@ -1,94 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="450" height="124" viewBox="0 0 450 124">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165">
   <title>Kalpindo Company Profile — Enterprise · Web Platform</title>
   <defs>
-    <!-- Soft Obsidian Slate Gradient -->
-    <linearGradient id="cardSlate_kalpindo" x1="0" y1="0" x2="0" y2="100%">
-      <stop offset="0%" stop-color="#14110d"/>
-      <stop offset="100%" stop-color="#0a0807"/>
+    <!-- Neutral Dark Slate Background (Standard GitHub Dark) -->
+    <linearGradient id="cardBg_kalpindo" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
     </linearGradient>
-    <!-- Whisper-thin Top Ember Edge Glow -->
-    <linearGradient id="topEmber_kalpindo" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Subtle Gold Ember Top Edge Accent -->
+    <linearGradient id="topGlow_kalpindo" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#c9a876" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#c9a876" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#f4a742" stop-opacity="0.75"/>
-      <stop offset="70%" stop-color="#c9a876" stop-opacity="0.4"/>
+      <stop offset="35%" stop-color="#c9a876" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#e3b341" stop-opacity="0.7"/>
+      <stop offset="65%" stop-color="#c9a876" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#c9a876" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
   <style>
-    .repo-card {
-      transition: all 0.3s ease;
-    }
     .title-text {
-      font-family: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Georgia, -apple-system, sans-serif;
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      fill: #edd7b4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      fill: #f0f6fc;
+    }
+    .repo-name {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      fill: #8b949e;
     }
     .desc-text {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 11px;
-      line-height: 1.45;
-      fill: #a39b8f;
+      font-size: 12.5px;
+      line-height: 1.5;
+      fill: #c9d1d9;
     }
     .meta-text {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 9px;
-      letter-spacing: 0.5px;
-      fill: #736758;
+      font-size: 10.5px;
+      letter-spacing: 0.3px;
+      fill: #8b949e;
     }
     .link-text {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 9.5px;
+      font-size: 11px;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      fill: #c9a876;
+      fill: #e3b341;
     }
   </style>
 
-  <!-- Card Base Plate (No Chunky Brackets) -->
-  <rect x="1" y="1" width="448" height="122" rx="4" fill="url(#cardSlate_kalpindo)"/>
-  <!-- Whisper-thin Dark Bronze Outer Outline -->
-  <rect x="1" y="1" width="448" height="122" rx="4" fill="none" stroke="#251d14" stroke-width="1"/>
+  <!-- Card Base Plate: Neutral Dark Slate with Subtle Clean Outline -->
+  <rect x="1" y="1" width="478" height="163" rx="6" fill="url(#cardBg_kalpindo)"/>
+  <rect x="1" y="1" width="478" height="163" rx="6" fill="none" stroke="#30363d" stroke-width="1"/>
 
-  <!-- Top Ember Accent Edge (Subtle Dark Souls Glow) -->
-  <line x1="20" y1="1.5" x2="430" y2="1.5" stroke="url(#topEmber_kalpindo)" stroke-width="1.5"/>
+  <!-- Subtle Top Ember Accent -->
+  <line x1="24" y1="1.5" x2="456" y2="1.5" stroke="url(#topGlow_kalpindo)" stroke-width="1.5"/>
 
-  <!-- Left Sigil Alcove -->
-  <g transform="translate(14, 16)">
-    <rect width="36" height="36" rx="3" fill="#0d0a07" stroke="#2a2015" stroke-width="1"/>
+  <!-- Left Sigil Alcove (46x46) -->
+  <g transform="translate(18, 20)">
+    <rect width="46" height="46" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
     
-    <path d="M9 10 L27 10 L25 21 C24 25, 18 28, 18 28 C18 28, 12 25, 11 21 Z" fill="#18130d" stroke="#c9a876" stroke-width="1.3"/>
-    <line x1="18" y1="12" x2="18" y2="24" stroke="#f4a742" stroke-width="1.2"/>
-    <line x1="13" y1="15" x2="23" y2="15" stroke="#f4a742" stroke-width="1.2"/>
-    <circle cx="13" cy="18" r="1.5" fill="#fff5cc"/>
-    <circle cx="23" cy="18" r="1.5" fill="#fff5cc"/>
+    <path d="M12 13 L34 13 L31.5 27 C30 32, 23 35, 23 35 C23 35, 16 32, 14.5 27 Z" fill="#161b22" stroke="#c9a876" stroke-width="1.5"/>
+    <line x1="23" y1="15" x2="23" y2="30" stroke="#e3b341" stroke-width="1.4"/>
+    <line x1="17" y1="19" x2="29" y2="19" stroke="#e3b341" stroke-width="1.4"/>
+    <circle cx="17" cy="23" r="2" fill="#ffffff"/>
+    <circle cx="29" cy="23" r="2" fill="#ffffff"/>
   
   </g>
 
-  <!-- Title & Category Header -->
-  <text x="60" y="27" class="title-text">Kalpindo Company Profile</text>
-  <text x="60" y="42" class="meta-text">radityabhardana/Kalpindo</text>
+  <!-- Title & Repo Path Header -->
+  <text x="76" y="36" class="title-text">Kalpindo Company Profile</text>
+  <text x="76" y="54" class="repo-name">radityabhardana/Kalpindo</text>
 
-  <!-- Language Indicator (Top Right, Clean & Unboxed) -->
-  <g transform="translate(436, 27)">
-    <text text-anchor="end" class="meta-text" fill="#9e9383">
-      <tspan fill="#8892bf" font-size="12">● </tspan>PHP / Web
+  <!-- Language Indicator (Top Right, Clean & Neutral) -->
+  <g transform="translate(460, 36)">
+    <text text-anchor="end" class="meta-text">
+      <tspan fill="#777bb4" font-size="13">● </tspan>PHP / Web
     </text>
   </g>
 
-  <!-- Description Lines -->
-  <text x="60" y="62" class="desc-text">Official corporate platform &amp; testing service catalog</text>
-  <text x="60" y="78" class="desc-text">for PT Kalibrasi Pengujian Indonesia.</text>
+  <!-- Description (Generous Spacing, Clean Neutral White/Gray) -->
+  <text x="76" y="82" class="desc-text">Official corporate platform &amp; laboratory testing service catalog</text>
+  <text x="76" y="102" class="desc-text">engineered for PT Kalibrasi Pengujian Indonesia.</text>
 
-  <!-- Fine Horizontal Inscription Divider -->
-  <line x1="14" y1="92" x2="436" y2="92" stroke="#1d160e" stroke-width="1"/>
+  <!-- Clean Subtle Divider -->
+  <line x1="18" y1="126" x2="462" y2="126" stroke="#21262d" stroke-width="1"/>
 
   <!-- Footer Info -->
   <!-- Left: Domain Tags -->
-  <text x="16" y="108" class="meta-text">B2B Enterprise · Portal · Calibration</text>
+  <text x="18" y="146" class="meta-text">B2B Enterprise · Web Portal · Calibration</text>
 
-  <!-- Right: Explore Link -->
-  <text x="434" y="108" text-anchor="end" class="link-text">VIEW REPO ↗</text>
+  <!-- Right: Clean Repo Link -->
+  <text x="462" y="146" text-anchor="end" class="link-text">VIEW REPO ↗</text>
 </svg>
