@@ -1,9 +1,5 @@
 <div align="center">
 
-<img src="./assets/scenes/bonfire.svg" width="480" alt="Animated Dark Souls pixel bonfire"/>
-
-<br/>
-
 <img src="./assets/scenes/banner.svg" width="100%" alt="Raditya Bagus Hardana pixel banner"/>
 
 <br/>
@@ -14,7 +10,7 @@
 
 <img src="https://img.shields.io/badge/FOCUS-FULL--STACK%20%26%20AUTOMATION-c9a876?style=for-the-badge&labelColor=0d0d0d" alt="Focus: Full-Stack &amp; Automation"/>
 <img src="https://img.shields.io/badge/ORIGIN-INDONESIA-3a2f1f?style=for-the-badge&labelColor=0d0d0d" alt="Origin: Indonesia"/>
-<img src="https://img.shields.io/badge/STATUS-BONFIRE%20LIT-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Status: Bonfire Lit"/>
+<img src="https://img.shields.io/badge/STATUS-ACTIVE%20EMBER-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Status: Active Ember"/>
 
 </div>
 
@@ -105,16 +101,25 @@ Software developer and automation engineer focused on building resilient backend
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
-<p align="center">
+<!-- FOOTER: THE BONFIRE REST & TRANSMISSIONS -->
+<div align="center">
 
+<img src="./assets/scenes/bonfire.svg" width="240" alt="Animated Dark Souls pixel bonfire"/>
+
+<br/>
+
+<sub>Rest here, traveler. The journey through the codebase is complete.</sub>
+
+<br/><br/>
+
+<p>
 <a href="[YOUR_LINKEDIN]"><img src="https://img.shields.io/badge/LinkedIn-CONNECT-0d0d0d?style=for-the-badge&logo=linkedin&logoColor=c9a876&labelColor=0d0d0d" alt="LinkedIn"/></a>
 <a href="mailto:[YOUR_EMAIL]"><img src="https://img.shields.io/badge/Email-CONTACT-0d0d0d?style=for-the-badge&logo=gmail&logoColor=c9a876&labelColor=0d0d0d" alt="Email"/></a>
 <a href="[YOUR_INSTAGRAM]"><img src="https://img.shields.io/badge/Instagram-FOLLOW-0d0d0d?style=for-the-badge&logo=instagram&logoColor=c9a876&labelColor=0d0d0d" alt="Instagram"/></a>
 <a href="https://github.com/radityabhardana"><img src="https://img.shields.io/badge/GitHub-FOLLOW-0d0d0d?style=for-the-badge&logo=github&logoColor=c9a876&labelColor=0d0d0d" alt="GitHub"/></a>
-
 </p>
 
-<div align="center">
+<br/>
 
 <sub>You died. But the code lives on.</sub>
 
