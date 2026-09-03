@@ -1,8 +1,11 @@
 /**
  * scripts/create-pixel-bonfire.mjs
- * Generates an authentic 100% pure pixel-art Dark Souls Bonfire SVG.
- * The sword is STRAIGHT and VERTICAL (tegak lurus ke atas), perfectly centered,
- * with a symmetrical crossguard, plunged into the ash mound in front of the flame.
+ * Generates an authentic, realistic pixel-art Dark Souls Bonfire SVG.
+ * Features:
+ * - 4-stage organic, turbulent flame animation with multiple licking tongues & detached sparks
+ * - Convection-driven flame physics: left, center, and right flame spires dancing asymmetrically
+ * - Multi-depth layering: back fire body + straight vertical sword + front licking tongues
+ * - Dithered radiant ambient glow and embers
  */
 
 import { writeFileSync } from 'node:fs';
@@ -38,10 +41,12 @@ const C = {
   logDark: '#140f0b',
   logMid: '#261b12',
 
-  emberRed: '#b82800',
-  emberOrange: '#ff6600',
-  emberGold: '#ffb703',
-  emberWhite: '#fff8db',
+  // Fire palette (5 rich thermal levels)
+  fireWhite: '#ffffff',
+  fireYellow: '#fff176',
+  fireOrange: '#ff8f00',
+  fireRed: '#d00000',
+  fireDark: '#6a040f',
 
   swordDark: '#1a1613',
   swordSteel: '#544b42',
@@ -82,7 +87,6 @@ function parseMatrix(map, pal, startCol, startRow) {
 }
 
 // 2. STRAIGHT VERTICAL PIXEL SWORD
-// Perfectly centered at Col 58-61, pointing straight up (tegak lurus)!
 function generateStraightVerticalSword() {
   const rects = [];
 
@@ -103,8 +107,7 @@ function generateStraightVerticalSword() {
     rects.push(`<rect x="${59 * S}" y="${r * S}" width="${2 * S}" height="${S}" fill="${fill}"/>`);
   }
 
-  // --- C. STRAIGHT HORIZONTAL CROSSGUARD (Rows 23-25, Cols 50-69) ---
-  // Symmetric straight bar with ornate gold ends
+  // --- C. STRAIGHT HORIZONTAL CROSSGUARD (Rows 23-25, Cols 49-70) ---
   const guard = [
     // Upper trim
     [52, 23, 16, C.swordGold],
@@ -120,28 +123,22 @@ function generateStraightVerticalSword() {
   }
 
   // --- D. STRAIGHT VERTICAL DOUBLE-EDGED BLADE (Rows 26 to 62) ---
-  // Perfectly straight vertical bar: 4 pixels wide (Cols 58, 59, 60, 61)
-  // - Col 58: Left edge highlight
-  // - Col 59: Left bevel
-  // - Col 60: Center ridge / fuller
-  // - Col 61: Right shadow edge
   for (let r = 26; r <= 62; r++) {
     let edgeL = C.swordBright;
     let bevelL = C.swordHi;
     let ridge = C.swordSteel;
     let edgeR = C.swordDark;
 
-    // Transition to molten glowing steel near the base
     if (r >= 55) {
-      edgeL = C.emberWhite;
-      bevelL = C.emberWhite;
-      ridge = C.emberGold;
-      edgeR = C.emberOrange;
+      edgeL = C.fireWhite;
+      bevelL = C.fireWhite;
+      ridge = C.fireYellow;
+      edgeR = C.fireOrange;
     } else if (r >= 46) {
       edgeL = C.swordBright;
-      bevelL = C.emberGold;
-      ridge = C.emberOrange;
-      edgeR = C.emberRed;
+      bevelL = C.fireYellow;
+      ridge = C.fireOrange;
+      edgeR = C.fireRed;
     } else if (r >= 38) {
       edgeL = C.swordBright;
       bevelL = C.swordHi;
@@ -155,191 +152,261 @@ function generateStraightVerticalSword() {
     rects.push(`<rect x="${61 * S}" y="${r * S}" width="${S}" height="${S}" fill="${edgeR}"/>`);
   }
 
-  // Blade Tip (Row 63, tapering to 2 pixels plunged in ash)
-  rects.push(`<rect x="${59 * S}" y="${63 * S}" width="${2 * S}" height="${S}" fill="${C.emberWhite}"/>`);
+  // Blade Tip (Row 63)
+  rects.push(`<rect x="${59 * S}" y="${63 * S}" width="${2 * S}" height="${S}" fill="${C.fireWhite}"/>`);
 
   return rects.join('');
 }
 
-// 3. Flame Frames (32 cols x 36 rows)
-// Positioned at Col 44, Row 24 (Flaring behind & beside the sword)
+// 3. REALISTIC TURBULENT FLAME ANIMATION (44 cols x 40 rows)
+// Col 38 to 81, Row 22 to 61
 const FLAME_PAL = {
-  R: C.emberRed,
-  O: C.emberOrange,
-  Y: C.emberGold,
-  W: C.emberWhite,
+  W: C.fireWhite,
+  Y: C.fireYellow,
+  O: C.fireOrange,
+  R: C.fireRed,
+  D: C.fireDark,
 };
 
+// FRAME 1: Left tongue crests high and licks left, right tongue mid, center core surging
 const FLAME_1 = [
-  '...............RR...............',
-  '.............RROORR.............',
-  '............RROOOOORR...........',
-  '...........ROOYYYYYOOR..........',
-  '..........ROOYYYYYYYOOR.........',
-  '.........ROOYYWWWWYYYOOR........',
-  '........ROOYYWWWWWWYYYOOR.......',
-  '.......RROYYWWWWWWWWYYOOR.......',
-  '......RROYYWWWWWWWWWWYYOOR......',
-  '.....RROOYYWWWWWWWWWWYYOOOR.....',
-  '....RROOYYYYWWWWWWWWYYYYOOOR....',
-  '...RROOYYYYYYWWWWWWYYYYYYOOOR...',
-  '..RROOYYYYYYYWWWWWWYYYYYYYOOOR..',
-  '..ROOYYYYYYYYWWWWWWYYYYYYYYOOR..',
-  '..ROYYYYYYYYYWWWWWWYYYYYYYYYOR..',
-  '..ROYYYYYYYYYWWWWWWYYYYYYYYYOR..',
-  '..ROOYYYYYYYYWWWWWWYYYYYYYYOOR..',
-  '...ROOYYYYYYYWWWWWWYYYYYYYOOOR..',
-  '...RROOYYYYYYWWWWWWYYYYYYOOOR...',
-  '....RROOYYYYYWWWWWWYYYYYOOOR....',
-  '.....RROOYYYYWWWWWWYYYYOOOR.....',
-  '......RROOYYYWWWWWWYYYOOOR......',
-  '.......RROOYYWWWWWWYYOOOR.......',
-  '........RROOYYYYYYYYOOOR........',
-  '.........RROOYYYYYYOOOR.........',
-  '..........RROOOOOOOOOR..........',
-  '...........RROOOOOOOR...........',
-  '............RROOOOOR............',
-  '.............RROOOR.............',
-  '..............RRR...............',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
+  '..........D.................................',
+  '.........DRD................................',
+  '........DRORD..................D............',
+  '.......DROYORD................DRD...........',
+  '.......DROYYORD..............DRORD..........',
+  '......DROYYYYORD............DROYORD.........',
+  '......DROYYWYYORD..........DROYYORD.........',
+  '.....DROYYWWYYORD.........DROYYYYORD........',
+  '.....DROYYWWYYORD........DROYYWWYYORD.......',
+  '....DROYYWWWWYYORD......DROYYWWWWYYORD......',
+  '....DROYYWWWWYYORD.....DROYYWWWWWWYYORD.....',
+  '...DROYYYWWWWYYYORD....DROYYWWWWWWYYYORD....',
+  '...DROYYWWWWWWYYYORD..DROYYYWWWWWWYYYYORD...',
+  '..DROYYYWWWWWWYYYYORD.DROYYYWWWWWWYYYYYORD..',
+  '..DROYYYYWWWWWWYYYYORDROYYYYWWWWWWYYYYYYORD.',
+  '.DROYYYYYWWWWWWYYYYYYROYYYYYWWWWWWYYYYYYORD.',
+  '.DROYYYYYYWWWWWWYYYYYYOYYYYYWWWWWWYYYYYYORD.',
+  'DROOYYYYYYWWWWWWWWYYYYOYYYYYWWWWWWYYYYYYOORD',
+  'DROOYYYYYYWWWWWWWWYYYYOYYYYYWWWWWWYYYYYYOORD',
+  'DROOYYYYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYYYOORD',
+  'DROOYYYYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYYYOORD',
+  '.DROOYYYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYYYOORD',
+  '.DROOYYYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYYYOORD',
+  '..DROOYYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYYOORD.',
+  '..DROOYYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYYOORD.',
+  '...DROOYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYOORD..',
+  '...DROOYYYWWWWWWWWWWYYOYYYYYWWWWWWYYYYOORD..',
+  '....DROOYYWWWWWWWWWWYYOYYYYYWWWWWWYYYOORD...',
+  '.....DROOYYWWWWWWWWWYYOYYYYYWWWWWWYYOORD....',
+  '......DROOYYWWWWWWWWYYOYYYYYWWWWWWYYOORD....',
+  '.......DROOYYWWWWWWWYYOYYYYYWWWWWYYOORD.....',
+  '........DROOYYWWWWWWYYOYYYYYWWWWYYOORD......',
+  '.........DROOYYWWWWWYYOYYYYYWWWYYOORD.......',
+  '..........DROOYYYYYYYYOYYYYYYYYYOORD........',
+  '...........DROOOOOOOOOOOOOOOOOOOORD.........',
+  '............DRRRRRRRRRRRRRRRRRRRRD..........',
+  '.............DDDDDDDDDDDDDDDDDDDD...........',
+  '............................................',
+  '............................................',
+  '............................................',
 ];
 
+// FRAME 2: Left tongue detaches into ember cluster, center surges tall, right curls in
 const FLAME_2 = [
-  '.............RR.................',
-  '...........RROORR...............',
-  '..........RROOOOORR.............',
-  '.........ROOYYYYYOOR............',
-  '........ROOYYYYYYYOOR...........',
-  '.......ROOYYWWWWYYYOOR..........',
-  '......ROOYYWWWWWWYYYOOR.........',
-  '.....RROYYWWWWWWWWYYOOR.........',
-  '....RROYYWWWWWWWWWWYYOOR........',
-  '...RROOYYWWWWWWWWWWYYOOOR.......',
-  '..RROOYYYYWWWWWWWWYYYYOOOR......',
-  '..ROOYYYYYYWWWWWWYYYYYYOOOR.....',
-  '.ROOYYYYYYYWWWWWWYYYYYYYOOOR....',
-  '.ROYYYYYYYYWWWWWWYYYYYYYYOOR....',
-  '.ROYYYYYYYYYWWWWWWYYYYYYYYOR....',
-  '..ROYYYYYYYYWWWWWWYYYYYYYYOR....',
-  '..ROOYYYYYYYWWWWWWYYYYYYYOOR....',
-  '...ROOYYYYYYWWWWWWYYYYYYOOOR....',
-  '....RROOYYYYWWWWWWYYYYYOOOR.....',
-  '.....RROOYYYWWWWWWYYYYOOOR......',
-  '......RROOYYWWWWWWYYYOOOR.......',
-  '.......RROOYYWWWWWWYYOOOR.......',
-  '........RROOYYYYYYYYOOOR........',
-  '.........RROOYYYYYYOOOR.........',
-  '..........RROOOOOOOOOR..........',
-  '...........RROOOOOOOR...........',
-  '............RROOOOOR............',
-  '.............RROOOR.............',
-  '..............RRR...............',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
+  '........................D...................',
+  '.......................DRD..................',
+  '......................DRORD.................',
+  '..........D..........DROYORD................',
+  '.........DRD........DROYYORD................',
+  '.........DRORD.....DROYYWWYYORD.............',
+  '..........DRD.....DROYYWWWWYYORD............',
+  '.................DROYYWWWWWWYYORD...........',
+  '.......D........DROYYYWWWWWWYYYORD..........',
+  '......DRD......DROYYYYWWWWWWYYYYORD.........',
+  '.....DRORD....DROYYYYYWWWWWWYYYYYORD........',
+  '....DROYORD..DROYYYYYYWWWWWWYYYYYYORD.......',
+  '...DROYYORD..DROYYYYYYWWWWWWYYYYYYYORD......',
+  '..DROYYWWYYORDROYYYYYYWWWWWWYYYYYYYYORD.....',
+  '..DROYYWWYYORDROYYYYYYWWWWWWYYYYYYYYORD.....',
+  '.DROYYYWWYYYORDYYYYYYYWWWWWWYYYYYYYYYORD....',
+  '.DROYYYWWWWYYORDYYYYYYWWWWWWYYYYYYYYYORD....',
+  'DROOYYYWWWWYYORDYYYYYYWWWWWWYYYYYYYYYOORD...',
+  'DROOYYYYWWWWYYORDYYYYYWWWWWWYYYYYYYYYOORD...',
+  'DROOYYYYWWWWYYORDYYYYYWWWWWWYYYYYYYYYOORD...',
+  'DROOYYYYWWWWYYYORDYYYYWWWWWWYYYYYYYYYOORD...',
+  '.DROYYYYWWWWYYYORDYYYYWWWWWWYYYYYYYYYOORD...',
+  '.DROYYYYWWWWWWYYORDYYYWWWWWWYYYYYYYYYOORD...',
+  '..DROOYYWWWWWWYYORDYYYWWWWWWYYYYYYYYOORD....',
+  '..DROOYYWWWWWWYYORDYYYWWWWWWYYYYYYYYOORD....',
+  '...DROOYYWWWWWYYORDYYYWWWWWWYYYYYYYOORD.....',
+  '...DROOYYWWWWWYYORDYYYWWWWWWYYYYYYYOORD.....',
+  '....DROOYYWWWWYYORDYYYWWWWWWYYYYYYOORD......',
+  '.....DROOYYWWWYYORDYYYWWWWWWYYYYYOORD.......',
+  '......DROOYYWWYYORDYYYWWWWWWYYYYOORD........',
+  '.......DROOYYWYYORDYYYWWWWWWYYYOORD.........',
+  '........DROOYYYYORDYYYWWWWWWYYOORD..........',
+  '.........DROOYYYORDYYYWWWWWYYOORD...........',
+  '..........DROOYYORDYYYWWWWYYOORD............',
+  '...........DROOOOOOOOOOOOOOOOOORD...........',
+  '............DRRRRRRRRRRRRRRRRRRD............',
+  '.............DDDDDDDDDDDDDDDDDD.............',
+  '............................................',
+  '............................................',
+  '............................................',
 ];
 
+// FRAME 3: Center tongue curls right, right tongue crests tall, left builds from base
 const FLAME_3 = [
-  '................RR..............',
-  '...............RROORR...........',
-  '..............RROOOOORR.........',
-  '.............ROOYYYYYOOR........',
-  '............ROOYYYYYYYOOR.......',
-  '...........ROOYYWWWWYYYOOR......',
-  '..........ROOYYWWWWWWYYYOOR.....',
-  '.........RROYYWWWWWWWWYYOOR.....',
-  '........RROYYWWWWWWWWWWYYOOR....',
-  '.......RROOYYWWWWWWWWWWYYOOOR...',
-  '......RROOYYYYWWWWWWWWYYYYOOOR..',
-  '.....RROOYYYYYYWWWWWWYYYYYYOOOR.',
-  '....RROOYYYYYYYWWWWWWYYYYYYYOOOR',
-  '....ROOYYYYYYYYWWWWWWYYYYYYYYOOR',
-  '....ROYYYYYYYYYWWWWWWYYYYYYYYYOR',
-  '....ROYYYYYYYYYWWWWWWYYYYYYYYYOR',
-  '.....ROOYYYYYYYWWWWWWYYYYYYYOOOR',
-  '.....RROOYYYYYYWWWWWWYYYYYYOOOR.',
-  '......RROOYYYYYWWWWWWYYYYYOOOR..',
-  '.......RROOYYYYWWWWWWYYYYOOOR...',
-  '........RROOYYYWWWWWWYYYOOOR....',
-  '.........RROOYYWWWWWWYYOOOR.....',
-  '..........RROOYYYYYYYYOOOR......',
-  '...........RROOYYYYYYOOOR.......',
-  '............RROOOOOOOOOR........',
-  '.............RROOOOOOOR.........',
-  '..............RROOOOOR..........',
-  '...............RROOOR...........',
-  '................RRR.............',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
+  '..............................D.............',
+  '.............................DRD............',
+  '............................DRORD...........',
+  '...........................DROYORD..........',
+  '..........................DROYYORD..........',
+  '.........................DROYYWWYYORD.......',
+  '........................DROYYWWWWYYORD......',
+  '.......................DROYYWWWWWWYYORD.....',
+  '......................DROYYYWWWWWWYYYORD....',
+  '.....................DROYYYYWWWWWWYYYYORD...',
+  '.........D..........DROYYYYYWWWWWWYYYYYORD..',
+  '........DRD........DROYYYYYYWWWWWWYYYYYYORD.',
+  '.......DRORD......DROYYYYYYYWWWWWWYYYYYYORD.',
+  '......DROYORD....DROYYYYYYYYWWWWWWYYYYYYORD.',
+  '.....DROYYORD...DROYYYYYYYYYWWWWWWYYYYYYORD.',
+  '....DROYYWWYYORDROYYYYYYYYYYWWWWWWYYYYYYORD.',
+  '...DROYYYWWYYYORDYYYYYYYYYYYWWWWWWYYYYYYORD.',
+  '..DROYYYYWWWWYYORDYYYYYYYYYYWWWWWWYYYYYYOORD',
+  '..DROYYYYWWWWYYORDYYYYYYYYYYWWWWWWYYYYYYOORD',
+  '.DROOYYYYWWWWYYORDYYYYYYYYYYWWWWWWYYYYYYOORD',
+  '.DROOYYYYWWWWYYYORDYYYYYYYYYWWWWWWYYYYYYOORD',
+  'DROOOYYYYWWWWYYYORDYYYYYYYYYWWWWWWYYYYYYOORD',
+  'DROOOYYYYWWWWYYYORDYYYYYYYYYWWWWWWYYYYYYOORD',
+  '.DROOYYYYWWWWYYYORDYYYYYYYYYWWWWWWYYYYYOORD.',
+  '.DROOYYYYWWWWWWYYORDYYYYYYYYWWWWWWYYYYYOORD.',
+  '..DROOYYYWWWWWWYYORDYYYYYYYYWWWWWWYYYYOORD..',
+  '..DROOYYYWWWWWWYYORDYYYYYYYYWWWWWWYYYYOORD..',
+  '...DROOYYWWWWWWYYORDYYYYYYYYWWWWWWYYYOORD...',
+  '....DROOYYWWWWWYYORDYYYYYYYYWWWWWWYYOORD....',
+  '.....DROOYYWWWWYYORDYYYYYYYYWWWWWWYYOORD....',
+  '......DROOYYWWWYYORDYYYYYYYYWWWWWYYOORD.....',
+  '.......DROOYYWWYYORDYYYYYYYYWWWWYYOORD......',
+  '........DROOYYWYYORDYYYYYYYYWWWYYOORD.......',
+  '.........DROOYYYORDYYYYYYYYYYYYYOORD........',
+  '..........DROOOOOOOOOOOOOOOOOOOOORD.........',
+  '...........DRRRRRRRRRRRRRRRRRRRRRD..........',
+  '............DDDDDDDDDDDDDDDDDDDDD...........',
+  '............................................',
+  '............................................',
+  '............................................',
 ];
 
+// FRAME 4: Right tongue detaches, left flares wide, twin licking spires
 const FLAME_4 = [
-  '...............RR...............',
-  '.............RROORR.............',
-  '............RROOOOORR...........',
-  '...........RROYYYYYOORR.........',
-  '..........ROOYYYYYYYYOOR........',
-  '.........ROOYYWWWWWWYYOOR.......',
-  '........ROOYYWWWWWWWWYYOOR......',
-  '.......RROYYWWWWWWWWWWYYOOR.....',
-  '......RROYYWWWWWWWWWWWWYYOOR....',
-  '.....RROOYYWWWWWWWWWWWWYYOOOR...',
-  '....RROOYYYYWWWWWWWWWWYYYYOOOR..',
-  '...RROOYYYYYYWWWWWWWWYYYYYYOOOR.',
-  '..RROOYYYYYYYWWWWWWWWYYYYYYYOOOR',
-  '..ROOYYYYYYYYWWWWWWWWYYYYYYYYOOR',
-  '..ROYYYYYYYYYWWWWWWWWYYYYYYYYYOR',
-  '..ROYYYYYYYYYWWWWWWWWYYYYYYYYYOR',
-  '..ROOYYYYYYYYWWWWWWWWYYYYYYYYOOR',
-  '...ROOYYYYYYYWWWWWWWWYYYYYYYOOOR',
-  '...RROOYYYYYYWWWWWWWWYYYYYYOOOR.',
-  '....RROOYYYYYWWWWWWWWYYYYYOOOR..',
-  '.....RROOYYYYWWWWWWWWYYYYOOOR...',
-  '......RROOYYYWWWWWWWWYYYOOOR....',
-  '.......RROOYYWWWWWWWWYYOOOR.....',
-  '........RROOYYYYYYYYYYOOOR......',
-  '.........RROOYYYYYYYYOOOR.......',
-  '..........RROOOOOOOOOOOR........',
-  '...........RROOOOOOOOOR.........',
-  '............RROOOOOOOR..........',
-  '.............RROOOOOR...........',
-  '..............RROOOR............',
-  '...............RRR..............',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
-  '................................',
+  '................................D...........',
+  '...............................DRD..........',
+  '........D......................DRORD........',
+  '.......DRD......................DRD.........',
+  '......DRORD.................................',
+  '.....DROYORD.................D..............',
+  '....DROYYORD................DRD.............',
+  '...DROYYWWYYORD............DRORD............',
+  '..DROYYYWWYYYORD..........DROYORD...........',
+  '..DROYYYYWWWWYYORD.......DROYYORD...........',
+  '.DROYYYYYWWWWYYYORD.....DROYYWWYYORD........',
+  '.DROYYYYYYWWWWYYYORD...DROYYWWWWYYORD.......',
+  'DROYYYYYYYWWWWYYYYORD..DROYYWWWWWWYYORD.....',
+  'DROYYYYYYYYWWWWYYYYORDDROYYYWWWWWWYYYORD....',
+  'DROYYYYYYYYWWWWYYYYYORDROYYYWWWWWWYYYYORD...',
+  'DROYYYYYYYYYWWWWYYYYYORDROYYWWWWWWYYYYYORD..',
+  'DROOYYYYYYYYWWWWYYYYYYORDROYYWWWWWWYYYYYORD.',
+  'DROOYYYYYYYYWWWWYYYYYYORDROYYWWWWWWYYYYYOORD',
+  '.DROOYYYYYYYWWWWYYYYYYORDROYYWWWWWWYYYYYOORD',
+  '.DROOYYYYYYYWWWWWWYYYYORDROYYWWWWWWYYYYYOORD',
+  '..DROOYYYYYYWWWWWWYYYYORDROYYWWWWWWYYYYYOORD',
+  '..DROOYYYYYYWWWWWWYYYYORDROYYWWWWWWYYYYYOORD',
+  '...DROOYYYYYWWWWWWYYYYORDROYYWWWWWWYYYYYOORD',
+  '...DROOYYYYYWWWWWWYYYYORDROYYWWWWWWYYYYOORD.',
+  '....DROOYYYYWWWWWWYYYYORDROYYWWWWWWYYYYOORD.',
+  '....DROOYYYYWWWWWWYYYYORDROYYWWWWWWYYYYOORD.',
+  '.....DROOYYYWWWWWWYYYYORDROYYWWWWWWYYYOORD..',
+  '......DROOYYWWWWWWYYYYORDROYYWWWWWWYYOORD...',
+  '......DROOYYWWWWWWYYYYORDROYYWWWWWWYYOORD...',
+  '.......DROOYYWWWWWYYYORDROOYYWWWWWYYOORD....',
+  '........DROOYYWWWWYYYORDROOYYWWWWYYOORD.....',
+  '.........DROOYYWWWYYORD.ROOYYWWWYYOORD......',
+  '..........DROOYYWWYYORD..ROOYYWWYYOORD......',
+  '...........DROOYYYORD.....ROOYYYOORD........',
+  '............DROOOOORD.....ROOOOOORD.........',
+  '.............DRRRRRRD.....RRRRRRRD..........',
+  '..............DDDDD.........DDDD............',
+  '............................................',
+  '............................................',
+  '............................................',
+];
+
+// 4. FOREGROUND FLAME LICKS (Licking across the lower sword at row 54-62)
+// Makes the sword physically submerged inside the fire
+const FG_FLAME_PAL = {
+  W: C.fireWhite,
+  Y: C.fireYellow,
+  O: C.fireOrange,
+  R: C.fireRed,
+};
+const FG_FLAME_1 = [
+  '..R......R..',
+  '.ROR....ROR.',
+  'ROYYO..ROYYO',
+  'OYYWYO.OYYWO',
+  'YYWWYYOYYWWY',
+  'YWWWWYYYYWWY',
+  'WWWWWWWWWWWW',
+  'WWWWWWWWWWWW',
+];
+const FG_FLAME_2 = [
+  '.R......R...',
+  'ROR....ROR..',
+  'OYYO..ROYYO.',
+  'YYWYO.OYYWYO',
+  'YWWYYOYYWWYY',
+  'WWWWYYYYWWWW',
+  'WWWWWWWWWWWW',
+  'WWWWWWWWWWWW',
+];
+const FG_FLAME_3 = [
+  '...R......R.',
+  '..ROR....ROR',
+  '.ROYYO..ROYY',
+  'ROYYWYO.OYYW',
+  'OYYWWYYOYYWW',
+  'YYWWWWYYYYWW',
+  'WWWWWWWWWWWW',
+  'WWWWWWWWWWWW',
+];
+const FG_FLAME_4 = [
+  '....R....R..',
+  '...ROR..ROR.',
+  '..ROYYOROYO.',
+  '.ROYYWYYWYO.',
+  'ROYYWWYYWWYY',
+  'YYWWWWYYYYWW',
+  'WWWWWWWWWWWW',
+  'WWWWWWWWWWWW',
 ];
 
 // Build Ash Mound pixel blocks
 function generateAshMound() {
   const rects = [];
   const tiers = [
-    { r: 58, cStart: 50, width: 20, fill: C.ashLight },
-    { r: 59, cStart: 46, width: 28, fill: C.ashHi },
-    { r: 60, cStart: 42, width: 36, fill: C.ashHi },
-    { r: 61, cStart: 38, width: 44, fill: C.ashMid },
-    { r: 62, cStart: 34, width: 52, fill: C.ashMid },
-    { r: 63, cStart: 30, width: 60, fill: C.ashDark },
-    { r: 64, cStart: 26, width: 68, fill: C.ashDark },
-    { r: 65, cStart: 22, width: 76, fill: C.ashDark },
-    { r: 66, cStart: 20, width: 80, fill: C.groundDark },
-    { r: 67, cStart: 18, width: 84, fill: C.groundDark },
+    { r: 58, cStart: 48, width: 24, fill: C.ashLight },
+    { r: 59, cStart: 44, width: 32, fill: C.ashHi },
+    { r: 60, cStart: 40, width: 40, fill: C.ashHi },
+    { r: 61, cStart: 36, width: 48, fill: C.ashMid },
+    { r: 62, cStart: 32, width: 56, fill: C.ashMid },
+    { r: 63, cStart: 28, width: 64, fill: C.ashDark },
+    { r: 64, cStart: 24, width: 72, fill: C.ashDark },
+    { r: 65, cStart: 20, width: 80, fill: C.ashDark },
+    { r: 66, cStart: 18, width: 84, fill: C.groundDark },
+    { r: 67, cStart: 16, width: 88, fill: C.groundDark },
   ];
   for (const t of tiers) {
     rects.push(`<rect x="${t.cStart * S}" y="${t.r * S}" width="${t.width * S}" height="${S}" fill="${t.fill}"/>`);
@@ -347,10 +414,10 @@ function generateAshMound() {
 
   // Glowing Coal pixels
   const coals = [
-    [48, 60, 4, C.emberRed], [58, 61, 6, C.emberOrange], [66, 60, 5, C.emberRed],
-    [44, 62, 5, C.emberOrange], [53, 62, 8, C.emberGold], [64, 62, 6, C.emberOrange],
-    [50, 63, 6, C.emberOrange], [58, 63, 7, C.emberGold], [68, 63, 4, C.emberRed],
-    [46, 64, 4, C.emberRed], [62, 64, 5, C.emberOrange], [56, 64, 4, C.emberGold]
+    [48, 60, 4, C.fireRed], [58, 61, 6, C.fireOrange], [66, 60, 5, C.fireRed],
+    [44, 62, 5, C.fireOrange], [53, 62, 8, C.fireYellow], [64, 62, 6, C.fireOrange],
+    [50, 63, 6, C.fireOrange], [58, 63, 7, C.fireYellow], [68, 63, 4, C.fireRed],
+    [46, 64, 4, C.fireRed], [62, 64, 5, C.fireOrange], [56, 64, 4, C.fireYellow]
   ];
   for (const [c, r, w, fill] of coals) {
     rects.push(`<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${fill}"/>`);
@@ -359,9 +426,9 @@ function generateAshMound() {
   // Charred logs (pixel blocks)
   const logs = [
     // Left log
-    [36, 64, 8], [38, 63, 8], [40, 62, 7], [42, 61, 6], [44, 60, 5],
+    [34, 64, 9], [36, 63, 9], [38, 62, 8], [40, 61, 7], [42, 60, 6],
     // Right log
-    [76, 64, 8], [74, 63, 8], [72, 62, 7], [70, 61, 6], [68, 60, 5],
+    [77, 64, 9], [75, 63, 9], [73, 62, 8], [71, 61, 7], [69, 60, 6],
   ];
   for (const [c, r, w] of logs) {
     rects.push(`<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${C.logDark}"/>`);
@@ -371,29 +438,16 @@ function generateAshMound() {
   return rects.join('');
 }
 
-// Small foreground coal licks at the base of the sword
-function generateForegroundEmbers() {
-  const embers = [
-    [56, 61, 2, C.emberGold],
-    [62, 61, 2, C.emberGold],
-    [57, 62, 6, C.emberOrange],
-    [58, 63, 4, C.emberGold],
-  ];
-  return embers.map(([c, r, w, fill]) =>
-    `<rect x="${c * S}" y="${r * S}" width="${w * S}" height="${S}" fill="${fill}"/>`
-  ).join('');
-}
-
 // Generate Dither Pattern for Pixel Ambient Glow
 function generateDitherRings() {
   const rects = [];
   const cx = 60, cy = 52;
-  for (let r = 24; r < 76; r += 2) {
-    for (let c = 20; c < 100; c += 2) {
+  for (let r = 20; r < 76; r += 2) {
+    for (let c = 16; c < 104; c += 2) {
       const dx = (c - cx);
-      const dy = (r - cy) * 1.5;
+      const dy = (r - cy) * 1.4;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 46 && dist > 18) {
+      if (dist < 48 && dist > 18) {
         if ((c + r) % 4 === 0) {
           let fill = C.dither1;
           if (dist < 26) fill = C.dither3;
@@ -426,26 +480,26 @@ function generatePavement() {
 // Generate Embers (Sparks)
 function generatePixelEmbers() {
   const embers = [
-    { cls: 'e1', col: 56, row: 44, dur: '2.8s', dly: '0s' },
-    { cls: 'e2', col: 64, row: 40, dur: '3.4s', dly: '0.4s' },
-    { cls: 'e3', col: 53, row: 36, dur: '2.5s', dly: '0.9s' },
-    { cls: 'e4', col: 67, row: 32, dur: '3.8s', dly: '1.3s' },
-    { cls: 'e1', col: 58, row: 28, dur: '3.1s', dly: '1.8s' },
-    { cls: 'e2', col: 55, row: 24, dur: '2.9s', dly: '2.2s' },
-    { cls: 'e3', col: 65, row: 22, dur: '3.6s', dly: '0.7s' },
-    { cls: 'e4', col: 62, row: 18, dur: '4.0s', dly: '1.5s' },
+    { cls: 'e1', col: 54, row: 38, dur: '2.4s', dly: '0s' },
+    { cls: 'e2', col: 65, row: 36, dur: '2.9s', dly: '0.3s' },
+    { cls: 'e3', col: 50, row: 32, dur: '2.2s', dly: '0.7s' },
+    { cls: 'e4', col: 69, row: 30, dur: '3.1s', dly: '1.1s' },
+    { cls: 'e1', col: 57, row: 24, dur: '2.6s', dly: '1.5s' },
+    { cls: 'e2', col: 63, row: 22, dur: '2.8s', dly: '1.9s' },
+    { cls: 'e3', col: 48, row: 26, dur: '3.0s', dly: '0.5s' },
+    { cls: 'e4', col: 72, row: 28, dur: '3.4s', dly: '1.3s' },
   ];
   return embers.map(e =>
-    `<rect class="${e.cls}" x="${e.col * S}" y="${e.row * S}" width="${S}" height="${S}" fill="${C.emberGold}" style="animation-duration:${e.dur};animation-delay:${e.dly};"/>`
+    `<rect class="${e.cls}" x="${e.col * S}" y="${e.row * S}" width="${S}" height="${S}" fill="${C.fireYellow}" style="animation-duration:${e.dur};animation-delay:${e.dly};"/>`
   ).join('');
 }
 
 const css = `
-  /* 4-Frame Retro Pixel Flame (0.52s loop = 7.7 FPS) */
-  .fA { animation: pFlame1 0.52s step-end infinite; }
-  .fB { animation: pFlame2 0.52s step-end infinite; }
-  .fC { animation: pFlame3 0.52s step-end infinite; }
-  .fD { animation: pFlame4 0.52s step-end infinite; }
+  /* 4-Frame Dynamic Flame Animation (0.44s loop = ~9 FPS retro speed) */
+  .fA { animation: pFlame1 0.44s step-end infinite; }
+  .fB { animation: pFlame2 0.44s step-end infinite; }
+  .fC { animation: pFlame3 0.44s step-end infinite; }
+  .fD { animation: pFlame4 0.44s step-end infinite; }
 
   @keyframes pFlame1 { 0%,100% { opacity: 1; } 25% { opacity: 0; } 50% { opacity: 0; } 75% { opacity: 0; } }
   @keyframes pFlame2 { 0%,100% { opacity: 0; } 25% { opacity: 1; } 50% { opacity: 0; } 75% { opacity: 0; } }
@@ -453,42 +507,42 @@ const css = `
   @keyframes pFlame4 { 0%,100% { opacity: 0; } 25% { opacity: 0; } 50% { opacity: 0; } 75% { opacity: 1; } }
 
   /* Dither Ambient Pulse */
-  .dither-pulse { animation: dPulse 1.8s step-end infinite; }
+  .dither-pulse { animation: dPulse 1.6s step-end infinite; }
   @keyframes dPulse { 0%,100% { opacity: 0.7; } 50% { opacity: 1; } }
 
   /* Pixel Ember Flights */
-  .e1 { animation: eFlight1 3s step-end infinite; }
-  .e2 { animation: eFlight2 3.5s step-end infinite; }
-  .e3 { animation: eFlight3 2.8s step-end infinite; }
-  .e4 { animation: eFlight4 3.6s step-end infinite; }
+  .e1 { animation: eFlight1 2.5s step-end infinite; }
+  .e2 { animation: eFlight2 2.8s step-end infinite; }
+  .e3 { animation: eFlight3 2.3s step-end infinite; }
+  .e4 { animation: eFlight4 3.0s step-end infinite; }
 
   @keyframes eFlight1 {
     0% { transform: translate(0, 0); opacity: 0; }
     20% { opacity: 1; }
-    50% { transform: translate(-8px, -40px); opacity: 0.9; }
-    80% { transform: translate(-16px, -84px); opacity: 0.6; }
-    100% { transform: translate(-24px, -128px); opacity: 0; }
+    50% { transform: translate(-8px, -36px); opacity: 0.9; }
+    80% { transform: translate(-16px, -76px); opacity: 0.6; }
+    100% { transform: translate(-24px, -116px); opacity: 0; }
   }
   @keyframes eFlight2 {
     0% { transform: translate(0, 0); opacity: 0; }
     20% { opacity: 1; }
-    50% { transform: translate(12px, -36px); opacity: 0.9; }
-    80% { transform: translate(20px, -76px); opacity: 0.6; }
-    100% { transform: translate(28px, -120px); opacity: 0; }
+    50% { transform: translate(10px, -32px); opacity: 0.9; }
+    80% { transform: translate(18px, -70px); opacity: 0.6; }
+    100% { transform: translate(26px, -110px); opacity: 0; }
   }
   @keyframes eFlight3 {
     0% { transform: translate(0, 0); opacity: 0; }
     20% { opacity: 1; }
-    50% { transform: translate(-4px, -44px); opacity: 0.9; }
-    80% { transform: translate(-8px, -92px); opacity: 0.5; }
-    100% { transform: translate(-12px, -136px); opacity: 0; }
+    50% { transform: translate(-4px, -40px); opacity: 0.9; }
+    80% { transform: translate(-8px, -84px); opacity: 0.5; }
+    100% { transform: translate(-12px, -124px); opacity: 0; }
   }
   @keyframes eFlight4 {
     0% { transform: translate(0, 0); opacity: 0; }
     20% { opacity: 1; }
-    50% { transform: translate(8px, -40px); opacity: 0.9; }
-    80% { transform: translate(16px, -88px); opacity: 0.5; }
-    100% { transform: translate(20px, -132px); opacity: 0; }
+    50% { transform: translate(8px, -36px); opacity: 0.9; }
+    80% { transform: translate(14px, -80px); opacity: 0.5; }
+    100% { transform: translate(18px, -120px); opacity: 0; }
   }
 
   /* Title Blink */
@@ -497,7 +551,7 @@ const css = `
 `;
 
 const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" shape-rendering="crispEdges">
-  <title>Dark Souls — Authentic Pixel Art Bonfire</title>
+  <title>Dark Souls — Authentic Realistic Pixel Art Bonfire</title>
   <style><![CDATA[
 ${css}
   ]]></style>
@@ -523,30 +577,33 @@ ${css}
   <!-- Right Skull (Col 74, Row 62) -->
   ${parseMatrix(SKULL_MAP, SKULL_PAL, 74, 62)}
 
-  <!-- 1. 4-Frame Dancing Pixel Flame (BEHIND THE SWORD) -->
-  <g class="fA">${parseMatrix(FLAME_1, FLAME_PAL, 44, 24)}</g>
-  <g class="fB">${parseMatrix(FLAME_2, FLAME_PAL, 44, 24)}</g>
-  <g class="fC">${parseMatrix(FLAME_3, FLAME_PAL, 44, 24)}</g>
-  <g class="fD">${parseMatrix(FLAME_4, FLAME_PAL, 44, 24)}</g>
+  <!-- 1. BACK FLAME: 4-Frame Dynamic Turbulent Flames (Col 38, Row 22) -->
+  <g class="fA">${parseMatrix(FLAME_1, FLAME_PAL, 38, 22)}</g>
+  <g class="fB">${parseMatrix(FLAME_2, FLAME_PAL, 38, 22)}</g>
+  <g class="fC">${parseMatrix(FLAME_3, FLAME_PAL, 38, 22)}</g>
+  <g class="fD">${parseMatrix(FLAME_4, FLAME_PAL, 38, 22)}</g>
 
-  <!-- 2. STRAIGHT VERTICAL SWORD (TEGAK LURUS KE ATAS, 100% SHARP & VISIBLE) -->
+  <!-- 2. STRAIGHT VERTICAL SWORD (Foreground, sharp and majestic) -->
   ${generateStraightVerticalSword()}
 
-  <!-- 3. Foreground Ash Embers at Base -->
-  ${generateForegroundEmbers()}
+  <!-- 3. FOREGROUND FLAME LICKS (Licking around lower sword blade at Col 54, Row 55) -->
+  <g class="fA">${parseMatrix(FG_FLAME_1, FG_FLAME_PAL, 54, 55)}</g>
+  <g class="fB">${parseMatrix(FG_FLAME_2, FG_FLAME_PAL, 54, 55)}</g>
+  <g class="fC">${parseMatrix(FG_FLAME_3, FG_FLAME_PAL, 54, 55)}</g>
+  <g class="fD">${parseMatrix(FG_FLAME_4, FG_FLAME_PAL, 54, 55)}</g>
 
-  <!-- Stepped Pixel Embers Floating Skyward -->
+  <!-- 4. Stepped Pixel Embers Floating Skyward -->
   ${generatePixelEmbers()}
 
   <!-- Pixel Art Title Header -->
   <g class="title-blink">
     <!-- Centered Pixel Diamond -->
     <rect x="${58 * S}" y="${6 * S}" width="${4 * S}" height="${4 * S}" fill="${C.swordGold}"/>
-    <rect x="${59 * S}" y="${7 * S}" width="${2 * S}" height="${2 * S}" fill="${C.emberWhite}"/>
+    <rect x="${59 * S}" y="${7 * S}" width="${2 * S}" height="${2 * S}" fill="${C.fireWhite}"/>
     <text x="${W / 2}" y="${14 * S}" font-family="'Press Start 2P', monospace" font-size="12" letter-spacing="4" fill="${C.swordGold}" text-anchor="middle">BONFIRE LIT</text>
   </g>
 </svg>
 `;
 
 writeFileSync(OUT_FILE, svgContent, 'utf-8');
-console.log('✨ Generated authentic pixel-art bonfire.svg with straight vertical sword!');
+console.log('✨ Generated realistic turbulent pixel-art bonfire.svg successfully!');
