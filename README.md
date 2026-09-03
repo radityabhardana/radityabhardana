@@ -64,13 +64,17 @@
 
 <p align="center"><img src="./assets/plates/plate-bosses.svg" width="480" alt="Chapter plate IV — Bosses Defeated"/></p>
 
-| Boss | Remembrance | Fate |
-|:--|:--|:--:|
-| [**spectre_terminal**](https://github.com/radityabhardana/spectre_terminal) | *Polymarket intelligence terminal with deterministic EV guardrails* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
-| [**icarus-watermark-remover**](https://github.com/radityabhardana/icarus-watermark-remover) | *AI-powered intelligent image editing & watermark removal tool* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
-| [**blackbox_signal_lost**](https://github.com/radityabhardana/blackbox_signal_lost) | *Browser-based operating system detective & civic-analysis game* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
-| [**Kalpindo**](https://github.com/radityabhardana/Kalpindo) | *Official corporate company profile for PT Kalibrasi Pengujian Indonesia* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
-| [**smart_study**](https://github.com/radityabhardana/smart_study) | *AI-assisted intelligent study companion & learning platform* | ![Defeated](https://img.shields.io/badge/DEFEATED-6e0d0d?style=flat-square&labelColor=1a1a1a&logoColor=cfcfcf) |
+<div align="center">
+
+<a href="https://github.com/radityabhardana/spectre_terminal"><img src="./assets/cards/card-spectre.svg" width="49%" alt="Spectre Terminal boss card"/></a>
+<a href="https://github.com/radityabhardana/icarus-watermark-remover"><img src="./assets/cards/card-icarus.svg" width="49%" alt="Icarus Watermark Remover boss card"/></a>
+
+<a href="https://github.com/radityabhardana/blackbox_signal_lost"><img src="./assets/cards/card-blackbox.svg" width="49%" alt="Blackbox Signal Lost boss card"/></a>
+<a href="https://github.com/radityabhardana/Kalpindo"><img src="./assets/cards/card-kalpindo.svg" width="49%" alt="Kalpindo Company Profile boss card"/></a>
+
+<a href="https://github.com/radityabhardana/smart_study"><img src="./assets/cards/card-smartstudy.svg" width="49%" alt="Smart Study AI boss card"/></a>
+
+</div>
 
 <img src="./assets/dividers/divider.svg" width="100%" alt="Gothic section divider"/>
 
