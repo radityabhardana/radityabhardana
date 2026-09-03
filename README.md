@@ -115,7 +115,7 @@ Software developer and automation engineer focused on building resilient backend
 <!-- FOOTER: TRANSMISSIONS & JOLLY COOPERATION -->
 <div align="center">
 
-<img src="./assets/scenes/solaire-praise-the-sun.svg" width="340" alt="Solaire of Astora — Praise The Sun! \ [T] /"/>
+<img src="./assets/scenes/solaire.gif" width="220" alt="Solaire of Astora — Praise The Sun! \ [T] /"/>
 
 <br/>
 
