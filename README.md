@@ -106,6 +106,11 @@ Software developer and automation engineer focused on building resilient backend
 <!-- Bespoke Dark Souls Engineering Activity & Production Codex -->
 <img src="./assets/scenes/codex-stats.svg" width="100%" alt="Engineering Activity and Production Codex Summary — radityabhardana"/>
 
+<br/><br/>
+
+<!-- Steam Achievement Showcase: Dark Souls -->
+<img src="./assets/scenes/steam-achievements.svg" width="100%" alt="Steam Achievement Showcase — Dark Souls 100% Unlocked"/>
+
 </div>
 
 <br/>
