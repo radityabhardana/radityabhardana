@@ -34,7 +34,7 @@
   <!-- Main Title -->
   <text class="p-text gem-glow" y="48" font-size="18" letter-spacing="3" fill="#fff3db">COVENANT OF AUTOMATONS</text>
   <!-- Subtitle -->
-  <text class="p-text" y="66" font-size="8" letter-spacing="2" fill="#9e968d">UNBROKEN CREED & PROTOCOLS</text>
+  <text class="p-text" y="66" font-size="8" letter-spacing="2" fill="#9e968d">UNBROKEN CREED &amp; PROTOCOLS</text>
 </g>
 
 <!-- Right Decorative Flank Medallion -->

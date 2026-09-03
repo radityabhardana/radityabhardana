@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1012" height="84" viewBox="0 0 1012 84" shape-rendering="crispEdges">
-<title>CHAPTER II — ATTRIBUTES & STATS</title>
+<title>CHAPTER II — ATTRIBUTES &amp; STATS</title>
 <style><![CDATA[
 .p-text { font-family: 'Press Start 2P', ui-monospace, 'Cascadia Mono', Consolas, monospace; font-weight: 700; text-anchor: middle; }
     .gem-glow { animation: gemPulse 2.4s ease-in-out infinite; }
@@ -32,9 +32,9 @@
   <!-- Chapter Roman / Heading -->
   <text class="p-text" y="28" font-size="10" letter-spacing="4" fill="#947547">CHAPTER II</text>
   <!-- Main Title -->
-  <text class="p-text gem-glow" y="48" font-size="18" letter-spacing="3" fill="#fff3db">ATTRIBUTES & STATS</text>
+  <text class="p-text gem-glow" y="48" font-size="18" letter-spacing="3" fill="#fff3db">ATTRIBUTES &amp; STATS</text>
   <!-- Subtitle -->
-  <text class="p-text" y="66" font-size="8" letter-spacing="2" fill="#9e968d">SOULS LEVEL & CAPABILITIES</text>
+  <text class="p-text" y="66" font-size="8" letter-spacing="2" fill="#9e968d">SOULS LEVEL &amp; CAPABILITIES</text>
 </g>
 
 <!-- Right Decorative Flank Medallion -->

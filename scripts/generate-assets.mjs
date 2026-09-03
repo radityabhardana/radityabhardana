@@ -106,6 +106,13 @@ const svgOpen = (w, h, extra = '') =>
 
 const styleBlock = (css) => `<style><![CDATA[\n${css.trim()}\n]]></style>`;
 
+const escXml = (s) =>
+  String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
 function rng(seed) {
   let t = seed >>> 0;
   return () => {
@@ -712,6 +719,10 @@ const PLATES = [
 
 function generatePlate(p) {
   const W = 1012, H = 84;
+  const ch = escXml(p.ch);
+  const title = escXml(p.title);
+  const sub = escXml(p.sub);
+
   const css = `
     .p-text { font-family: ${MONO_FONT}; font-weight: 700; text-anchor: middle; }
     .gem-glow { animation: gemPulse 2.4s ease-in-out infinite; }
@@ -719,7 +730,7 @@ function generatePlate(p) {
   `;
 
   return `${svgOpen(W, H)}
-<title>${p.ch} — ${p.title}</title>
+<title>${ch} — ${title}</title>
 ${styleBlock(css)}
 
 <!-- Dark Stone Tablet Background -->
@@ -746,11 +757,11 @@ ${styleBlock(css)}
 <!-- Center Chapter & Title -->
 <g transform="translate(${W / 2}, 0)">
   <!-- Chapter Roman / Heading -->
-  <text class="p-text" y="28" font-size="10" letter-spacing="4" fill="${C.goldMid}">${p.ch}</text>
+  <text class="p-text" y="28" font-size="10" letter-spacing="4" fill="${C.goldMid}">${ch}</text>
   <!-- Main Title -->
-  <text class="p-text gem-glow" y="48" font-size="18" letter-spacing="3" fill="${C.goldShine}">${p.title}</text>
+  <text class="p-text gem-glow" y="48" font-size="18" letter-spacing="3" fill="${C.goldShine}">${title}</text>
   <!-- Subtitle -->
-  <text class="p-text" y="66" font-size="8" letter-spacing="2" fill="${C.ashHi}">${p.sub}</text>
+  <text class="p-text" y="66" font-size="8" letter-spacing="2" fill="${C.ashHi}">${sub}</text>
 </g>
 
 <!-- Right Decorative Flank Medallion -->
