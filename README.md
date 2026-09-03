@@ -4,7 +4,7 @@
 
 <br/>
 
-<img src="./assets/scenes/bonfire.svg" width="380" alt="Animated Dark Souls pixel bonfire"/>
+<img src="./assets/scenes/bonfire.svg" width="450" alt="Animated Dark Souls Chibi Knight &amp; Pixel Bonfire"/>
 
 <br/>
 
