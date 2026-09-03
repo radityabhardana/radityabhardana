@@ -4,9 +4,7 @@
 
 <br/>
 
-<a href="./assets/scenes/bonfire.mp4">
-  <img src="./assets/scenes/bonfire.gif" width="340" alt="Dark Souls Bonfire Video Animation"/>
-</a>
+<img src="./assets/scenes/bonfire.jpg" width="360" alt="Dark Souls Bonfire — Bonfire Lit"/>
 
 <br/>
 
