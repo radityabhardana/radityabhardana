@@ -85,7 +85,7 @@
 
   <!-- ================= COLUMN 1: TOTAL SOULS (CONTRIBUTIONS) ================= -->
   <g transform="translate(30, 52)">
-    <text x="0" y="24" class="px-stat-num">642+</text>
+    <text x="0" y="24" class="px-stat-num">645+</text>
     <text x="0" y="46" class="px-stat-label">&gt; TOTAL SOULS</text>
     <text x="0" y="68" class="px-stat-sub">365-day active cadence</text>
   </g>
@@ -95,7 +95,7 @@
 
   <!-- ================= COLUMN 2: PRODUCTION COMMITS ================= -->
   <g transform="translate(235, 52)">
-    <text x="0" y="24" class="px-stat-num">360+</text>
+    <text x="0" y="24" class="px-stat-num">363+</text>
     <text x="0" y="46" class="px-stat-label">&gt; PROD COMMITS</text>
     <text x="0" y="68" class="px-stat-sub">Deterministic backend pushes</text>
   </g>
