@@ -85,7 +85,7 @@
 
   <!-- ================= COLUMN 1: TOTAL SOULS (CONTRIBUTIONS) ================= -->
   <g transform="translate(30, 52)">
-    <text x="0" y="24" class="px-stat-num">651+</text>
+    <text x="0" y="24" class="px-stat-num">660+</text>
     <text x="0" y="46" class="px-stat-label">&gt; TOTAL SOULS</text>
     <text x="0" y="68" class="px-stat-sub">365-day active cadence</text>
   </g>
@@ -95,7 +95,7 @@
 
   <!-- ================= COLUMN 2: PRODUCTION COMMITS ================= -->
   <g transform="translate(235, 52)">
-    <text x="0" y="24" class="px-stat-num">369+</text>
+    <text x="0" y="24" class="px-stat-num">377+</text>
     <text x="0" y="46" class="px-stat-label">&gt; PROD COMMITS</text>
     <text x="0" y="68" class="px-stat-sub">Deterministic backend pushes</text>
   </g>
@@ -123,25 +123,25 @@
     <g transform="translate(0, 16)">
       <rect x="0" y="0" width="260" height="8" fill="#090c10"/>
       <rect x="0" y="0" width="260" height="8" fill="none" stroke="#262c35" stroke-width="1"/>
-      <rect x="1" y="1" width="101" height="6" fill="#f1e05a"/><rect x="102" y="1" width="65" height="6" fill="#663399"/><rect x="167" y="1" width="36" height="6" fill="#7355dd"/><rect x="203" y="1" width="31" height="6" fill="#3178c6"/><rect x="234" y="1" width="25" height="6" fill="#4F5D95"/>
+      <rect x="1" y="1" width="96" height="6" fill="#f1e05a"/><rect x="97" y="1" width="62" height="6" fill="#663399"/><rect x="159" y="1" width="37" height="6" fill="#4F5D95"/><rect x="196" y="1" width="34" height="6" fill="#7355dd"/><rect x="230" y="1" width="29" height="6" fill="#3178c6"/>
     </g>
 
     <!-- Dynamic Legend -->
     <g transform="translate(0, 44)">
       <rect x="0" y="-4" width="5" height="5" fill="#f1e05a"/>
-      <text x="9" y="1" class="px-lang-item">JS <tspan class="px-lang-pct">36%</tspan></text>
+      <text x="9" y="1" class="px-lang-item">JS <tspan class="px-lang-pct">34%</tspan></text>
     
       <rect x="74" y="-4" width="5" height="5" fill="#663399"/>
-      <text x="83" y="1" class="px-lang-item">CSS <tspan class="px-lang-pct">23%</tspan></text>
+      <text x="83" y="1" class="px-lang-item">CSS <tspan class="px-lang-pct">22%</tspan></text>
     
-      <rect x="148" y="-4" width="5" height="5" fill="#7355dd"/>
-      <text x="157" y="1" class="px-lang-item">C# <tspan class="px-lang-pct">13%</tspan></text>
+      <rect x="148" y="-4" width="5" height="5" fill="#4F5D95"/>
+      <text x="157" y="1" class="px-lang-item">PHP <tspan class="px-lang-pct">13%</tspan></text>
     </g><g transform="translate(0, 64)">
-        <rect x="0" y="-4" width="5" height="5" fill="#3178c6"/>
-        <text x="9" y="1" class="px-lang-item">TS <tspan class="px-lang-pct">11%</tspan></text>
+        <rect x="0" y="-4" width="5" height="5" fill="#7355dd"/>
+        <text x="9" y="1" class="px-lang-item">C# <tspan class="px-lang-pct">12%</tspan></text>
       
-        <rect x="74" y="-4" width="5" height="5" fill="#4F5D95"/>
-        <text x="83" y="1" class="px-lang-item">PHP <tspan class="px-lang-pct">9%</tspan></text>
+        <rect x="74" y="-4" width="5" height="5" fill="#3178c6"/>
+        <text x="83" y="1" class="px-lang-item">TS <tspan class="px-lang-pct">10%</tspan></text>
       </g>
   </g>
 </svg>
