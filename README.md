@@ -37,12 +37,14 @@
 
 <br/>
 
-Software developer and automation engineer focused on building resilient backends, autonomous bots, and interactive web platforms. Nocturnal developer &amp; night enjoyer—achieving peak focus and deep engineering throughput late at night (typically active between 21:00 – 04:00 WIB / UTC+7). Turning complex operational workflows into clean, deterministic software that runs reliably day and night.
+Software developer and automation engineer focused on building resilient backends, autonomous bots, and interactive web platforms. Channeling **The Dark Lord**—dominating the silent nocturnal hours with peak velocity and deep engineering throughput (primary reign: 21:00 – 04:00 WIB), complemented by a tactical daylight radar (09:00 – 12:00 WIB) for light triage and monitoring.
 
 <br/>
 
 - 📍 **Location:** Indonesia (UTC+7 / WIB)
-- 🌙 **Operating Window:** Night Owl / Night Enjoyer (Active ~21:00 – 04:00 WIB)
+- 👑 **Operating Cadence:** The Dark Lord
+  - 🌙 **Primary Reign (Peak Velocity):** 21:00 – 04:00 WIB · Heavy engineering, architecture & deep builds
+  - ☀️ **Daylight Radar (Light Triage):** 09:00 – 12:00 WIB · Reconnaissance, triage & monitoring
 - ⚡ **Specialization:** Bot Automation · High-Throughput Backends · AI Pipelines
 - 🔨 **Current Quest:** Architecting deterministic trading bots &amp; autonomous AI workflows
 - ☀️ **Covenant:** Warrior of Sunlight — *“Praise the Sun &amp; Jolly Cooperation!”* \ [T] /
@@ -54,9 +56,9 @@ Software developer and automation engineer focused on building resilient backend
 
 <br/>
 
-<!-- Bespoke Nocturnal Cadence & Night Enjoyer Timeline -->
+<!-- Bespoke The Dark Lord Cadence & Operating Window Timeline -->
 <p align="center">
-  <img src="./assets/scenes/nocturnal-cadence.svg" width="100%" alt="Nocturnal Cadence &amp; Night Enjoyer Schedule — radityabhardana"/>
+  <img src="./assets/scenes/nocturnal-cadence.svg" width="100%" alt="The Dark Lord Cadence &amp; Operating Window — radityabhardana"/>
 </p>
 
 <br/>
