@@ -14,6 +14,7 @@
 
 <img src="https://img.shields.io/badge/FOCUS-FULL--STACK%20%26%20AUTOMATION-c9a876?style=for-the-badge&labelColor=0d0d0d" alt="Focus: Full-Stack &amp; Automation"/>
 <img src="https://img.shields.io/badge/ORIGIN-INDONESIA-3a2f1f?style=for-the-badge&labelColor=0d0d0d" alt="Origin: Indonesia"/>
+<img src="https://img.shields.io/badge/ACTIVE-NIGHT%20OWL%20%5B21%3A00%20--%2004%3A00%20WIB%5D-5e548e?style=for-the-badge&labelColor=0d0d0d" alt="Active: Night Owl [21:00 - 04:00 WIB]"/>
 <img src="https://img.shields.io/badge/STATUS-BONFIRE%20LIT-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Status: Bonfire Lit"/>
 
 </div>
@@ -37,11 +38,12 @@
 
 <br/>
 
-Software developer and automation engineer focused on building resilient backends, autonomous bots, and interactive web platforms. Turning complex operational workflows into clean, deterministic software that runs reliably day and night.
+Software developer and automation engineer focused on building resilient backends, autonomous bots, and interactive web platforms. Nocturnal developer &amp; night enjoyer—achieving peak focus and deep engineering throughput late at night (typically active between 21:00 – 04:00 WIB / UTC+7). Turning complex operational workflows into clean, deterministic software that runs reliably day and night.
 
 <br/>
 
-- 📍 **Location:** Indonesia
+- 📍 **Location:** Indonesia (UTC+7 / WIB)
+- 🌙 **Operating Window:** Night Owl / Night Enjoyer (Active ~21:00 – 04:00 WIB)
 - ⚡ **Specialization:** Bot Automation · High-Throughput Backends · AI Pipelines
 - 🔨 **Current Quest:** Architecting deterministic trading bots &amp; autonomous AI workflows
 - ☀️ **Covenant:** Warrior of Sunlight — *“Praise the Sun &amp; Jolly Cooperation!”* \ [T] /
