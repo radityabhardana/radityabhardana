@@ -14,7 +14,6 @@
 
 <img src="https://img.shields.io/badge/FOCUS-FULL--STACK%20%26%20AUTOMATION-c9a876?style=for-the-badge&labelColor=0d0d0d" alt="Focus: Full-Stack &amp; Automation"/>
 <img src="https://img.shields.io/badge/ORIGIN-INDONESIA-3a2f1f?style=for-the-badge&labelColor=0d0d0d" alt="Origin: Indonesia"/>
-<img src="https://img.shields.io/badge/ACTIVE-NIGHT%20OWL%20%5B21%3A00%20--%2004%3A00%20WIB%5D-5e548e?style=for-the-badge&labelColor=0d0d0d" alt="Active: Night Owl [21:00 - 04:00 WIB]"/>
 <img src="https://img.shields.io/badge/STATUS-BONFIRE%20LIT-f4a742?style=for-the-badge&labelColor=0d0d0d" alt="Status: Bonfire Lit"/>
 
 </div>
@@ -52,6 +51,13 @@ Software developer and automation engineer focused on building resilient backend
 </td>
 </tr>
 </table>
+
+<br/>
+
+<!-- Bespoke Nocturnal Cadence & Night Enjoyer Timeline -->
+<p align="center">
+  <img src="./assets/scenes/nocturnal-cadence.svg" width="100%" alt="Nocturnal Cadence &amp; Night Enjoyer Schedule — radityabhardana"/>
+</p>
 
 <br/>
 
