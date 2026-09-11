@@ -144,7 +144,7 @@ Software developer and automation engineer focused on building resilient backend
 <p>
 <a href="[YOUR_LINKEDIN]"><img src="https://img.shields.io/badge/LinkedIn-CONNECT-0d0d0d?style=for-the-badge&logo=linkedin&logoColor=c9a876&labelColor=0d0d0d" alt="LinkedIn"/></a>
 <a href="mailto:[YOUR_EMAIL]"><img src="https://img.shields.io/badge/Email-CONTACT-0d0d0d?style=for-the-badge&logo=gmail&logoColor=c9a876&labelColor=0d0d0d" alt="Email"/></a>
-<a href="[YOUR_INSTAGRAM]"><img src="https://img.shields.io/badge/Instagram-FOLLOW-0d0d0d?style=for-the-badge&logo=instagram&logoColor=c9a876&labelColor=0d0d0d" alt="Instagram"/></a>
+<a href="https://www.instagram.com/zxlyn_16"><img src="https://img.shields.io/badge/Instagram-FOLLOW-0d0d0d?style=for-the-badge&logo=instagram&logoColor=c9a876&labelColor=0d0d0d" alt="Instagram"/></a>
 <a href="https://github.com/radityabhardana"><img src="https://img.shields.io/badge/GitHub-FOLLOW-0d0d0d?style=for-the-badge&logo=github&logoColor=c9a876&labelColor=0d0d0d" alt="GitHub"/></a>
 </p>
 
