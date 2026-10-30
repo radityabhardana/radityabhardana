@@ -123,22 +123,22 @@
     <g transform="translate(0, 16)">
       <rect x="0" y="0" width="260" height="8" fill="#090c10"/>
       <rect x="0" y="0" width="260" height="8" fill="none" stroke="#262c35" stroke-width="1"/>
-      <rect x="1" y="1" width="97" height="6" fill="#f1e05a"/><rect x="98" y="1" width="63" height="6" fill="#3178c6"/><rect x="161" y="1" width="52" height="6" fill="#663399"/><rect x="213" y="1" width="26" height="6" fill="#7355dd"/><rect x="239" y="1" width="20" height="6" fill="#4F5D95"/>
+      <rect x="1" y="1" width="86" height="6" fill="#f1e05a"/><rect x="87" y="1" width="77" height="6" fill="#3178c6"/><rect x="164" y="1" width="52" height="6" fill="#663399"/><rect x="216" y="1" width="23" height="6" fill="#7355dd"/><rect x="239" y="1" width="20" height="6" fill="#4F5D95"/>
     </g>
 
     <!-- Dynamic Legend -->
     <g transform="translate(0, 44)">
       <rect x="0" y="-4" width="5" height="5" fill="#f1e05a"/>
-      <text x="9" y="1" class="px-lang-item">JS <tspan class="px-lang-pct">34%</tspan></text>
+      <text x="9" y="1" class="px-lang-item">JS <tspan class="px-lang-pct">30%</tspan></text>
     
       <rect x="74" y="-4" width="5" height="5" fill="#3178c6"/>
-      <text x="83" y="1" class="px-lang-item">TS <tspan class="px-lang-pct">22%</tspan></text>
+      <text x="83" y="1" class="px-lang-item">TS <tspan class="px-lang-pct">27%</tspan></text>
     
       <rect x="148" y="-4" width="5" height="5" fill="#663399"/>
       <text x="157" y="1" class="px-lang-item">CSS <tspan class="px-lang-pct">18%</tspan></text>
     </g><g transform="translate(0, 64)">
         <rect x="0" y="-4" width="5" height="5" fill="#7355dd"/>
-        <text x="9" y="1" class="px-lang-item">C# <tspan class="px-lang-pct">9%</tspan></text>
+        <text x="9" y="1" class="px-lang-item">C# <tspan class="px-lang-pct">8%</tspan></text>
       
         <rect x="74" y="-4" width="5" height="5" fill="#4F5D95"/>
         <text x="83" y="1" class="px-lang-item">PHP <tspan class="px-lang-pct">7%</tspan></text>
